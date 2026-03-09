@@ -53,6 +53,21 @@ services:
       - trip_net
     depends_on:
       - php-fpm
+      - angular  # Asegurar que angular se inicie antes
+
+  # NUEVO: Frontend Angular
+  angular:
+    image: node:20-alpine  # Cambiado a Node 20
+    container_name: trip_n_joy_angular
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "4200:4200"
+    command: sh -c "npm install && npx ng serve --host 0.0.0.0 --poll=2000"
+    networks:
+      - trip_net
 
 networks:
   trip_net:
