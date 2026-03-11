@@ -1,77 +1,38 @@
-version: '3.8'
-
 services:
-  # Base de datos MySQL
-  mysql:
-    image: mysql:5.7
-    container_name: trip_n_joy_mysql
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: trip_n_joy_db
-      MYSQL_ROOT_PASSWORD: root_123456
-      MYSQL_USER: trip_user
-      MYSQL_PASSWORD: trip_pass_123
-    ports:
-      - "3307:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - trip_net
-
-  # Backend PHP-FPM con Laravel
-  php-fpm:
-    build:
-      context: ./docker/php
-      dockerfile: Dockerfile
-    container_name: trip_n_joy_php
-    restart: unless-stopped
-    environment:
-      - "DB_CONNECTION=mysql"
-      - "DB_HOST=mysql"
-      - "DB_PORT=3306"
-      - "DB_DATABASE=trip_n_joy_db"
-      - "DB_USERNAME=trip_user"
-      - "DB_PASSWORD=trip_pass_123"
-    volumes:
-      - ./backend:/var/www/backend
-    networks:
-      - trip_net
-    depends_on:
-      - mysql
-
-  # Servidor Web Nginx
-  webserver:
-    image: nginx:alpine
-    container_name: trip_n_joy_nginx
-    restart: unless-stopped
+  trip-backend:
+    image: trip_n_joy_laravel
+    container_name: trip-backend
     ports:
       - "80:80"
     volumes:
-      - ./backend:/var/www/backend
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./backend:/var/www/html
     networks:
-      - trip_net
+      - trip-network
     depends_on:
-      - php-fpm
-      - angular  # Asegurar que angular se inicie antes
+      - trip-mysql
 
-  # NUEVO: Frontend Angular
-  angular:
-    image: node:20-alpine  # Cambiado a Node 20
-    container_name: trip_n_joy_angular
-    restart: unless-stopped
-    working_dir: /app
-    volumes:
-      - ./frontend:/app
+  trip-frontend:
+    image: node:20-alpine
+    container_name: trip-frontend
     ports:
       - "4200:4200"
-    command: sh -c "npm install && npx ng serve --host 0.0.0.0 --poll=2000"
+    volumes:
+      - ./frontend:/app
+    command: sh -c "cd /app && npm install && npm start -- --host 0.0.0.0"
     networks:
-      - trip_net
+      - trip-network
+
+  trip-mysql:
+    image: mysql:5.7
+    container_name: trip-mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: trip_n_joy_db
+    networks:
+      - trip-network
 
 networks:
-  trip_net:
+  trip-network:
     driver: bridge
-
-volumes:
-  mysql_data:
