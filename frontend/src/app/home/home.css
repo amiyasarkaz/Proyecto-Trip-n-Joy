@@ -1,9 +1,29 @@
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  padding: 20px 40px;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* HERO */
 .hero {
   position: relative;
-  height: 90vh;
-  background-image: url('/public/fondo1.png');
-  background-size: cover;
+  height: 100vh; 
+  background-image: url('/fondo2.jpg'); 
+  background-size: cover; 
   background-position: center;
+  background-repeat: no-repeat; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,65 +40,69 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 1000px; 
   padding: 20px;
+  transform: translateY(-40px); 
 }
 
-h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 10px;
+.hero-content h1 {
+  font-size: 4rem; 
+  font-weight: 800;
+  margin-bottom: 20px;
 }
 
 .subtitle {
-  font-size: 1.3rem;
-  margin-bottom: 30px;
+  font-size: 1.8rem; 
+  margin-bottom: 40px;
 }
 
 .search-box {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .search-box input {
-  width: 300px;
-  padding: 12px;
-  border-radius: 8px;
+  width: 400px; 
+  padding: 16px;
+  border-radius: 10px;
   border: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .search-box button {
-  padding: 12px 20px;
+  padding: 16px 28px;
+  font-size: 1.2rem;
+  border-radius: 10px;
   border: none;
-  border-radius: 8px;
   background: #ff7b00;
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
+/* MIDDLE SECTION */
 .middle {
   text-align: center;
   padding: 60px 20px;
 }
 
 .middle h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 10px;
 }
 
 .explora {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 600;
 }
 
 .descubre {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-top: 5px;
 }
 
+/* FOOTER */
 .footer {
   background: #111;
   color: white;

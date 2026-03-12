@@ -1,5 +1,6 @@
 services:
   trip-backend:
+    build: ./backend
     image: trip_n_joy_laravel
     container_name: trip-backend
     ports:
