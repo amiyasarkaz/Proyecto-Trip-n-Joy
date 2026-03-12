@@ -1,0 +1,49 @@
+/* 1. Escondemos el checkbox original */
+.modal-checkbox {
+    display: none;
+}
+
+/* 2. El contenedor del modal (escondido por defecto) */
+.modal-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none; /* <--- Clave: Oculto */
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* 3. ¡LA MAGIA! Si el checkbox está marcado, muestra el modal */
+.modal-checkbox:checked ~ .modal-container {
+    display: flex;
+}
+
+/* Estilos de la caja (basado en tu imagen) */
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    width: 350px;
+    text-align: center;
+    position: relative;
+}
+
+/* Estilo del "o" con líneas laterales */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+.divider hr { flex: 1; border: 0; border-top: 1px solid #ccc; }
+.divider span { padding: 0 10px; font-weight: bold; }
+
+/* Botones inferiores */
+.footer-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.btn-black { background: #222; color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; }
+.btn-grey { background: #444; color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; }
