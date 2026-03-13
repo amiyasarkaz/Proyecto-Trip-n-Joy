@@ -1,37 +1,45 @@
-<input type="checkbox" id="modal-toggle" class="modal-checkbox">
+<input type="checkbox" id="modal-login-toggle" class="modal-checkbox">
 
-<label for="modal-toggle" class="open-button">Iniciar Sesión</label>
+<label for="modal-login-toggle" class="open-button">Iniciar Sesión</label>
 
 <div class="modal-container">
     <div class="modal-content">
-        <label for="modal-toggle" class="close-x">&times;</label>
+        <label for="modal-login-toggle" class="close-x">&times;</label>
         
-        <h2>INICIAR SESIÓN</h2>
+        <h1 class="titulo-login">INICIAR SESIÓN</h1>
         
         <div class="input-field">
-            <span>EMAIL</span>
-            <input type="text">
+            <span class="label">EMAIL</span>
+            <input type="email" placeholder="correo@ejemplo.com">
         </div>
 
         <div class="input-field">
-            <span>CONTRASEÑA</span>
-            <input type="password">
+            <span class="label">CONTRASEÑA</span>
+            <input type="password" placeholder="••••••••">
         </div>
 
-        <div class="logo-placeholder">
-            <img src="tu-logo.png" alt="Logo">
+        <div class="logo-container">
+            <div class="logo-circle">
+                <span class="logo-text">TRIP N'JOY</span>
+            </div>
+            <p class="slogan">VIVA GRANDES EXPERIENCIAS</p>
         </div>
 
-        <div class="divider">
-            <hr> <span>o</span> <hr>
-        </div>
+        <div class="decorative-line"></div>
 
-        <button class="social-btn">Inicia sesión con Google</button>
-        <button class="social-btn">Inicia sesión con Apple</button>
+        <button class="social-btn">
+            <img src="https://www.google.com/favicon.ico" alt="Google" class="social-icon">
+            Inicia sesión con Google
+        </button>
+        
+        <button class="social-btn">
+            <img src="https://www.apple.com/favicon.ico" alt="Apple" class="social-icon">
+            Inicia sesión con Apple
+        </button>
 
         <div class="footer-actions">
             <button class="btn-black">Iniciar Sesion</button>
-            <button class="btn-grey">Registrate</button>
+            <label for="modal-registro-toggle" class="btn-grey">Registrate</label>
         </div>
     </div>
 </div>
