@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-bienvenido',
   imports: [],
   templateUrl: './bienvenido.html',
-  styleUrl: './bienvenido.css',
+  styleUrls: ['./bienvenida.css']
 })
 export class Bienvenido {}
