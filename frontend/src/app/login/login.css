@@ -12,6 +12,12 @@
     font-weight: 600;
     margin: 20px;
     border: none;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.open-button:hover {
+    background-color: #357ABD;
 }
 
 .modal-container {
@@ -39,7 +45,7 @@
     max-width: 380px;
     text-align: center;
     position: relative;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     animation: aparecer 0.3s ease;
 }
 
@@ -63,6 +69,7 @@
     cursor: pointer;
     line-height: 1;
     z-index: 10;
+    transition: color 0.2s;
 }
 
 .close-x:hover {
@@ -89,6 +96,7 @@
     color: #555;
     margin-bottom: 5px;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .input-field input {
@@ -106,7 +114,7 @@
     outline: none;
     border-color: #000;
     background-color: white;
-    box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
 }
 
 .input-field input::placeholder {
@@ -118,26 +126,14 @@
     margin: 25px 0 15px 0;
 }
 
-.logo-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.logo-imagen {
+    max-width: 150px;
+    max-height: 80px;
+    object-fit: contain;
     margin: 0 auto 10px;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    display: block;
 }
 
-.logo-text {
-    color: white;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-align: center;
-    line-height: 1.3;
-}
 
 .slogan {
     color: #666;
@@ -181,6 +177,7 @@
 .social-icon {
     width: 18px;
     height: 18px;
+    object-fit: contain;
 }
 
 .footer-actions {
@@ -200,11 +197,14 @@
     font-size: 14px;
     cursor: pointer;
     transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .btn-black:hover {
     background: #000;
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-grey {
@@ -220,11 +220,14 @@
     transition: all 0.2s;
     text-align: center;
     display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .btn-grey:hover {
     background: #444;
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 480px) {
@@ -241,12 +244,12 @@
         flex-direction: column;
     }
     
-    .logo-circle {
-        width: 70px;
-        height: 70px;
+    .logo-imagen {
+        max-width: 120px;
     }
     
-    .logo-text {
-        font-size: 12px;
+    .social-btn {
+        padding: 10px;
+        font-size: 13px;
     }
 }
