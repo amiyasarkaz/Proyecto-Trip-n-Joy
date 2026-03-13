@@ -13,14 +13,14 @@
   z-index: 20;
 }
 
-/* IZQUIERDA */
+/* ---------IZQUIERDA-------- */
 .nav-left {
   display: flex;
   align-items: center;
   gap: 40px;
 }
 
-/* LOGO */
+/* ---------LOGO-------- */
 .logo-img {
   width: 55px;
   height: 55px;
@@ -31,7 +31,7 @@
 }
 
 
-/* MENU */
+/* ---------MENU-------- */
 .menu {
   list-style: none;
   display: flex;
@@ -45,7 +45,7 @@
   cursor: pointer;
 }
 
-/* DERECHA */
+/* ---------DERECHA-------- */
 .nav-right {
   display: flex;
   align-items: center;
@@ -64,7 +64,7 @@
   cursor: pointer;
 }
 
-/* HERO */
+/* ---------HERO SECTION-------- */
 .hero {
   position: relative;
   height: 100vh; 
@@ -129,10 +129,12 @@
   cursor: pointer;
 }
 
-/* MIDDLE SECTION */
+/* ---------MIDDLE SECTION-------- */
 .middle {
   text-align: center;
   padding: 60px 20px;
+  background-color: #582f2f; 
+  color: white; 
 }
 
 .middle h2 {
@@ -150,15 +152,104 @@
   margin-top: 5px;
 }
 
-/* FOOTER */
+/* --------FOOTER GENERAL-------- */
 .footer {
-  background: #111;
+  background-color: #0a1a3a; /* azul oscuro */
   color: white;
-  text-align: center;
-  padding: 40px 20px;
+  padding: 60px 40px;
 }
 
-.footer h3 {
-  font-size: 1.8rem;
-  margin-bottom: 5px;
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: auto;
 }
+
+/* ---------COLUMNA IZQUIERDA-------- */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-logo {
+  width: 180px;
+}
+
+.footer-slogan {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.footer-title {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+/* ---------COLUMNA CENTRAL-------- */
+.footer-center {
+  text-align: center;
+}
+
+.footer-center h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.legal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 1.1rem;
+}
+
+.partners {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.partners img {
+  width: 80px;
+  object-fit: contain;
+}
+
+.footer-quote {
+  font-style: italic;
+  margin-top: 10px;
+}
+
+/* ---------COLUMNA DERECHA-------- */
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-right h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.footer-hours {
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
