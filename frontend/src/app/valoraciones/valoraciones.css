@@ -1,0 +1,96 @@
+/* SECCIÓN PRINCIPAL */
+.valoraciones {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('/fondov.avif'); /* tu imagen en public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CAPA OSCURA */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* CONTENIDO */
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  text-align: center;
+  color: white;
+}
+
+.content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.sub {
+  font-size: 1.3rem;
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+}
+
+/* TARJETAS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(4px);
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 50%;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* BOTONES */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-primary {
+  background: #ff7b00;
+  color: white;
+}
+
+.btn-secondary {
+  background: white;
+  color: #333;
+}

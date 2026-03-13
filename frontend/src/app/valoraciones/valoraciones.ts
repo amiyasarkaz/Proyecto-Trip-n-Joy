@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-valoraciones',
-  imports: [],
+  standalone: true,
   templateUrl: './valoraciones.html',
-  styleUrl: './valoraciones.css',
+  styleUrl: './valoraciones.css'
 })
-export class Valoraciones {}
+export class ValoracionesComponent {}
