@@ -8,41 +8,42 @@
 </head>
 <body>
 
-    <button id="btnAbrirRegistro" class="btn-abrir">Crear Cuenta</button>
+    <label for="abrir-popup" class="btn-abrir">Crear Cuenta</label>
 
- 
-    <div id="popupRegistro" class="popup">
+    <input type="checkbox" id="abrir-popup" class="abrir-popup-checkbox">
+  
+    <div class="popup">
         <div class="contenido-popup">
-            <span id="btnCerrar" class="cerrar">&times;</span>
+            
+     
+            <label for="abrir-popup" class="cerrar">&times;</label>
             
             <h1 class="titulo-registro">REGISTRO</h1>
-
             <h2 class="subtitulo-registro">REGÍSTRATE</h2>
             
-            <form id="formRegistro" class="formulario-registro">
+   
+            <form class="formulario-registro">
                 <div class="campo">
                     <label for="nombre">Nombre completo:</label>
-                    <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez">
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
                 </div>
                 
                 <div class="campo">
                     <label for="email">Correo electrónico:</label>
-                    <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com">
+                    <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
                 </div>
                 
                 <div class="campo">
                     <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" required placeholder="Mínimo 6 caracteres">
+                    <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" required>
                 </div>
                 
                 <button type="submit" class="btn-registrarse">REGÍSTRATE</button>
             </form>
             
             
-            <div id="mensajePopup" class="mensaje"></div>
         </div>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
