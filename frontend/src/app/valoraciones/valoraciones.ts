@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-valoraciones',
   standalone: true,
   templateUrl: './valoraciones.html',
-  styleUrl: './valoraciones.css'
+  styleUrls: ['./valoraciones.css']
 })
 export class ValoracionesComponent {}

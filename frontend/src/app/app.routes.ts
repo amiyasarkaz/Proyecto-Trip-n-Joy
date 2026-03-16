@@ -2,15 +2,14 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home';
 import { Login } from './login/login';
 import { Registro } from './registro/registro';
-import { ValoracionesComponent } from './valoraciones/valoraciones';
 import { Bienvenido } from './bienvenido/bienvenido';
-
+import { ValoracionesComponent } from './valoraciones/valoraciones';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: Login },
   { path: 'registro', component: Registro },
-  { path: 'valoraciones', component: ValoracionesComponent },
-  { path: 'bienvenido', component: Bienvenido }
+  { path: 'bienvenido', component: Bienvenido },
+  { path: 'valoraciones', component: ValoracionesComponent }
 ];
   
