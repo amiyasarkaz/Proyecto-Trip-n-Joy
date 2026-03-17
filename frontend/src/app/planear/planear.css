@@ -33,7 +33,7 @@
 
 .modal-content {
     width: 90%;
-    max-width: 550px;
+    max-width: 500px;
     position: relative;
     animation: fadeIn 0.3s ease;
 }
@@ -104,30 +104,44 @@
 .paises-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 15px;
     margin-bottom: 30px;
 }
 
 .pais-item {
     background: #f5f5f5;
-    padding: 15px 10px;
-    border-radius: 10px;
+    padding: 20px 10px;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 500;
     color: #333;
     cursor: pointer;
     transition: all 0.2s;
     border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .pais-item:hover {
     background: #e8e8e8;
     border-color: #4A90E2;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.2);
 }
 
 .pais-item:active {
     transform: translateY(0);
+}
+
+.bandera {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
 }
 
 .planear-btn {
@@ -166,31 +180,24 @@
     }
     
     .paises-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
     
     .pais-item {
-        padding: 12px 8px;
-        font-size: 14px;
+        flex-direction: row;
+        padding: 15px 20px;
+    }
+    
+    .bandera {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0;
+        margin-right: 10px;
     }
     
     .planear-btn {
         padding: 14px 30px;
         font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .planear-card {
-        padding: 25px 15px;
-    }
-    
-    .planear-title {
-        font-size: 22px;
-    }
-    
-    .paises-grid {
-        grid-template-columns: 1fr;
     }
 }
