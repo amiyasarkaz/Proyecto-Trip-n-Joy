@@ -3,13 +3,13 @@ import { HomeComponent } from './home/home';
 import { Login } from './login/login';
 import { Registro } from './registro/registro';
 import { Bienvenido } from './bienvenido/bienvenido';
-import { ValoracionesComponent } from './valoraciones/valoraciones';
+import { QueOfrecemosComponent } from './que-ofrecemos/que-ofrecemos';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: Login },
   { path: 'registro', component: Registro },
   { path: 'bienvenido', component: Bienvenido },
-  { path: 'valoraciones', component: ValoracionesComponent }
+  { path: 'que-ofrecemos', component: QueOfrecemosComponent }
 ];
   
