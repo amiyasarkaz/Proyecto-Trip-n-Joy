@@ -4,6 +4,7 @@ import { Login } from './login/login';
 import { Registro } from './registro/registro';
 import { Bienvenido } from './bienvenido/bienvenido'; 
 import { QueOfrecemosComponent } from './que-ofrecemos/que-ofrecemos';
+import { Planear } from './planear/planear';
 
 
 export const routes: Routes = [
@@ -11,6 +12,7 @@ export const routes: Routes = [
   { path: 'login', component: Login },
   { path: 'registro', component: Registro },
   { path: 'bienvenido', component: Bienvenido },
-  { path: 'que-ofrecemos', component: QueOfrecemosComponent }
+  { path: 'que-ofrecemos', component: QueOfrecemosComponent },
+  { path: 'planear', component: Planear }
 ];
   
