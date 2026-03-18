@@ -1,0 +1,15 @@
+<header class="navbar">
+  <div class="nav-left">
+    <img src="/logo.png" alt="logo" class="logo-img" />
+
+    <ul class="menu">
+      <li [routerLink]="isActive('/valoraciones') ? '/' : '/valoraciones'">{{ firstLabel }}</li>
+      <li [routerLink]="isActive('/que-ofrecemos') ? '/' : '/que-ofrecemos'">{{ secondLabel }}</li>
+    </ul>
+  </div>
+  
+  <div class="nav-right">
+    <span class="user-icon">👤</span>
+    <span class="join">ÚNETE</span>
+  </div>
+</header>

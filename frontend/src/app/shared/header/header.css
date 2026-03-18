@@ -1,0 +1,12 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: white;
+}
+.nav-left { display:flex; align-items:center; gap:16px }
+.logo-img { width:48px; height:48px }
+.menu { list-style:none; display:flex; gap:12px; margin:0; padding:0 }
+.menu li { cursor:pointer }
+.nav-right { display:flex; gap:12px; align-items:center }
