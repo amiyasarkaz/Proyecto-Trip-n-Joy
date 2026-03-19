@@ -10,7 +10,7 @@ import { filter } from 'rxjs/operators';
   templateUrl: './header.html',
   styleUrls: ['./header.css']
 })
-export class HeaderComponent {
+export class Header {  
   currentUrl = '/';
 
   constructor(private router: Router) {

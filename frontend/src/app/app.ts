@@ -1,14 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './shared/header/header';
-
+import { Registro } from './registro/registro';
+import { Login } from './login/login';
+import { Header } from './shared/header/header'; 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [
+    RouterOutlet, 
+    Registro, 
+    Login,
+    Header 
+  ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class AppComponent {}
-
