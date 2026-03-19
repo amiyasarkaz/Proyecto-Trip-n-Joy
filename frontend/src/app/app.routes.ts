@@ -5,6 +5,7 @@ import { Registro } from './registro/registro';
 import { Bienvenido } from './bienvenido/bienvenido'; 
 import { QueOfrecemosComponent } from './que-ofrecemos/que-ofrecemos';
 import { Planear } from './planear/planear';
+import { PaginaPrincipal } from './pagina-principal/pagina-principal';
 
 
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
   { path: 'registro', component: Registro },
   { path: 'bienvenido', component: Bienvenido },
   { path: 'que-ofrecemos', component: QueOfrecemosComponent },
-  { path: 'planear', component: Planear }
+  { path: 'planear', component: Planear },
+  { path: 'inicio-usuario', component: PaginaPrincipal }
 ];
   

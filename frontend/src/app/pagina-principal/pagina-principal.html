@@ -1,0 +1,32 @@
+<div class="home-user">
+  <div class="overlay"></div>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img [src]="userPhoto || '/logo.png'" class="logo-img" />
+
+      <ul class="menu">
+        <li><a routerLink="/que-ofrecemos">¿Qué ofrecemos?</a></li>
+        <li><a routerLink="/contacto">Contacto / Redes Sociales</a></li>
+        <li><a routerLink="/valoraciones">Valoraciones</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-right">
+      <span class="user-icon">👤</span>
+      <span class="profile">{{ userName || 'MI PERFIL' }}</span>
+    </div>
+  </header>
+
+  <!-- CONTENIDO CENTRAL -->
+  <div class="content">
+    <h1>MEJORA AÚN MÁS TUS PLANES DE VIAJE CON NOSOTROS.</h1>
+    <p class="sub">Un nuevo comienzo, conlleva grandes experiencias.</p>
+
+    <div class="search-box">
+      <input type="text" placeholder="BUSCA TU DESTINO" />
+      <button class="btn-primary">PLANEA TU VIAJE</button>
+    </div>
+  </div>
+</div>
