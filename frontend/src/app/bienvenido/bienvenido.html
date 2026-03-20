@@ -1,21 +1,19 @@
 <input type="checkbox" id="modal-bienvenido-toggle" class="modal-checkbox">
 
-<label for="modal-bienvenido-toggle" class="open-button">Mostrar Bienvenida</label>
-
 <div class="modal-overlay">
     <div class="modal-content">
         <label for="modal-bienvenido-toggle" class="close-btn">&times;</label>
         
-        <div class="welcome-card" [style.background-image]="'url(/hotel.png)'">
-            <div class="title-container">
-                <h1 class="welcome-title">BIENVENIDO</h1>
-            </div>
+        <div class="welcome-card">
+            <h1 class="welcome-title">BIENVENIDO</h1>
             
             <div class="logo-section">
-                <img src="/logo_trip.png" alt="Trip N'Joy" class="logo">
+                <img src="/logo.png" alt="Trip N'Joy" class="logo">
             </div>
             
-            <a href="/" class="action-btn">Pagina principal</a>
+            <button class="btn-black" onclick="window.location.href='/'; document.getElementById('modal-bienvenido-toggle').checked = false;">
+                Página Principal
+            </button>
         </div>
     </div>
 </div>
