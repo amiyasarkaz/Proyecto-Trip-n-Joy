@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
-  standalone: true, 
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './registro.html',
   styleUrls: ['./registro.css']
 })

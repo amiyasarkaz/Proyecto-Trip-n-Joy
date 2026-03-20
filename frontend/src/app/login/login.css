@@ -134,7 +134,6 @@
     display: block;
 }
 
-
 .slogan {
     color: #666;
     font-size: 14px;
@@ -252,4 +251,9 @@
         padding: 10px;
         font-size: 13px;
     }
+
+
+    #modal-login-toggle:not(:checked) ~ .modal-container {
+    display: none;
+}
 }

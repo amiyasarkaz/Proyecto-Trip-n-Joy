@@ -1,9 +1,4 @@
-
 <input type="checkbox" id="modal-registro-toggle" class="modal-checkbox">
-
-
-<label for="modal-registro-toggle" class="btn-abrir-popup">Crear Cuenta</label>
-
 
 <div class="popup-overlay">
     <div class="popup-contenido">
@@ -35,7 +30,6 @@
                 </div>
             </div>
 
-
             <div class="popup-col">
                 <div class="campo-popup">
                     <span class="etiqueta">Apellido</span>
@@ -54,8 +48,9 @@
             </div>
         </div>
 
-        <button class="btn-popup-registro">REGÍSTRATE</button>
-
+        <button class="btn-registro-oscuro" onclick="document.getElementById('modal-login-toggle').checked = true; document.getElementById('modal-registro-toggle').checked = false;">
+            REGÍSTRATE
+        </button>
 
         <div class="popup-divider">
             <hr> <span>o</span> <hr>
@@ -73,7 +68,9 @@
 
         <div class="popup-login-link">
             ¿Ya tienes cuenta? 
-            <label for="modal-toggle" class="link-popup">Inicia Sesión</label>
+            <label for="modal-login-toggle" class="link-popup" onclick="document.getElementById('modal-registro-toggle').checked = false;">
+                Inicia Sesión
+            </label>
         </div>
     </div>
 </div>

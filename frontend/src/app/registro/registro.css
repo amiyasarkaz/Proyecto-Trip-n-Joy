@@ -11,19 +11,49 @@
     cursor: pointer;
     font-weight: 600;
     margin: 20px;
+    border: none;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.btn-abrir-popup:hover {
+    background-color: #357ABD;
 }
 
 .popup-overlay {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
     justify-content: center;
     align-items: center;
+    z-index: 2000;
+}
+
+.btn-registro-oscuro {
+    width: 100%;
+    background: #222;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    margin: 10px 0 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-registro-oscuro:hover {
+    background: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 #modal-registro-toggle:checked ~ .popup-overlay {
@@ -31,19 +61,20 @@
 }
 
 .popup-contenido {
-    background-color: white;
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
     width: 90%;
-    max-width: 700px;
+    max-width: 550px;
     max-height: 85vh;
     overflow-y: auto;
-    padding: 30px;
-    border-radius: 20px;
+    text-align: center;
     position: relative;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    animation: aparecerPopup 0.3s ease;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    animation: aparecerRegistro 0.3s ease;
 }
 
-@keyframes aparecerPopup {
+@keyframes aparecerRegistro {
     from {
         opacity: 0;
         transform: scale(0.9);
@@ -58,11 +89,12 @@
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 35px;
+    font-size: 30px;
     color: #999;
     cursor: pointer;
     line-height: 1;
     z-index: 10;
+    transition: color 0.2s;
 }
 
 .cerrar-popup:hover {
@@ -70,24 +102,26 @@
 }
 
 .titulo-popup {
-    text-align: center;
     font-size: 28px;
     font-weight: 700;
-    margin: 0 0 20px 0;
+    color: #333;
+    margin: 0 0 30px 0;
     letter-spacing: 2px;
     border-bottom: 3px solid #000;
     padding-bottom: 10px;
+    display: inline-block;
 }
 
 .popup-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .campo-popup {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .etiqueta {
@@ -97,6 +131,7 @@
     color: #333;
     margin-bottom: 5px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .input-popup {
@@ -105,6 +140,8 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 14px;
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
     box-sizing: border-box;
     transition: all 0.2s;
 }
@@ -112,7 +149,8 @@
 .input-popup:focus {
     outline: none;
     border-color: #000;
-    box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
 }
 
 .input-popup::placeholder {
@@ -122,22 +160,25 @@
 
 .btn-popup-registro {
     width: 100%;
-    background-color: #000;
+    background-color: #4A90E2;
     color: white;
     border: none;
     border-radius: 50px;
-    padding: 15px;
+    padding: 16px;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 2px;
     cursor: pointer;
+    transition: background-color 0.3s;
     margin: 10px 0 20px 0;
-    transition: all 0.3s;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+    display: inline-block;
+    text-align: center;
 }
 
 .btn-popup-registro:hover {
-    background-color: #333;
-    transform: translateY(-2px);
+    background-color: #357ABD;
 }
 
 .popup-divider {
@@ -151,11 +192,13 @@
     flex: 1;
     border: none;
     border-top: 1px solid #ddd;
+    margin: 0;
 }
 
 .popup-divider span {
     color: #999;
     font-size: 14px;
+    text-transform: uppercase;
 }
 
 .btn-popup-social {
@@ -167,33 +210,36 @@
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: all 0.2s;
+    color: #333;
 }
 
 .btn-popup-social:hover {
-    border-color: #999;
     background-color: #f5f5f5;
+    border-color: #999;
+    transform: translateY(-2px);
 }
 
 .icono-social {
     width: 18px;
     height: 18px;
+    object-fit: contain;
 }
 
 .popup-login-link {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 20px;
     font-size: 14px;
     color: #666;
 }
 
 .link-popup {
-    color: #000;
+    color: #4A90E2;
     font-weight: 600;
     cursor: pointer;
     text-decoration: underline;
@@ -201,7 +247,7 @@
 }
 
 .link-popup:hover {
-    color: #333;
+    color: #357ABD;
 }
 
 .popup-contenido::-webkit-scrollbar {
@@ -218,18 +264,42 @@
     border-radius: 4px;
 }
 
+.popup-contenido::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 @media (max-width: 600px) {
+    .popup-contenido {
+        padding: 30px 20px;
+        width: 95%;
+    }
+    
     .popup-grid {
         grid-template-columns: 1fr;
         gap: 0;
     }
     
+    .titulo-popup {
+        font-size: 24px;
+    }
+    
+    .btn-popup-registro {
+        padding: 14px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
     .popup-contenido {
-        padding: 20px;
-        width: 95%;
+        padding: 25px 15px;
     }
     
     .titulo-popup {
-        font-size: 24px;
+        font-size: 22px;
+    }
+    
+    .btn-popup-social {
+        padding: 10px;
+        font-size: 14px;
     }
 }

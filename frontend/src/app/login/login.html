@@ -1,9 +1,8 @@
 <input type="checkbox" id="modal-login-toggle" class="modal-checkbox">
 
-<label for="modal-login-toggle" class="open-button">Iniciar Sesión</label>
-
 <div class="modal-container">
     <div class="modal-content">
+        
         <label for="modal-login-toggle" class="close-x">&times;</label>
         
         <h1 class="titulo-login">INICIAR SESIÓN</h1>
@@ -36,8 +35,12 @@
         </button>
 
         <div class="footer-actions">
-            <button class="btn-black">Iniciar Sesion</button>
-            <label for="modal-registro-toggle" class="btn-grey">Registrate</label>
+            <button class="btn-black" onclick="window.location.href='/'; document.getElementById('modal-login-toggle').checked = false;">
+                Iniciar Sesión
+            </button>
+            <label for="modal-registro-toggle" class="btn-grey" onclick="document.getElementById('modal-login-toggle').checked = false;">
+                Registrate
+            </label>
         </div>
     </div>
 </div>
