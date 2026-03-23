@@ -1,0 +1,16 @@
+<header class="navbar">
+  <div class="nav-left">
+    <img [src]="auth.user?.photo || '/logo.png'" class="logo-img" />
+
+    <ul class="menu">
+      <li><a routerLink="/inicio-usuario">Inicio</a></li>
+      <li><a routerLink="/que-ofrecemos">¿Qué ofrecemos?</a></li>
+      <li><a routerLink="/valoraciones">Valoraciones</a></li>
+    </ul>
+  </div>
+
+  <div class="nav-right">
+    <span class="user-icon">👤</span>
+    <span class="profile">{{ auth.user?.name }}</span>
+  </div>
+</header>

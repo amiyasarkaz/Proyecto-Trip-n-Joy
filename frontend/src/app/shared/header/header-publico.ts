@@ -7,10 +7,10 @@ import { filter } from 'rxjs/operators';
   selector: 'app-header',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './header.html',
-  styleUrls: ['./header.css']
+  templateUrl: './header-publico.html',
+  styleUrls: ['./header-publico.css']
 })
-export class Header {  
+export class HeaderPublico {  
   currentUrl = '/';
 
   constructor(private router: Router) {
