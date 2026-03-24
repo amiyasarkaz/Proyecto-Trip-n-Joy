@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Registro } from './registro/registro';
 import { Login } from './login/login';
-import { HeaderPublico } from './shared/header/header-publico';
+import { Header } from './shared/header/header';
 import { Bienvenido } from './bienvenido/bienvenido'; 
 
 @Component({
@@ -12,7 +12,7 @@ import { Bienvenido } from './bienvenido/bienvenido';
     RouterOutlet, 
     Registro, 
     Login,
-    HeaderPublico,
+    Header,
     Bienvenido 
   ],
   templateUrl: './app.html',
