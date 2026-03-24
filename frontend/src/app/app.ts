@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Registro } from './registro/registro';
 import { Login } from './login/login';
-import { Header } from './shared/header/header';
-import { Bienvenido } from './bienvenido/bienvenido';
-import { Planear } from './planear/planear'; 
+import { HeaderPublico } from './shared/header/header-publico';
+import { Bienvenido } from './bienvenido/bienvenido'; 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -12,9 +12,9 @@ import { Planear } from './planear/planear';
     RouterOutlet, 
     Registro, 
     Login,
-    Header,
-    Bienvenido,
-    Planear 
+
+    HeaderPublico,
+    Bienvenido 
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
