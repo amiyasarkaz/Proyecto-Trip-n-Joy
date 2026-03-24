@@ -3,8 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { Registro } from './registro/registro';
 import { Login } from './login/login';
 import { Header } from './shared/header/header';
-import { Bienvenido } from './bienvenido/bienvenido'; 
-
+import { Bienvenido } from './bienvenido/bienvenido';
+import { Planear } from './planear/planear'; 
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -13,7 +13,8 @@ import { Bienvenido } from './bienvenido/bienvenido';
     Registro, 
     Login,
     Header,
-    Bienvenido 
+    Bienvenido,
+    Planear 
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
