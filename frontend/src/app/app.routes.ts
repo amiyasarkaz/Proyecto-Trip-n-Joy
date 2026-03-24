@@ -6,6 +6,7 @@ import { Bienvenido } from './bienvenido/bienvenido';
 import { QueOfrecemosComponent } from './que-ofrecemos/que-ofrecemos';
 import { Planear } from './planear/planear'; 
 import { PaginaPrincipal } from './pagina-principal/pagina-principal';
+import { adminRoutes } from './admin/admin.routes';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
