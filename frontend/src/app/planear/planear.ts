@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-planear',
-  imports: [],
+  standalone: true, 
   templateUrl: './planear.html',
-  styleUrl: './planear.css',
+  styleUrls: ['./planear.css']
 })
-export class Planear {}
+export class Planear { }
