@@ -6,6 +6,7 @@ import { Bienvenido } from './bienvenido/bienvenido';
 import { QueOfrecemosComponent } from './que-ofrecemos/que-ofrecemos';
 import { Planear } from './planear/planear'; 
 import { PaginaPrincipal } from './pagina-principal/pagina-principal';
+import { Dashboard } from './admin/dashboard/dashboard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
   { path: 'bienvenido', component: Bienvenido },
   { path: 'que-ofrecemos', component: QueOfrecemosComponent },
   { path: 'planear', component: Planear },
-  { path: 'inicio-usuario', component: PaginaPrincipal }
+  { path: 'inicio-usuario', component: PaginaPrincipal },
+  { path: 'admin', component: Dashboard }
 ];
