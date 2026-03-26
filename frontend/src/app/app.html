@@ -1,4 +1,5 @@
 <app-header></app-header>
+<app-header *ngIf="!isAdminPage"></app-header>
 <router-outlet></router-outlet>
 <app-registro></app-registro>
 <app-login></app-login>
