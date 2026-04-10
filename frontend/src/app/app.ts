@@ -2,31 +2,21 @@ import { Component } from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { Registro } from './registro/registro';
 import { Login } from './login/login';
-import { Header } from './shared/header/header';
 import { Bienvenido } from './bienvenido/bienvenido';
+import { Home } from './home/home';
+import { QueOfrecemosComponent } from './que-ofrecemos/que-ofrecemos';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
+  imports: [Home,
+    QueOfrecemosComponent,
     RouterOutlet,
     Registro,
     Login,
-    Header,
     Bienvenido
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
-export class AppComponent {
-
-  isAdminPage = false;
-
-  constructor(private router: Router) {
-    this.router.events.subscribe((event: any) => {
-      if (event instanceof NavigationEnd) {
-        this.isAdminPage = event.url.startsWith('/admin');
-      }
-    });
-  }
-}
+export class AppComponent {}
