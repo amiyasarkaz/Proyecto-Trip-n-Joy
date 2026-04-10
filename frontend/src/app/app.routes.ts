@@ -8,6 +8,9 @@ import { Planear } from './planear/planear';
 import { PaginaPrincipal } from './pagina-principal/pagina-principal';
 import { Dashboard } from './admin/dashboard/dashboard';
 import { Noruega } from './noruega/noruega';
+import { Alemania } from './alemania/alemania';
+import { Francia } from './francia/francia';
+import { RedesSociales } from './redes-sociales/redes-sociales';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -18,5 +21,8 @@ export const routes: Routes = [
   { path: 'planear', component: Planear },
   { path: 'inicio-usuario', component: PaginaPrincipal },
   { path: 'admin', component: Dashboard },
-  { path: 'noruega', component: Noruega }
+  { path: 'noruega', component: Noruega },
+  { path: 'alemania', component: Alemania },
+  { path: 'francia', component: Francia },
+  { path: 'redes-sociales', component: RedesSociales }
 ];
