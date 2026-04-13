@@ -11,6 +11,7 @@ import { Noruega } from './noruega/noruega';
 import { Alemania } from './alemania/alemania';
 import { Francia } from './francia/francia';
 import { RedesSociales } from './redes-sociales/redes-sociales';
+import { Oslo } from './oslo/oslo';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -19,10 +20,11 @@ export const routes: Routes = [
   { path: 'bienvenido', component: Bienvenido },
   { path: 'que-ofrecemos', component: QueOfrecemosComponent },
   { path: 'planear', component: Planear },
-  { path: 'inicio-usuario', component: PaginaPrincipal },
+  { path: 'pagina-principal', component: PaginaPrincipal },
   { path: 'admin', component: Dashboard },
   { path: 'noruega', component: Noruega },
   { path: 'alemania', component: Alemania },
   { path: 'francia', component: Francia },
-  { path: 'redes-sociales', component: RedesSociales }
+  { path: 'redes-sociales', component: RedesSociales },
+  { path: 'oslo', component: Oslo }
 ];

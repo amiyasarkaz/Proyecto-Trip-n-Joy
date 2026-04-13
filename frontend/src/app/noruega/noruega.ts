@@ -14,4 +14,8 @@ export class Noruega {
   goTo(destino: string) {
     this.router.navigate([destino]);
   }
+  goOslo() {
+  this.router.navigate(['/oslo']);
+}
+
 }
