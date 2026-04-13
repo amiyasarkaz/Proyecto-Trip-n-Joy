@@ -6,49 +6,67 @@
         <label for="modal-registro-toggle" class="cerrar-popup">&times;</label>
       
         <h2 class="titulo-popup">REGISTRO</h2>
+
+        <!-- Mensajes de éxito/error -->
+        <div *ngIf="mensaje" class="alert alert-success">{{ mensaje }}</div>
+        <div *ngIf="error" class="alert alert-error">{{ error }}</div>
  
         <div class="popup-grid">
             <div class="popup-col">
                 <div class="campo-popup">
                     <span class="etiqueta">Nombre</span>
-                    <input type="text" class="input-popup" placeholder="Tu nombre">
+                    <!-- ✅ AGREGAR [(ngModel)] -->
+                    <input type="text" class="input-popup" [(ngModel)]="userData.name" name="name" placeholder="Tu nombre">
                 </div>
 
                 <div class="campo-popup">
                     <span class="etiqueta">NIF</span>
-                    <input type="text" class="input-popup" placeholder="NIF/DNI">
+                    <!-- ✅ AGREGAR [(ngModel)] -->
+                    <input type="text" class="input-popup" [(ngModel)]="userData.nif" name="nif" placeholder="NIF/DNI">
                 </div>
 
                 <div class="campo-popup">
                     <span class="etiqueta">País de Origen</span>
-                    <input type="text" class="input-popup" placeholder="Escribe tu país">
+                    <!-- ✅ AGREGAR [(ngModel)] -->
+                    <input type="text" class="input-popup" [(ngModel)]="userData.pais" name="pais" placeholder="Escribe tu país">
                 </div>
 
                 <div class="campo-popup">
                     <span class="etiqueta">Email</span>
-                    <input type="email" class="input-popup" placeholder="correo@ejemplo.com">
+                    <!-- ✅ AGREGAR [(ngModel)] -->
+                    <input type="email" class="input-popup" [(ngModel)]="userData.email" name="email" placeholder="correo@ejemplo.com">
                 </div>
             </div>
 
             <div class="popup-col">
                 <div class="campo-popup">
                     <span class="etiqueta">Apellido</span>
-                    <input type="text" class="input-popup" placeholder="Tus apellidos">
+                    <!-- ✅ AGREGAR [(ngModel)] -->
+                    <input type="text" class="input-popup" [(ngModel)]="userData.apellido" name="apellido" placeholder="Tus apellidos">
                 </div>
 
                 <div class="campo-popup">
                     <span class="etiqueta">Contraseña</span>
-                    <input type="password" class="input-popup" placeholder="Mínimo 6 caracteres">
+                    <!-- ✅ AGREGAR [(ngModel)] -->
+                    <input type="password" class="input-popup" [(ngModel)]="userData.password" name="password" placeholder="Mínimo 6 caracteres">
+                </div>
+
+                <div class="campo-popup">
+                    <span class="etiqueta">Confirmar Contraseña</span>
+                    <!-- ✅ AGREGAR [(ngModel)] para confirmación -->
+                    <input type="password" class="input-popup" [(ngModel)]="userData.password_confirmation" name="password_confirmation" placeholder="Confirma tu contraseña">
                 </div>
 
                 <div class="campo-popup">
                     <span class="etiqueta">Teléfono</span>
-                    <input type="tel" class="input-popup" placeholder="+34 123 456 789">
+                    <!-- ✅ AGREGAR [(ngModel)] -->
+                    <input type="tel" class="input-popup" [(ngModel)]="userData.telefono" name="telefono" placeholder="+34 123 456 789">
                 </div>
             </div>
         </div>
 
-        <button class="btn-registro-oscuro" onclick="document.getElementById('modal-login-toggle').checked = true; document.getElementById('modal-registro-toggle').checked = false;">
+        <!-- ✅ CAMBIAR onclick por (click) -->
+        <button class="btn-registro-oscuro" (click)="registrarse()">
             REGÍSTRATE
         </button>
 
@@ -68,7 +86,8 @@
 
         <div class="popup-login-link">
             ¿Ya tienes cuenta? 
-            <label for="modal-login-toggle" class="link-popup" onclick="document.getElementById('modal-registro-toggle').checked = false;">
+            <!-- ✅ CAMBIAR onclick por (click) -->
+          <label for="modal-login-toggle" class="link-popup" (click)="cerrarModal()">
                 Inicia Sesión
             </label>
         </div>

@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { Home } from './home/home';
 import { Login } from './login/login';
-import { Registro } from './registro/registro';
+import { RegistroComponent } from './registro/registro';  
 import { Bienvenido } from './bienvenido/bienvenido';
 import { QueOfrecemosComponent } from './que-ofrecemos/que-ofrecemos';
 import { Planear } from './planear/planear'; 
@@ -16,7 +16,7 @@ import { Oslo } from './oslo/oslo';
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'login', component: Login },
-  { path: 'registro', component: Registro },
+  { path: 'registro', component: RegistroComponent },  
   { path: 'bienvenido', component: Bienvenido },
   { path: 'que-ofrecemos', component: QueOfrecemosComponent },
   { path: 'planear', component: Planear },
