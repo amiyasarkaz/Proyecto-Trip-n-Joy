@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
-import { Registro } from './registro/registro';
+import { CommonModule } from '@angular/common';
+import { RegistroComponent } from './registro/registro';
 import { Login } from './login/login';
 import { Header } from './shared/header/header';
 import { Bienvenido } from './bienvenido/bienvenido';
@@ -9,8 +10,9 @@ import { Bienvenido } from './bienvenido/bienvenido';
   selector: 'app-root',
   standalone: true,
   imports: [
+    CommonModule,
     RouterOutlet,
-    Registro,
+    RegistroComponent,
     Login,
     Header,
     Bienvenido

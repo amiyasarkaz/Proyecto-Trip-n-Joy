@@ -17,9 +17,11 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Configurar Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 WORKDIR /var/www/html
 
 EXPOSE 80
 
-CMD service nginx start && php-fpm
+CMD ["sh", "/usr/local/bin/docker-entrypoint.sh"]

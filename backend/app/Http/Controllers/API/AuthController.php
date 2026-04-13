@@ -13,10 +13,14 @@ class AuthController extends Controller
     // Registrar nuevo usuario
     public function register(Request $request)
     {
-        // Validar los datos
+        // Validar los datos con los nuevos campos
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
+            'apellido' => 'nullable|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'nif' => 'nullable|string|max:20',
+            'pais' => 'nullable|string|max:100',
+            'telefono' => 'nullable|string|max:20',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
@@ -28,10 +32,14 @@ class AuthController extends Controller
             ], 422);
         }
 
-        // Crear el usuario
+        // Crear el usuario con todos los campos
         $user = User::create([
             'name' => $request->name,
+            'apellido' => $request->apellido,
             'email' => $request->email,
+            'nif' => $request->nif,
+            'pais' => $request->pais,
+            'telefono' => $request->telefono,
             'password' => Hash::make($request->password),
         ]);
 
