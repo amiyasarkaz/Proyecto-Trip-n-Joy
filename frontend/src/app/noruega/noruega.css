@@ -1,0 +1,82 @@
+/* Fondo difuminado */
+.bg-img-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  filter: blur(6px) brightness(0.5);
+}
+
+/* Banner superior */
+.top-banner {
+  width: 100%;
+  height: 10vh;             
+  background-color: #002b5c;  
+  display: flex;
+  justify-content: center;    
+  align-items: center;       
+  position: relative;
+  border-radius: 0;           
+}
+
+/* Título centrado */
+.banner-title {
+  color: white;
+  font-size: 70px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+/* Icono dentro del banner */
+.banner-info-icon {
+  width: 40px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  cursor: pointer;
+}
+
+/* Tarjetas centradas */
+/* Contenedor centrado */
+.viajes-grid {
+  margin-top: 400px;
+  display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  align-items: center;       /* centra verticalmente si hay más altura */
+  gap: 60px;                 /* separación entre tarjetas */
+}
+
+/* Tarjetas más grandes */
+.viaje-card {
+  width: 420px;              
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Imagen más grande */
+.viaje-card img {
+  width: 100%;
+  height: 220px;             
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* Texto más grande */
+.viaje-card p {
+  margin-top: 15px;
+  font-size: 22px;           
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1.5px;
+}
+
+/* Efecto hover */
+.viaje-card:hover {
+  transform: scale(1.07);
+}
+

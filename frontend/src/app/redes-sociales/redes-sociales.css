@@ -1,0 +1,73 @@
+/* Fondo difuminado */
+.bg-img-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  filter: blur(4px) brightness(0.6);
+}
+
+/* Contenedor principal */
+.container {
+  text-align: center;
+  margin-top: 60px;
+  color: white;
+}
+
+/* Título */
+.titulo {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+}
+
+/* Lista de redes (vertical, centrada) */
+.redes-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;               /* más separación como en la imagen */
+  align-items: center;
+}
+
+/* Cada red social */
+.red-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;               /* espacio entre icono y texto */
+}
+
+/* ICONOS MÁS GRANDES */
+.icono {
+  width: 200px;             /* antes 50px → ahora más grande */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Texto más grande */
+.red-item p {
+  font-size: 30px;         /* antes 26px → ahora más grande */
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* Botón VOLVER */
+.volver-btn {
+  margin-top: 70px;
+  padding: 15px 50px;
+  font-size: 24px;
+  font-weight: 800;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #000;
+  transition: 0.3s;
+}
+
+.volver-btn:hover {
+  transform: scale(1.05);
+}
