@@ -1,5 +1,5 @@
 <!-- Fondo difuminado -->
-<img src="assets/img/bg-oslo.jpg" class="bg-img-blur" />
+<img src="oslo.webp" class="bg-img-blur" />
 
 <div class="oslo-container">
 
@@ -7,9 +7,9 @@
 
   <!-- Galería de imágenes -->
   <div class="galeria">
-    <img src="habitacion.png" class="foto" />
-    <img src="habitacion1.png" class="foto" />
-    <img src="habitacion2.png" class="foto" />
+    <img src="habitacion.png" class="foto" alt="foto-salon"/>
+    <img src="habitacion1.png" class="foto" alt="foto-baño"/>
+    <img src="habitacion2.png" class="foto" alt="foto-habitacion"/>
   </div>
 
   <!-- Descripción -->
@@ -30,10 +30,47 @@
   </div>
 
   <!-- Especificaciones -->
-  <div class="especificaciones">
-    <h2>Especificaciones</h2>
-    <p>Método de Pago</p>
+  <div class="botones-container">
+  <button (click)="abrirEspecificaciones()">Especificaciones</button>
+    <button (click)="abrirValoraciones()">Valoraciones</button> 
+  <button (click)="abrirPago()">Método de Pago</button>
   </div>
+
+  <!-- Valoraciones -->
+  @if (mostrarValoraciones) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <valoraciones1 (cerrar)="cerrarPopup()"></valoraciones1>
+  </div>
+}
+  <!--Especificaciones -->
+  @if (mostrarEspecificaciones) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <h2>Especificaciones</h2>
+
+    <especificaciones1></especificaciones1>
+
+    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+  </div>
+
+  
+} <!--Método de Pago-->
+  @if (mostrarPago) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <h2>Método de Pago</h2>
+
+    <p>
+      Aquí va el contenido del Método de Pago.
+    </p>
+
+    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+  </div>
+}
 
   <button class="volver-btn" (click)="volver()">VOLVER</button>
 

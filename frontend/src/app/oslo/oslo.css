@@ -8,7 +8,6 @@
   object-fit: cover;
   z-index: -1;
   filter: blur(4px) brightness(0.6);
-  background: linear-gradient(to bottom, #ff0000, #0026ff);
 }
 
 /* Contenedor principal */
@@ -16,7 +15,7 @@
   width: 80%;
   max-width: 1100px;
   margin: 40px auto;
-  color: rgb(156, 53, 53);
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 
@@ -32,7 +31,7 @@
   display: flex;
   justify-content: center;
   gap: 25px;
-  margin-bottom: 5px;
+  margin-bottom: 75px;
 }
 
 .foto {
@@ -46,14 +45,18 @@
 /* Descripción */
 .descripcion {
   font-size: 20px;
+  background-color: rgba(0,0,0,0.6);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 40px;
   line-height: 1.6;
   text-align: justify;
-  margin-bottom: 40px;
+  margin-bottom: 100px;
 }
 
 /* Precio */
 .precio-box {
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.6);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 30px;
@@ -69,22 +72,33 @@
   font-weight: 700;
 }
 
-/* Especificaciones */
-.especificaciones {
-  background-color: rgba(0,0,0,0.4);
-  padding: 20px;
+.botones-container {
+  display: flex;
+  flex-direction: row;   /* asegura que estén en fila */
+  justify-content: center;
+  align-items: center;
+  column-gap: 300px;      /* separación horizontal REAL */
+  margin-top: 90px;
+  margin-bottom: 50px;;
+}
+
+/* Estilo de botones */
+.botones-container button {
+  padding: 12px 35px;
+  font-size: 22px;
+  font-weight: 700;
+  border: none;
   border-radius: 12px;
-  margin-bottom: 40px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  transition: 0.3s;
 }
 
-.especificaciones h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
+.botones-container button:hover {
+  transform: scale(1.05);
 }
 
-.especificaciones p {
-  font-size: 24px;
-}
 
 /* Botón VOLVER */
 .volver-btn {
@@ -102,4 +116,41 @@
 
 .volver-btn:hover {
   transform: scale(1.05);
+}
+
+/* Popup */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 15px;
+  width: 450px;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 11;
+  text-align: center;
+  color :#000000
+}
+
+.cerrar-btn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }

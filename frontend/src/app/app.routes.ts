@@ -12,6 +12,7 @@ import { Alemania } from './alemania/alemania';
 import { Francia } from './francia/francia';
 import { RedesSociales } from './redes-sociales/redes-sociales';
 import { Oslo } from './oslo/oslo';
+import { Especificaciones1 } from './especificaciones1/especificaciones1';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -26,5 +27,7 @@ export const routes: Routes = [
   { path: 'alemania', component: Alemania },
   { path: 'francia', component: Francia },
   { path: 'redes-sociales', component: RedesSociales },
-  { path: 'oslo', component: Oslo }
+  { path: 'oslo', component: Oslo },
+  { path: 'oslo/especificaciones', component: Especificaciones1 }
+
 ];

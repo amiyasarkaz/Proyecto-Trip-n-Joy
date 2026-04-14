@@ -18,4 +18,12 @@ export class Noruega {
   this.router.navigate(['/oslo']);
 }
 
+goBergen() {
+  this.router.navigate(['/bergen']);
+}
+goStavanger() {
+  this.router.navigate(['/stavanger']);
+}
+
+
 }
