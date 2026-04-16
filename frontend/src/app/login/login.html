@@ -3,18 +3,18 @@
 <div class="modal-container">
     <div class="modal-content">
         
-        <label for="modal-login-toggle" class="close-x">&times;</label>
+        <label class="close-x" (click)="cerrarLogin()">&times;</label>
         
         <h1 class="titulo-login">INICIAR SESIÓN</h1>
         
         <div class="input-field">
             <span class="label">EMAIL</span>
-            <input type="email" placeholder="correo@ejemplo.com">
+            <input type="email" [(ngModel)]="userData.email" name="email" placeholder="correo@ejemplo.com">
         </div>
 
         <div class="input-field">
             <span class="label">CONTRASEÑA</span>
-            <input type="password" placeholder="••••••••">
+            <input type="password" [(ngModel)]="userData.password" name="password" placeholder="••••••••">
         </div>
 
         <div class="logo-container">
@@ -35,10 +35,10 @@
         </button>
 
         <div class="footer-actions">
-            <button class="btn-black" onclick="document.getElementById('modal-login-toggle').checked = false; document.getElementById('modal-bienvenido-toggle').checked = true;">
-                 Iniciar Sesión
+            <button class="btn-black" (click)="iniciarSesion()">
+                Iniciar Sesión
             </button>
-            <label for="modal-registro-toggle" class="btn-grey" onclick="document.getElementById('modal-login-toggle').checked = false;">
+            <label class="btn-grey" (click)="abrirRegistro()">
                 Registrate
             </label>
         </div>

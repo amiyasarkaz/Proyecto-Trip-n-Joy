@@ -2,7 +2,7 @@
 
 <div class="modal-overlay">
     <div class="modal-content">
-        <label for="modal-bienvenido-toggle" class="close-btn">&times;</label>
+        <label for="modal-bienvenido-toggle" class="close-btn" (click)="cerrarBienvenido()">&times;</label>
         
         <div class="welcome-card">
             <h1 class="welcome-title">BIENVENIDO</h1>
@@ -11,7 +11,7 @@
                 <img src="/logo_trip.png" alt="Trip N'Joy" class="logo">
             </div>
             
-            <button class="btn-black" onclick="window.location.href='/'; document.getElementById('modal-bienvenido-toggle').checked = false;">
+            <button class="btn-black" (click)="cerrarBienvenido()">
                 Página Principal
             </button>
         </div>
