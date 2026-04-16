@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./que-ofrecemos.css']
 })
 
-export class QueOfrecemosComponent {
+export class QueOfrecemos {
 
   abrirLogin() {
     // Buscar el checkbox del modal de login y marcarlo

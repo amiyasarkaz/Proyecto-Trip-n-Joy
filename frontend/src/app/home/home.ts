@@ -1,12 +1,12 @@
 
 import { Component, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'home',
   standalone: true,
-  imports: [Router], 
+  imports: [RouterModule], 
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })
