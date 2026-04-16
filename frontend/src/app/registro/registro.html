@@ -3,11 +3,10 @@
 <div class="popup-overlay">
     <div class="popup-contenido">
 
-        <label for="modal-registro-toggle" class="cerrar-popup">&times;</label>
+        <label class="cerrar-popup" (click)="cerrarPopup()">&times;</label>
       
         <h2 class="titulo-popup">REGISTRO</h2>
 
-        <!-- Mensajes de éxito/error -->
         <div *ngIf="mensaje" class="alert alert-success">{{ mensaje }}</div>
         <div *ngIf="error" class="alert alert-error">{{ error }}</div>
  
@@ -15,25 +14,21 @@
             <div class="popup-col">
                 <div class="campo-popup">
                     <span class="etiqueta">Nombre</span>
-                    <!-- ✅ AGREGAR [(ngModel)] -->
                     <input type="text" class="input-popup" [(ngModel)]="userData.name" name="name" placeholder="Tu nombre">
                 </div>
 
                 <div class="campo-popup">
                     <span class="etiqueta">NIF</span>
-                    <!-- ✅ AGREGAR [(ngModel)] -->
                     <input type="text" class="input-popup" [(ngModel)]="userData.nif" name="nif" placeholder="NIF/DNI">
                 </div>
 
                 <div class="campo-popup">
                     <span class="etiqueta">País de Origen</span>
-                    <!-- ✅ AGREGAR [(ngModel)] -->
                     <input type="text" class="input-popup" [(ngModel)]="userData.pais" name="pais" placeholder="Escribe tu país">
                 </div>
 
                 <div class="campo-popup">
                     <span class="etiqueta">Email</span>
-                    <!-- ✅ AGREGAR [(ngModel)] -->
                     <input type="email" class="input-popup" [(ngModel)]="userData.email" name="email" placeholder="correo@ejemplo.com">
                 </div>
             </div>
@@ -41,31 +36,26 @@
             <div class="popup-col">
                 <div class="campo-popup">
                     <span class="etiqueta">Apellido</span>
-                    <!-- ✅ AGREGAR [(ngModel)] -->
                     <input type="text" class="input-popup" [(ngModel)]="userData.apellido" name="apellido" placeholder="Tus apellidos">
                 </div>
 
                 <div class="campo-popup">
                     <span class="etiqueta">Contraseña</span>
-                    <!-- ✅ AGREGAR [(ngModel)] -->
-                    <input type="password" class="input-popup" [(ngModel)]="userData.password" name="password" placeholder="Mínimo 6 caracteres">
+                    <input type="password" class="input-popup" [(ngModel)]="userData.password" name="password" placeholder="Contraseña">
                 </div>
 
                 <div class="campo-popup">
                     <span class="etiqueta">Confirmar Contraseña</span>
-                    <!-- ✅ AGREGAR [(ngModel)] para confirmación -->
                     <input type="password" class="input-popup" [(ngModel)]="userData.password_confirmation" name="password_confirmation" placeholder="Confirma tu contraseña">
                 </div>
 
                 <div class="campo-popup">
                     <span class="etiqueta">Teléfono</span>
-                    <!-- ✅ AGREGAR [(ngModel)] -->
                     <input type="tel" class="input-popup" [(ngModel)]="userData.telefono" name="telefono" placeholder="+34 123 456 789">
                 </div>
             </div>
         </div>
 
-        <!-- ✅ CAMBIAR onclick por (click) -->
         <button class="btn-registro-oscuro" (click)="registrarse()">
             REGÍSTRATE
         </button>
@@ -86,8 +76,7 @@
 
         <div class="popup-login-link">
             ¿Ya tienes cuenta? 
-            <!-- ✅ CAMBIAR onclick por (click) -->
-          <label for="modal-login-toggle" class="link-popup" (click)="cerrarModal()">
+            <label class="link-popup" (click)="cerrarPopup()">
                 Inicia Sesión
             </label>
         </div>
