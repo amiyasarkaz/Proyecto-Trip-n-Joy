@@ -14,6 +14,8 @@ import { Oslo } from './oslo/oslo';
 import { Bergen } from './bergen/bergen';
 import { Stavanger } from './stavanger/stavanger';
 import { QueOfrecemos } from './que-ofrecemos/que-ofrecemos';
+import { Berlin } from './berlin/berlin';
+import { Bremen } from './bremen/bremen';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -30,5 +32,8 @@ export const routes: Routes = [
   { path: 'redes-sociales', component: RedesSociales },
   { path: 'oslo', component: Oslo },
   { path: 'bergen', component: Bergen },
-  { path: 'stavanger', component: Stavanger }
+  { path: 'stavanger', component: Stavanger },
+  { path: 'berlin', component: Berlin },
+  { path: 'bremen', component: Bremen }
+  
 ];
