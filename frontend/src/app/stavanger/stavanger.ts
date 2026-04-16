@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Especificacionesoslo } from '../especificacionesoslo/especificacionesoslo';
+import { Especificacionesstavanger } from '../especificacionesstavanger/especificacionesstavanger';
 import { Valoraciones1 } from '../valoraciones/valoraciones1';
 
 
 @Component({
-  selector: 'oslo',
-  imports: [Especificacionesoslo, Valoraciones1],
+  selector: 'stavanger',
+  imports: [Especificacionesstavanger, Valoraciones1],
   standalone: true,
-  templateUrl: './oslo.html',
-  styleUrls: ['./oslo.css']
+  templateUrl: './stavanger.html',
+  styleUrls: ['./stavanger.css']
 })
-export class Oslo {
+export class Stavanger {
 
   constructor(private router: Router) {}
 

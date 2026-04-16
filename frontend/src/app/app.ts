@@ -5,13 +5,13 @@ import { RegistroComponent } from './registro/registro';
 import { Login } from './login/login';
 import { Bienvenido } from './bienvenido/bienvenido';
 import { Home } from './home/home';
-import { QueOfrecemosComponent } from './que-ofrecemos/que-ofrecemos';
+import { QueOfrecemos } from './que-ofrecemos/que-ofrecemos';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [Home,
-    QueOfrecemosComponent,
+    QueOfrecemos,
     CommonModule,
     RouterOutlet,
     RegistroComponent,
