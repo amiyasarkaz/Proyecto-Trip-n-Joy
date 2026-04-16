@@ -14,4 +14,15 @@ export class Alemania {
   goTo(destino: string) {
     this.router.navigate([destino]);
   }
+
+  goBerlin() {
+  this.router.navigate(['/berlin']);
+}
+
+goBremen() {
+  this.router.navigate(['/bremen']);
+}
+goLubeck() {
+  this.router.navigate(['/lubeck']);
+}
 }
