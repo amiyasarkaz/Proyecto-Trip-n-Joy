@@ -3,7 +3,6 @@ import { Home } from './home/home';
 import { Login } from './login/login';
 import { RegistroComponent } from './registro/registro';  
 import { Bienvenido } from './bienvenido/bienvenido';
-import { QueOfrecemosComponent } from './que-ofrecemos/que-ofrecemos';
 import { Planear } from './planear/planear'; 
 import { PaginaPrincipal } from './pagina-principal/pagina-principal';
 import { Dashboard } from './admin/dashboard/dashboard';
@@ -11,18 +10,25 @@ import { Noruega } from './noruega/noruega';
 import { Alemania } from './alemania/alemania';
 import { Francia } from './francia/francia';
 import { RedesSociales } from './redes-sociales/redes-sociales';
+import { Oslo } from './oslo/oslo';
+import { Bergen } from './bergen/bergen';
+import { Stavanger } from './stavanger/stavanger';
+import { QueOfrecemos } from './que-ofrecemos/que-ofrecemos';
 
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'login', component: Login },
   { path: 'registro', component: RegistroComponent },  
   { path: 'bienvenido', component: Bienvenido },
-  { path: 'que-ofrecemos', component: QueOfrecemosComponent },
+  { path: 'que-ofrecemos', component: QueOfrecemos },
   { path: 'planear', component: Planear },
-  { path: 'inicio-usuario', component: PaginaPrincipal },
+  { path: 'pagina-principal', component: PaginaPrincipal },
   { path: 'admin', component: Dashboard },
   { path: 'noruega', component: Noruega },
   { path: 'alemania', component: Alemania },
   { path: 'francia', component: Francia },
-  { path: 'redes-sociales', component: RedesSociales }
+  { path: 'redes-sociales', component: RedesSociales },
+  { path: 'oslo', component: Oslo },
+  { path: 'bergen', component: Bergen },
+  { path: 'stavanger', component: Stavanger }
 ];

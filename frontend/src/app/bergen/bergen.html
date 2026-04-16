@@ -1,0 +1,76 @@
+<!-- Fondo difuminado -->
+<img src="bergen.webp" class="bg-img-blur" />
+
+<div class="bergen-container">
+
+  <h1 class="titulo">Bergen</h1>
+
+  <!-- Galería de imágenes -->
+  <div class="galeria">
+    <img src="bergenh.png" class="foto" alt="foto-salon"/>
+    <img src="bergenh1.png" class="foto" alt="foto-baño"/>
+    <img src="bergenh2.png" class="foto" alt="foto-habitacion"/>
+  </div>
+
+  <!-- Descripción -->
+  <p class="descripcion">
+    Este acogedor alojamiento se encuentra en la tercera planta de una villa tradicional de Bergen, a solo 15 minutos a pie del centro de la ciudad. La habitación, luminosa y con encanto nórdico, combina techos abuhardillados, vigas de madera y una decoración sencilla que transmite calidez desde el primer momento.
+    <br><br>
+    Dispone de tres camas, lo que la convierte en una opción versátil tanto para viajeros solos que buscan espacio como para quienes viajan en grupo.
+    El ambiente es tranquilo y hogareño, ideal para descansar después de explorar la ciudad. Desde la ventana se pueden apreciar los tejados típicos de Bergen y un cielo abierto que aporta una sensación de amplitud. El baño es compartido, pero el alojamiento destaca por su limpieza y por la experiencia de su anfitriona, Birthe, que lleva años recibiendo huéspedes con valoraciones excelentes, especialmente en estancias largas.
+    <br><br>
+    La villa ofrece además zonas comunes agradables, incluyendo espacios exteriores perfectos para disfrutar del verano: tumbonas, una zona para comer al aire libre y una terraza donde relajarse tras un día de excursiones. Con un precio por debajo de la media y cancelación gratuita, es una opción muy atractiva para quienes buscan comodidad, buena ubicación y un toque auténtico de vida local en Bergen.
+  </p>
+
+  <!-- Precio -->
+  <div class="precio-box">
+    <h2>Precio</h2>
+    <p>671 € mensual</p>
+  </div>
+
+  <!-- Especificaciones -->
+  <div class="botones-container">
+  <button (click)="abrirEspecificaciones()">Especificaciones</button>
+    <button (click)="abrirValoraciones()">Valoraciones</button> 
+  <button (click)="abrirPago()">Método de Pago</button>
+  </div>
+
+  <!-- Valoraciones -->
+  @if (mostrarValoraciones) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <valoraciones1 (cerrar)="cerrarPopup()"></valoraciones1>
+  </div>
+}
+  <!--Especificaciones -->
+  @if (mostrarEspecificaciones) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <h2>Especificaciones</h2>
+
+    <especificacionesbergen></especificacionesbergen>
+
+    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+  </div>
+
+  
+} <!--Método de Pago-->
+  @if (mostrarPago) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <h2>Método de Pago</h2>
+
+    <p>
+      Aquí va el contenido del Método de Pago.
+    </p>
+
+    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+  </div>
+}
+
+  <button class="volver-btn" (click)="volver()">VOLVER</button>
+
+</div>

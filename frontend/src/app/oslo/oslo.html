@@ -1,0 +1,77 @@
+<!-- Fondo difuminado -->
+<img src="oslo.webp" class="bg-img-blur" />
+
+<div class="oslo-container">
+
+  <h1 class="titulo">Oslo</h1>
+
+  <!-- Galería de imágenes -->
+  <div class="galeria">
+    <img src="osloh.png" class="foto" alt="foto-salon"/>
+    <img src="osloh1.png" class="foto" alt="foto-baño"/>
+    <img src="osloh2.png" class="foto" alt="foto-habitacion"/>
+  </div>
+
+  <!-- Descripción -->
+  <p class="descripcion">
+    Este alojamiento es una habitación privada en un apartamento residencial de Oslo, pensada para ofrecer una estancia tranquila y cómoda. La habitación es sencilla pero acogedora, con una cama individual y el mobiliario necesario para descansar o trabajar con calma. El ambiente del apartamento es luminoso y agradable, con espacios comunes bien cuidados y decorados con un estilo cálido y hogareño.
+    <br><br>
+    El huésped tiene acceso a zonas compartidas como la cocina, el baño y un comedor amplio con grandes ventanales que dejan entrar mucha luz natural.
+    <br><br>
+    El edificio se encuentra en una zona residencial rodeada de vegetación y calles tranquilas, lo que aporta una sensación de seguridad y bienestar. La anfitriona, Zeljka, es Superanfitriona y cuenta con excelentes valoraciones, lo que garantiza una buena comunicación y una estancia bien gestionada.
+    <br><br>
+    El alojamiento tiene una puntuación muy alta, 4,86 sobre 5, y suele estar reservado con frecuencia debido a su buena relación calidad‑precio, especialmente para estancias largas.
+  </p>
+
+  <!-- Precio -->
+  <div class="precio-box">
+    <h2>Precio</h2>
+    <p>661 € mensual</p>
+  </div>
+
+  <!-- Especificaciones -->
+  <div class="botones-container">
+  <button (click)="abrirEspecificaciones()">Especificaciones</button>
+    <button (click)="abrirValoraciones()">Valoraciones</button> 
+  <button (click)="abrirPago()">Método de Pago</button>
+  </div>
+
+  <!-- Valoraciones -->
+  @if (mostrarValoraciones) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <valoraciones1 (cerrar)="cerrarPopup()"></valoraciones1>
+  </div>
+}
+  <!--Especificaciones -->
+  @if (mostrarEspecificaciones) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <h2>Especificaciones</h2>
+
+    <especificacionesoslo></especificacionesoslo>
+
+    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+  </div>
+
+  
+} <!--Método de Pago-->
+  @if (mostrarPago) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <h2>Método de Pago</h2>
+
+    <p>
+      Aquí va el contenido del Método de Pago.
+    </p>
+
+    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+  </div>
+}
+
+  <button class="volver-btn" (click)="volver()">VOLVER</button>
+
+</div>

@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './que-ofrecemos.html',
   styleUrls: ['./que-ofrecemos.css']
 })
+
 export class QueOfrecemosComponent {
 
   abrirLogin() {
@@ -24,3 +25,4 @@ export class QueOfrecemosComponent {
     }
   }
 }
+
