@@ -1,104 +1,53 @@
 <div class="valoraciones-container">
-
   <h2 class="titulo">Valoraciones</h2>
 
-  <!-- VALORACIÓN 1 -->
-  <div class="valoracion">
-    <img class="avatar" src="rossi.jfif" alt="Usuario">
+  <!-- Formulario para nuevo comentario -->
+  <div class="nuevo-comentario" *ngIf="usuarioLogueado">
+    <h3>Deja tu opinión</h3>
+    
+    <div class="rating">
+      <label>Puntuación:</label>
+      <select [(ngModel)]="nuevoComentario.puntuacion">
+        <option value="5">⭐⭐⭐⭐⭐ - Excelente</option>
+        <option value="4">⭐⭐⭐⭐ - Muy bueno</option>
+        <option value="3">⭐⭐⭐ - Bueno</option>
+        <option value="2">⭐⭐ - Regular</option>
+        <option value="1">⭐ - Malo</option>
+      </select>
+    </div>
 
+    <textarea 
+      [(ngModel)]="nuevoComentario.comentario"
+      placeholder="Escribe tu experiencia..."
+      rows="4"
+    ></textarea>
+
+    <button (click)="enviarComentario()" [disabled]="cargando">
+      {{ cargando ? 'Enviando...' : 'Enviar comentario' }}
+    </button>
+
+    <div *ngIf="mensaje" class="mensaje-exito">{{ mensaje }}</div>
+    <div *ngIf="error" class="mensaje-error">{{ error }}</div>
+  </div>
+
+  <div *ngIf="!usuarioLogueado" class="login-aviso">
+    <p>🔐 Inicia sesión para dejar tu opinión</p>
+  </div>
+
+  <!-- Lista de valoraciones -->
+  <div class="valoracion" *ngFor="let v of valoraciones">
+    <img class="avatar" [src]="v.avatar || 'default-avatar.png'" [alt]="v.usuario">
     <div class="contenido">
-      <h3 class="usuario">pao4579</h3>
-
-      <div class="estrellas">⭐⭐⭐⭐☆</div>
-
-      <p class="texto">
-        La casa tiene mucho encanto y tenía una buena habitación con una bonita vista.
-        La ubicación es bastante buena porque hay muchos autobuses que conducen en
-        diferentes direcciones, pero también hubo un par de construcciones.
-      </p>
+      <h3 class="usuario">{{ v.usuario }}</h3>
+      <div class="estrellas">{{ getStars(v.puntuacion) }}</div>
+      <p class="texto">{{ v.comentario }}</p>
+      <small *ngIf="v.destino">Destino: {{ v.destino }}</small>
     </div>
   </div>
 
-  <div class="valoracion">
-    <img class="avatar" src="Pogra.webp" alt="Usuario">
-
-    <div class="contenido">
-      <h3 class="usuario">pao4579</h3>
-
-      <div class="estrellas">⭐⭐⭐⭐☆</div>
-
-      <p class="texto">
-        La casa tiene mucho encanto y tenía una buena habitación con una bonita vista.
-        La ubicación es bastante buena porque hay muchos autobuses que conducen en
-        diferentes direcciones, pero también hubo un par de construcciones.
-      </p>
-    </div>
-  </div>
-
-  <div class="valoracion">
-    <img class="avatar" src="surtr.webp" alt="Usuario">
-
-    <div class="contenido">
-      <h3 class="usuario">pao4579</h3>
-
-      <div class="estrellas">⭐⭐⭐⭐☆</div>
-
-      <p class="texto">
-        La casa tiene mucho encanto y tenía una buena habitación con una bonita vista.
-        La ubicación es bastante buena porque hay muchos autobuses que conducen en
-        diferentes direcciones, pero también hubo un par de construcciones.
-      </p>
-    </div>
-  </div>
-
-  <div class="valoracion">
-    <img class="avatar" src="alesh.webp" alt="Usuario">
-
-    <div class="contenido">
-      <h3 class="usuario">pao4579</h3>
-
-      <div class="estrellas">⭐⭐⭐⭐☆</div>
-
-      <p class="texto">
-        La casa tiene mucho encanto y tenía una buena habitación con una bonita vista.
-        La ubicación es bastante buena porque hay muchos autobuses que conducen en
-        diferentes direcciones, pero también hubo un par de construcciones.
-      </p>
-    </div>
-  </div>
-
-  <div class="valoracion">
-    <img class="avatar" src="last.webp" alt="Usuario">
-
-    <div class="contenido">
-      <h3 class="usuario">pao4579</h3>
-
-      <div class="estrellas">⭐⭐⭐⭐☆</div>
-
-      <p class="texto">
-        La casa tiene mucho encanto y tenía una buena habitación con una bonita vista.
-        La ubicación es bastante buena porque hay muchos autobuses que conducen en
-        diferentes direcciones, pero también hubo un par de construcciones.
-      </p>
-    </div>
-  </div>
-
-  <div class="valoracion">
-    <img class="avatar" src="endmin.webp" alt="Usuario">
-
-    <div class="contenido">
-      <h3 class="usuario">pao4579</h3>
-
-      <div class="estrellas">⭐⭐⭐⭐☆</div>
-
-      <p class="texto">
-        La casa tiene mucho encanto y tenía una buena habitación con una bonita vista.
-        La ubicación es bastante buena porque hay muchos autobuses que conducen en
-        diferentes direcciones, pero también hubo un par de construcciones.
-      </p>
-    </div>
+  <div *ngIf="valoraciones.length === 0" class="sin-valoraciones">
+    <p>No hay valoraciones aún. ¡Sé el primero en comentar!</p>
   </div>
 
   <button class="regresar" (click)="cerrar.emit()">Regresar</button>
-
 </div>

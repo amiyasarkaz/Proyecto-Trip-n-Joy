@@ -32,9 +32,16 @@ export class Login {
         next: (respuesta: any) => {
           this.mensaje = '✅ Inicio de sesión exitoso';
           localStorage.setItem('token', respuesta.token);
+          
           setTimeout(() => {
+            // Cerrar popup de login
             this.cerrarLogin();
-            this.router.navigate(['/inicio-usuario']);
+            
+            // ✅ Abrir popup de bienvenido en la misma página (sin redirigir)
+            this.abrirBienvenido();
+            
+            // ❌ ELIMINAR esta línea para que NO redirija
+            // this.router.navigate(['/bienvenido']);
           }, 2000);
         },
         error: (error) => {
@@ -44,21 +51,31 @@ export class Login {
   }
 
   cerrarLogin() {
-    // Desmarca el checkbox del login para cerrar el popup
     const checkboxLogin = document.getElementById('modal-login-toggle') as HTMLInputElement;
     if (checkboxLogin) {
       checkboxLogin.checked = false;
     }
   }
 
+  abrirBienvenido() {
+    const checkboxBienvenido = document.getElementById('modal-bienvenido-toggle') as HTMLInputElement;
+    if (checkboxBienvenido) {
+      checkboxBienvenido.checked = true;
+      console.log('✅ Popup de bienvenido abierto en la misma página');
+    } else {
+      const overlay = document.querySelector('.modal-overlay') as HTMLElement;
+      if (overlay) {
+        overlay.style.display = 'flex';
+      }
+    }
+  }
+
   abrirRegistro() {
-    // Cierra el popup de login
     const checkboxLogin = document.getElementById('modal-login-toggle') as HTMLInputElement;
     if (checkboxLogin) {
       checkboxLogin.checked = false;
     }
     
-    // Abre el popup de registro
     const checkboxRegistro = document.getElementById('modal-registro-toggle') as HTMLInputElement;
     if (checkboxRegistro) {
       checkboxRegistro.checked = true;
