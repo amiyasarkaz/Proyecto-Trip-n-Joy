@@ -74,31 +74,32 @@
 
 .botones-container {
   display: flex;
-  flex-direction: row;   /* asegura que estén en fila */
-  justify-content: center;
-  align-items: center;
-  column-gap: 300px;      /* separación horizontal REAL */
-  margin-top: 90px;
-  margin-bottom: 50px;;
+  flex-direction: row;   
+  align-items: center;      /* centrados horizontalmente */
+  justify-content: center;  /* centrados verticalmente si el contenedor lo permite */
+  gap: 150px;                /* separación entre botones */
+  margin-top: 60px;
+  margin-bottom: 50px;
 }
 
-/* Estilo de botones */
 .botones-container button {
-  padding: 12px 35px;
-  font-size: 22px;
+  width: 260px;             /* mismo ancho para todos */
+  padding: 14px 0;
+  font-size: 1.2rem;
   font-weight: 700;
-  border: none;
   border-radius: 12px;
+  border: none;
   cursor: pointer;
-  background-color: white;
-  color: black;
-  transition: 0.3s;
+  background: white;
+  color: #333;
+  transition: 0.25s ease;
 }
 
 .botones-container button:hover {
-  transform: scale(1.05);
+  background: #2c3b54;
+  color: white;
+  transform: translateY(-3px);
 }
-
 
 /* Botón VOLVER */
 .volver-btn {

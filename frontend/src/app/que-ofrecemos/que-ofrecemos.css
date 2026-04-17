@@ -171,12 +171,12 @@
 
 /* BOTÓN INICIAR SESIÓN (secundario) */
 .buttons button:last-child {
-  background: white;
-  color: #333;
+  background: #2d3b53;
+  color: #fafafa;
 }
 
 .buttons button:last-child:hover {
-  background: #00be7f;
+  background: #01a109;
   color: white;
   transform: translateY(-3px);
 }
