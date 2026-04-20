@@ -1,124 +1,229 @@
-/* FONDO PRINCIPAL */
-.home-user {
-  position: relative;
-  height: 100vh;
-  background-image: url('/fondo-usuario.avif');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 0 40px;
+/* GENERAL */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* CAPA OSCURA */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+:host {
+  display: block;
+  background: #0f0f0f;
+  color: white;
 }
 
-/* HEADER */
+/* NAVBAR */
 .navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 90px;
-
+  padding: 20px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #2c3b54;
+}
 
-  padding: 0 40px;
-  box-sizing: border-box;
-  z-index: 10;
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 .logo-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: white;
-  padding: 5px;
+  height: 65px;   /* tamaño ideal para verse como en tu captura */
+  width: auto;
+  border-radius: 50%; /* si quieres mantener el círculo perfecto */
 }
 
-.menu {
-  list-style: none;
-  display: flex;
-  gap: 40px;
-}
-
-.menu li a {
+.nav-link {
   color: white;
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-decoration: none;
+  cursor: pointer;
+  font-size: 15px;
 }
 
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.user-icon {
-  font-size: 1.6rem;
+.join-btn {
+  background: #b30000;
   color: white;
-}
-
-.profile {
-  color: white;
-  font-size: 1.2rem;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
   font-weight: 600;
 }
 
-/* CONTENIDO CENTRAL */
-.content {
+/* HERO */
+.hero {
   position: relative;
-  z-index: 2;
-  text-align: center;
-  color: white;
-  max-width: 900px;
-}
-
-.content h1 {
-  font-size: 3.5rem;
-  font-weight: 900;
-  margin-bottom: 20px;
-}
-
-.sub {
-  font-size: 1.5rem;
-  margin-bottom: 40px;
-}
-
-/* BUSCADOR */
-.search-box {
+  height: 1010px;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 38px;
+  font-weight: 800;
+  max-width: 900px;
+  margin: auto;
+}
+
+.hero-subtitle {
+  margin-top: 15px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.search-box {
+  margin-top: 40px;
 }
 
 .search-box input {
   width: 350px;
-  padding: 16px;
-  border-radius: 10px;
+  padding: 12px 20px;
+  border-radius: 8px;
   border: none;
-  font-size: 1.1rem;
+  font-size: 16px;
 }
 
-.btn-primary {
-  padding: 16px 28px;
-  font-size: 1.2rem;
-  border-radius: 10px;
-  border: none;
-  background: #ff7b00;
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
+/* MID SECTION */
+.mid-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: #582f2f;
 }
+
+.mid-title {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.highlight-1 {
+  margin-top: 25px;
+  font-size: 20px;
+  color: #ffcc00;
+}
+
+.highlight-2 {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #00aaff;
+}
+
+/* FOOTER */
+/* FOOTER GENERAL */
+.footer {
+  background: #2c3b54;
+  padding: 60px 40px;
+  color: white;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* COLUMNA IZQUIERDA */
+.left-col {
+  width: 30%;
+}
+
+.footer-logo-img {
+  width: 320px;
+  margin-bottom: 10px;
+}
+
+.footer-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.footer-subtitle {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 25px;
+}
+
+.footer-section-title {
+  font-size: 18px;
+  margin: 20px 0 10px;
+  font-weight: 700;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.icon {
+  width: 32px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* COLUMNA CENTRAL */
+.center-col {
+  width: 30%;
+}
+
+.asociados-title {
+  margin-top: 25px;
+}
+
+.partners {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.partner {
+  width: 120px;
+}
+
+.footer-quote {
+  margin-top: 20px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* COLUMNA DERECHA */
+.right-col {
+  width: 30%;
+}
+
+.right-col p {
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.partners-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin: 15px 0 10px;
+}
+
+.partner-img {
+  height: 45px;
+  object-fit: contain;
+}
+
