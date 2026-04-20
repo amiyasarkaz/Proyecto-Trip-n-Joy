@@ -4,15 +4,12 @@ import { CommonModule } from '@angular/common';
 import { RegistroComponent } from './registro/registro';
 import { Login } from './login/login';
 import { Bienvenido } from './bienvenido/bienvenido';
-import { Home } from './home/home';
-import { QueOfrecemos } from './que-ofrecemos/que-ofrecemos';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Home,
-    QueOfrecemos,
-    CommonModule,
+  imports: [CommonModule,
     RouterOutlet,
     RegistroComponent,
     Login,

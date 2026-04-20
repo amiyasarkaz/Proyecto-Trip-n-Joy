@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bienvenido',
@@ -10,19 +11,20 @@ import { CommonModule } from '@angular/common';
 })
 export class Bienvenido {
 
+  constructor(private router: Router) {}
+
   cerrarBienvenido() {
-    // Cerrar el popup usando el checkbox
     const checkbox = document.getElementById('modal-bienvenido-toggle') as HTMLInputElement;
-    if (checkbox) {
-      checkbox.checked = false;
-    }
-    
-    // Forzar cierre del overlay por si acaso
+    if (checkbox) checkbox.checked = false;
+
     const overlay = document.querySelector('.modal-overlay') as HTMLElement;
-    if (overlay) {
-      overlay.style.display = 'none';
-    }
-    
+    if (overlay) overlay.style.display = 'none';
+
     console.log('Popup de bienvenido cerrado');
+  }
+
+  irAPaginaPrincipal() {
+    this.cerrarBienvenido();
+    this.router.navigate(['/home']);
   }
 }
