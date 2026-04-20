@@ -25,6 +25,6 @@ export class Bienvenido {
 
   irAPaginaPrincipal() {
     this.cerrarBienvenido();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/pagina-principal']);
   }
 }

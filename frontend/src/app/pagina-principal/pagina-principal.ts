@@ -8,8 +8,4 @@ import { Component } from '@angular/core';
 export class PaginaPrincipal {
   userName = '';
   userPhoto = '';
-
-  ngOnInit() {
-    // Aquí conectaremos con Laravel mas adelante
-  }
 }
