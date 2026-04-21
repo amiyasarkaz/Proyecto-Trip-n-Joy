@@ -87,18 +87,6 @@
   opacity: 0.9;
 }
 
-.search-box {
-  margin-top: 40px;
-}
-
-.search-box input {
-  width: 350px;
-  padding: 12px 20px;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
-}
-
 /* MID SECTION */
 .mid-section {
   text-align: center;

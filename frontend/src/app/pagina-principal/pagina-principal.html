@@ -2,7 +2,6 @@
 <nav class="navbar">
   <div class="navbar-left">
     <img src="logo.webp" alt="Logo" class="logo-img" />
-    <a class="nav-link" routerLink="/que-ofrecemos">¿Qué ofrecemos?</a>
     <a class="nav-link" routerLink="/redes-sociales">Contacto y Redes Sociales</a>
     <a class="nav-link" routerLink="/valoraciones">Valoraciones</a>
   </div>
@@ -32,8 +31,35 @@
       <input type="text" placeholder="BUSCA TU DESTINO" />
     </div>
 
-    <button class="planear-btn" routerLink="/planear">
+    <label for="modal-planear-toggle" class="planear-btn">
       PLANEA TU VIAJE
-    </button>
+    </label>
+
   </div>
+
+  <!-- POPUP PLANEAR -->
+<input type="checkbox" id="modal-planear-toggle" class="modal-checkbox">
+
+<div class="modal-planear-overlay">
+  <div class="modal-planear-content">
+
+    <h1 class="titulo-planear">¡COMIENZA A PLANEAR TU VIAJE!</h1>
+
+    <div class="mensaje-planear">
+      Para poder empezar a planificar tu próxima aventura, deberás escoger el país al que quieres visitar.
+    </div>
+
+    <h2 class="sub-planear">SELECCIONA TU PAÍS</h2>
+
+    <div class="paises-container">
+      <img src="Noruega.png" alt="Noruega" class="pais-icon" (click)="goNoruega()">
+      <img src="alemania.png" alt="Alemania" class="pais-icon" (click)="goAlemania()">
+      <img src="francia.png" alt="Francia" class="pais-icon" (click)="goFrancia()">
+    </div>
+
+    <label class="cerrar-planear" for="modal-planear-toggle">Cerrar</label>
+
+  </div>
+</div>
+
 </section>

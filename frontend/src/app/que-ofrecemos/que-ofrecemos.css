@@ -181,4 +181,29 @@
   transform: translateY(-3px);
 }
 
+/* BOTÓN VOLVER */
+.btn-volver {
+  margin-top: 20px;
+  padding: 16px 32px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  transition: all 0.25s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 260px; /* igual que los otros */
+}
+
+.btn-volver:hover {
+  background: white;
+  color: #2d3b53;
+  transform: translateY(-3px);
+}
+
+
 
