@@ -18,6 +18,9 @@ import { Berlin } from './berlin/berlin';
 import { Bremen } from './bremen/bremen';
 import { Lubeck } from './lubeck/lubeck';
 import { Marsella } from './marsella/marsella';
+import { Toulouse } from './toulouse/toulouse';
+import { Tours } from './tours/tours';
+
 
 
 export const routes: Routes = [
@@ -39,6 +42,8 @@ export const routes: Routes = [
   { path: 'berlin', component: Berlin },
   { path: 'bremen', component: Bremen },
   { path: 'lubeck', component: Lubeck },
-  { path: 'marsella', component: Marsella }
+  { path: 'marsella', component: Marsella },
+  { path: 'toulouse', component: Toulouse },
+  { path: 'tours', component: Tours }
   
 ];

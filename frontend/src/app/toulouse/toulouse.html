@@ -1,0 +1,75 @@
+<!-- Fondo difuminado -->
+<img src="toulouse.jpg" class="bg-img-blur" />
+
+<div class="toulouse-container">
+
+  <h1 class="titulo">Toulouse</h1>
+
+  <!-- Galería de imágenes -->
+  <div class="galeria">
+    <img src="toulouseh.png" class="foto" alt="foto-salon"/>
+    <img src="toulouseh1.png" class="foto" alt="foto-baño"/>
+    <img src="toulouseh2.png" class="foto" alt="foto-habitacion"/>
+  </div>
+
+  <!-- Descripción -->
+  <p class="descripcion">
+    Este encantador estudio, situado en una cuarta planta bajo los tejados, combina el encanto típico de las viviendas del centro histórico con un ambiente luminoso, tranquilo y perfectamente organizado. Es un espacio ideal para viajeros que buscan comodidad, privacidad y una ubicación inmejorable en pleno corazón de Toulouse.
+    <br><br>
+    El estudio está inteligentemente distribuido para aprovechar cada metro, ofreciendo una estancia cómoda tanto para una persona como para una pareja.
+    <br><br>
+    A pesar de encontrarse en un edificio sin ascensor, la subida merece la pena: al llegar, te recibe un estudio acogedor, silencioso y con vistas a un patio interior que garantiza descanso y serenidad.
+    </p>
+
+  <!-- Precio -->
+  <div class="precio-box">
+    <h2>Precio</h2>
+    <p>1.209 € mensual</p>
+  </div>
+
+  <!-- Especificaciones -->
+  <div class="botones-container">
+  <button (click)="abrirEspecificaciones()">Especificaciones</button>
+    <button (click)="abrirValoraciones()">Valoraciones</button> 
+  <button (click)="abrirPago()">Método de Pago</button>
+  </div>
+
+  <!-- Valoraciones -->
+  @if (mostrarValoraciones) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <valoraciones1 (cerrar)="cerrarPopup()"></valoraciones1>
+  </div>
+}
+  <!--Especificaciones -->
+  @if (mostrarEspecificaciones) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <h2>Especificaciones</h2>
+
+    <especificacionestoulouse></especificacionestoulouse>
+
+    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+  </div>
+
+  
+} <!--Método de Pago-->
+  @if (mostrarPago) {
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup">
+    <h2>Método de Pago</h2>
+
+    <p>
+      Aquí va el contenido del Método de Pago.
+    </p>
+
+    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+  </div>
+}
+
+  <button class="volver-btn" (click)="volver()">VOLVER</button>
+
+</div>
