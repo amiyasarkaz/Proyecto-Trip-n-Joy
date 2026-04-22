@@ -7,8 +7,10 @@
   </div>
 
   <div class="nav-right">
-    <span class="user-icon">👤</span>
-    <span class="profile">{{ userName || 'MI PERFIL' }}</span>
+    <span class="profile" (click)="abrirPerfil()">
+      {{ userName || 'MI PERFIL' }}
+</span>
+
   </div>
 </nav>
 
@@ -61,5 +63,108 @@
 
   </div>
 </div>
-
 </section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-columns">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="footer-col left-col">
+      <img src="tripnjoy.png" alt="Logo Trip N Joy" class="footer-logo-img" />
+
+      <h2 class="footer-title">TRIP N’ JOY</h2>
+      <p class="footer-subtitle">VIVE GRANDES EXPERIENCIAS</p>
+
+      <h3 class="footer-section-title">Nuestras redes sociales:</h3>
+
+      <div class="social-icons">
+        <img src="instagram.png" alt="Instagram" class="icon" />
+        <img src="youtube.png" alt="YouTube" class="icon" />
+        <img src="facebook.png" alt="Facebook" class="icon" />
+        <img src="twitter.png" alt="Twitter" class="icon" />
+      </div>
+    </div>
+
+    <!-- COLUMNA CENTRAL -->
+    <div class="footer-col center-col">
+      <h3 class="footer-section-title">Temas Legales</h3>
+      <p>Política de privacidad</p>
+      <br>
+      <p>Aviso Legal</p>
+      <br>
+      <p>Política de Devoluciones</p>
+
+      <h3 class="footer-section-title asociados-title">Asociados</h3>
+
+      <div class="partners-row">
+      <a href="https://www.axa.es" target="_blank">
+        <img src="axa.png" alt="AXA" class="partner-img"/>
+      </a>
+
+      <a href="https://www.vueling.com" target="_blank">
+      <img src="vueling.png" alt="Vueling" class="partner-img" />
+      </a>
+
+      <a href="https://www.vueling.com" target="_blank">
+      <img src="evaneos.png" alt="Evaneos" class="partner-img" />
+      </a>
+    </div>
+
+
+      <p class="footer-quote">“Construyendo recuerdos y aventuras inolvidables”</p>
+    </div>
+
+    <!-- COLUMNA DERECHA -->
+    <div class="footer-col right-col">
+      <h3 class="footer-section-title">Contacta con nosotros:</h3>
+
+      <p>📍 Camí dels Frares, Carrer O, Parcela 6, 25191 Lleida</p>
+      <p>📞 (+34) 612 542 515</p>
+      <p>✉️ tripnjoy@newstart.es</p>
+      <p>🕒 Lunes a jueves de 08:00 a 18:00</p>
+      <p>🕒 Viernes de 08:00 a 14:30</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- POPUP PERFIL -->
+<input type="checkbox" id="modal-perfil-toggle" class="modal-checkbox">
+
+<div class="modal-perfil-overlay">
+  <div class="modal-perfil-content">
+
+    <h1 class="perfil-title">EDITAR PERFIL</h1>
+
+    <div class="perfil-img-container">
+      <img src="perfil.png" alt="Perfil" class="perfil-img">
+    </div>
+
+    <div class="perfil-form">
+
+      <label>Nombre</label>
+      <input type="text" placeholder="Cambiar Nombre">
+
+      <label>Apellido</label>
+      <input type="text" placeholder="Cambiar Apellido">
+
+      <label>Email</label>
+      <input type="email" placeholder="Cambiar Email">
+
+      <label>Teléfono</label>
+      <input type="text" placeholder="Cambiar Teléfono">
+
+      <label>País de Origen</label>
+      <input type="text" placeholder="Cambiar País">
+    </div>
+
+    <div class="perfil-buttons">
+      <button class="guardar-btn">Guardar Cambios</button>
+      <label for="modal-perfil-toggle" class="cancelar-btn">Cancelar</label>
+    </div>
+
+  </div>
+</div>
+
+
