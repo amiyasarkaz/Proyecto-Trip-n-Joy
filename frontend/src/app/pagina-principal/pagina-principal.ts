@@ -35,4 +35,10 @@ irAQueOfrecemos() {
   irARedesSociales() {
     this.router.navigate(['/redes-sociales']);
   }
+
+  abrirPerfil() {
+  const checkbox = document.getElementById('modal-perfil-toggle') as HTMLInputElement;
+  if (checkbox) checkbox.checked = true;
+}
+
 }

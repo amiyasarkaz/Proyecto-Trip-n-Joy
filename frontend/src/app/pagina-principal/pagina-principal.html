@@ -7,8 +7,10 @@
   </div>
 
   <div class="nav-right">
-    <span class="user-icon">👤</span>
-    <span class="profile">{{ userName || 'MI PERFIL' }}</span>
+    <span class="profile" (click)="abrirPerfil()">
+      {{ userName || 'MI PERFIL' }}
+</span>
+
   </div>
 </nav>
 
@@ -126,4 +128,43 @@
 
   </div>
 </footer>
+
+<!-- POPUP PERFIL -->
+<input type="checkbox" id="modal-perfil-toggle" class="modal-checkbox">
+
+<div class="modal-perfil-overlay">
+  <div class="modal-perfil-content">
+
+    <h1 class="perfil-title">EDITAR PERFIL</h1>
+
+    <div class="perfil-img-container">
+      <img src="perfil.png" alt="Perfil" class="perfil-img">
+    </div>
+
+    <div class="perfil-form">
+
+      <label>Nombre</label>
+      <input type="text" placeholder="Cambiar Nombre">
+
+      <label>Apellido</label>
+      <input type="text" placeholder="Cambiar Apellido">
+
+      <label>Email</label>
+      <input type="email" placeholder="Cambiar Email">
+
+      <label>Teléfono</label>
+      <input type="text" placeholder="Cambiar Teléfono">
+
+      <label>País de Origen</label>
+      <input type="text" placeholder="Cambiar País">
+    </div>
+
+    <div class="perfil-buttons">
+      <button class="guardar-btn">Guardar Cambios</button>
+      <label for="modal-perfil-toggle" class="cancelar-btn">Cancelar</label>
+    </div>
+
+  </div>
+</div>
+
 
