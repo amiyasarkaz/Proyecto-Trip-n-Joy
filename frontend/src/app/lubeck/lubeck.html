@@ -14,11 +14,9 @@
 
   <!-- Descripción -->
   <p class="descripcion">
-    Se alquila una tranquila habitación para huéspedes con entrada independiente, baño privado, cocina con despensa y terraza en la azotea. La cama mide 1,40 x 2,00 m (4,6 x 6,6 pies). Se puede llegar fácilmente a la bahía de Lübeck. También es muy adecuado para dar paseos, y a unos 12 minutos a pie hay un pequeño puerto deportivo y una piscina exterior.
-    Distancia en coche al centro de la ciudad: unos 10 km. En autobús a unos 40 minutos de la ciudad y a unos 45 minutos de la estación de tren.
-    2 gatos también viven con mi marido y yo.
+    Se alquila una tranquila habitación para huéspedes con entrada independiente, baño privado, cocina con despensa y terraza en la azotea. La cama mide 1,40 x 2,00 m.
     <br><br>
-    Un ambiente luminoso y cuidadosamente decorado te da la bienvenida. La mesa de comedor de madera clara, acompañada de sillas tapizadas de alta calidad, crea el lugar ideal para disfrutar de comidas tranquilas o trabajar cómodamente. La estantería al fondo, repleta de detalles decorativos y libros, aporta carácter y calidez, convirtiendo esta zona en un rincón perfecto para desconectar.<br><br>
+    Un ambiente luminoso y cuidadosamente decorado te da la bienvenida. La mesa de comedor de madera clara, acompañada de sillas tapizadas de alta calidad, crea el lugar ideal para disfrutar de comidas tranquilas o trabajar cómodamente.
   </p>
 
   <!-- Precio -->
@@ -27,48 +25,32 @@
     <p>890 € mensual</p>
   </div>
 
-  <!-- Especificaciones -->
+  <!-- Botones -->
   <div class="botones-container">
-  <button (click)="abrirEspecificaciones()">Especificaciones</button>
-    <button (click)="abrirValoraciones()">Valoraciones</button> 
-  <button (click)="abrirPago()">Método de Pago</button>
+    <button (click)="abrirEspecificaciones()">Especificaciones</button>
+    <button (click)="irAValoraciones()">Valoraciones</button> 
+    <button (click)="abrirPago()">Método de Pago</button>
   </div>
 
-  <!-- Valoraciones -->
-  @if (mostrarValoraciones) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
-
-  <div class="popup">
-    <valoraciones1 (cerrar)="cerrarPopup()"></valoraciones1>
-  </div>
-}
-  <!--Especificaciones -->
+  <!-- Especificaciones -->
   @if (mostrarEspecificaciones) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="popup">
+      <h2>Especificaciones</h2>
+      <especificacioneslubeck></especificacioneslubeck>
+      <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+    </div>
+  }
 
-  <div class="popup">
-    <h2>Especificaciones</h2>
-
-    <especificacioneslubeck></especificacioneslubeck>
-
-    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
-  </div>
-
-  
-} <!--Método de Pago-->
+  <!-- Método de Pago -->
   @if (mostrarPago) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
-
-  <div class="popup">
-    <h2>Método de Pago</h2>
-
-    <p>
-      Aquí va el contenido del Método de Pago.
-    </p>
-
-    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
-  </div>
-}
+    <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="popup">
+      <h2>Método de Pago</h2>
+      <p>Aquí va el contenido del Método de Pago.</p>
+      <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+    </div>
+  }
 
   <button class="volver-btn" (click)="volver()">VOLVER</button>
 

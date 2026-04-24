@@ -1,45 +1,39 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Valoraciones1 } from '../valoraciones/valoraciones1';
 import { Especificacionesbremen } from '../especificacionesbremen/especificacionesbremen';
 
-
 @Component({
-  selector: 'bremen',
-  imports: [Especificacionesbremen, Valoraciones1],
+  selector: 'app-bremen',
   standalone: true,
+  imports: [Especificacionesbremen],
   templateUrl: './bremen.html',
   styleUrls: ['./bremen.css']
 })
 export class Bremen {
+
+  mostrarEspecificaciones = false;
+  mostrarPago = false;
 
   constructor(private router: Router) {}
 
   volver() {
     this.router.navigate(['/alemania']);
   }
-    mostrarEspecificaciones = false;
-  mostrarPago = false;
 
-abrirEspecificaciones() {
-  this.mostrarEspecificaciones = true;
-}
+  abrirEspecificaciones() {
+    this.mostrarEspecificaciones = true;
+  }
 
-abrirPago() {
-  this.mostrarPago = true;
-}
+  abrirPago() {
+    this.mostrarPago = true;
+  }
 
-cerrarPopup() {
-  this.mostrarEspecificaciones = false;
-  this.mostrarPago = false;
-  this.mostrarValoraciones = false;
-}
+  cerrarPopup() {
+    this.mostrarEspecificaciones = false;
+    this.mostrarPago = false;
+  }
 
-mostrarValoraciones = false;
-
-abrirValoraciones() {
-  this.mostrarValoraciones = true;
-}
-
-
+  irAValoraciones() {
+    this.router.navigate(['/valoraciones', 'Bremen']);
+  }
 }

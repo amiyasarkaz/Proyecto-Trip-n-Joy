@@ -17,8 +17,6 @@
     Este encantador alojamiento está situado en una zona tranquila de Stavanger, a solo unos minutos del centro, tiendas y restaurantes. La habitación privada, luminosa y de estilo nórdico sencillo, ofrece una cama individual cómoda y ropa de cama de calidad, creando un ambiente cálido y relajante ideal para viajeros solos.
     <br><br>
     El baño es compartido, pero las excelentes valoraciones garantizan una limpieza impecable y buena convivencia. El alojamiento está equipado para estancias largas: incluye acceso a cocina totalmente equipada, lavadora, secadora (con suplemento), calefacción y una terraza exterior para relajarse.
-    Como detalle especial, los fines de semana hay desayuno continental opcional (previo pago). Con un precio por debajo de la media y un ambiente auténtico y hogareño, es la opción perfecta para quienes buscan comodidad y tranquilidad en Stavanger.    <br><br>
-    La villa ofrece además zonas comunes agradables, incluyendo espacios exteriores perfectos para disfrutar del verano: tumbonas, una zona para comer al aire libre y una terraza donde relajarse tras un día de excursiones. Con un precio por debajo de la media y cancelación gratuita, es una opción muy atractiva para quienes buscan comodidad, buena ubicación y un toque auténtico de vida local en Stavanger.
   </p>
 
   <!-- Precio -->
@@ -27,48 +25,32 @@
     <p>869 € mensual</p>
   </div>
 
-  <!-- Especificaciones -->
+  <!-- Botones -->
   <div class="botones-container">
-  <button (click)="abrirEspecificaciones()">Especificaciones</button>
-    <button (click)="abrirValoraciones()">Valoraciones</button> 
-  <button (click)="abrirPago()">Método de Pago</button>
+    <button (click)="abrirEspecificaciones()">Especificaciones</button>
+    <button (click)="irAValoraciones()">Valoraciones</button> 
+    <button (click)="abrirPago()">Método de Pago</button>
   </div>
 
-  <!-- Valoraciones -->
-  @if (mostrarValoraciones) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
-
-  <div class="popup">
-    <valoraciones1 (cerrar)="cerrarPopup()"></valoraciones1>
-  </div>
-}
-  <!--Especificaciones -->
+  <!-- Especificaciones -->
   @if (mostrarEspecificaciones) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="popup">
+      <h2>Especificaciones</h2>
+      <especificacionesstavanger></especificacionesstavanger>
+      <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+    </div>
+  }
 
-  <div class="popup">
-    <h2>Especificaciones</h2>
-
-    <especificacionesstavanger></especificacionesstavanger>
-
-    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
-  </div>
-
-  
-} <!--Método de Pago-->
+  <!-- Método de Pago -->
   @if (mostrarPago) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
-
-  <div class="popup">
-    <h2>Método de Pago</h2>
-
-    <p>
-      Aquí va el contenido del Método de Pago.
-    </p>
-
-    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
-  </div>
-}
+    <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="popup">
+      <h2>Método de Pago</h2>
+      <p>Aquí va el contenido del Método de Pago.</p>
+      <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+    </div>
+  }
 
   <button class="volver-btn" (click)="volver()">VOLVER</button>
 

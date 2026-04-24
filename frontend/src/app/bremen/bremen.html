@@ -14,12 +14,9 @@
 
   <!-- Descripción -->
   <p class="descripcion">
-    El apartamento es acogedor, luminoso y también un poco especial. Después de la puerta de entrada del apartamento, estás directamente en la primera sala de estar: la sala de estar y el comedor. El sofá es extensible, por lo que no es necesario que otra persona comparta la cama contigo. La mesa del comedor también se puede plegar, por lo que también se puede utilizar como escritorio.
+    El apartamento es acogedor, luminoso y también un poco especial. Después de la puerta de entrada del apartamento, estás directamente en la primera sala de estar: la sala de estar y el comedor. El sofá es extensible, por lo que no es necesario que otra persona comparta la cama contigo.
     <br><br>
     Desde la sala de estar, se accede directamente a la habitación. Una cama de 1,40 m de ancho, un armario grande y una cómoda te esperan aquí. La ventana da a la terraza privada y también tiene una contraventana.
-    <br><br>
-    Desde el dormitorio se accede al pasillo. Para que el dormitorio también pueda ser más privado, el paso al pasillo se puede separar con una cortina. Hay un armario en el pasillo.
-    Desde el pasillo se llega a la pequeña cocina. No gana premios de belleza ni de fealdad, pero es totalmente funcional. Una nevera grande con congelador, estufa, 4 hornillos, microondas, cafetera y hervidor de agua están esperando a que los uses.
   </p>
 
   <!-- Precio -->
@@ -28,48 +25,32 @@
     <p>700 € mensual</p>
   </div>
 
-  <!-- Especificaciones -->
+  <!-- Botones -->
   <div class="botones-container">
-  <button (click)="abrirEspecificaciones()">Especificaciones</button>
-    <button (click)="abrirValoraciones()">Valoraciones</button> 
-  <button (click)="abrirPago()">Método de Pago</button>
+    <button (click)="abrirEspecificaciones()">Especificaciones</button>
+    <button (click)="irAValoraciones()">Valoraciones</button> 
+    <button (click)="abrirPago()">Método de Pago</button>
   </div>
 
-  <!-- Valoraciones -->
-  @if (mostrarValoraciones) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
-
-  <div class="popup">
-    <valoraciones1 (cerrar)="cerrarPopup()"></valoraciones1>
-  </div>
-}
-  <!--Especificaciones -->
+  <!-- Especificaciones -->
   @if (mostrarEspecificaciones) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="popup">
+      <h2>Especificaciones</h2>
+      <especificacionesbremen></especificacionesbremen>
+      <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+    </div>
+  }
 
-  <div class="popup">
-    <h2>Especificaciones</h2>
-
-    <especificacionesbremen></especificacionesbremen>
-
-    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
-  </div>
-
-  
-} <!--Método de Pago-->
+  <!-- Método de Pago -->
   @if (mostrarPago) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
-
-  <div class="popup">
-    <h2>Método de Pago</h2>
-
-    <p>
-      Aquí va el contenido del Método de Pago.
-    </p>
-
-    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
-  </div>
-}
+    <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="popup">
+      <h2>Método de Pago</h2>
+      <p>Aquí va el contenido del Método de Pago.</p>
+      <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+    </div>
+  }
 
   <button class="volver-btn" (click)="volver()">VOLVER</button>
 

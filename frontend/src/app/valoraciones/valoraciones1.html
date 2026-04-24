@@ -1,7 +1,15 @@
-<div class="valoraciones-container">
-  <h2 class="titulo">Valoraciones</h2>
+<div class="valoraciones-page">
+  
+  <div class="page-header">
+    <button class="btn-volver" (click)="volver()">← Volver</button>
+    <h1>Valoraciones de {{ destino }}</h1>
+  </div>
 
-  <!-- Formulario para nuevo comentario -->
+  <div class="filtros">
+    <button (click)="mostrarRecientes()" [class.active]="!todasVisibles">📅 Más recientes (5)</button>
+    <button (click)="mostrarTodas()" [class.active]="todasVisibles">📋 Ver todas ({{ valoraciones.length }})</button>
+  </div>
+
   <div class="nuevo-comentario" *ngIf="usuarioLogueado">
     <h3>Deja tu opinión</h3>
     
@@ -31,23 +39,21 @@
   </div>
 
   <div *ngIf="!usuarioLogueado" class="login-aviso">
-    <p>🔐 Inicia sesión para dejar tu opinión</p>
+    🔐 Inicia sesión para dejar tu opinión
   </div>
 
-  <!-- Lista de valoraciones -->
-  <div class="valoracion" *ngFor="let v of valoraciones">
-    <img class="avatar" [src]="v.avatar || 'default-avatar.png'" [alt]="v.usuario">
+  <div class="valoracion" *ngFor="let v of valoracionesMostradas">
+    <div class="avatar">👤</div>
     <div class="contenido">
-      <h3 class="usuario">{{ v.usuario }}</h3>
+      <h3>{{ v.usuario }}</h3>
       <div class="estrellas">{{ getStars(v.puntuacion) }}</div>
-      <p class="texto">{{ v.comentario }}</p>
-      <small *ngIf="v.destino">Destino: {{ v.destino }}</small>
+      <p>{{ v.comentario }}</p>
+      <small>{{ v.created_at | date:'dd/MM/yyyy' }}</small>
     </div>
   </div>
 
-  <div *ngIf="valoraciones.length === 0" class="sin-valoraciones">
-    <p>No hay valoraciones aún. ¡Sé el primero en comentar!</p>
+  <div *ngIf="valoracionesMostradas.length === 0" class="sin-valoraciones">
+    No hay valoraciones aún. ¡Sé el primero en comentar!
   </div>
 
-  <button class="regresar" (click)="cerrar.emit()">Regresar</button>
 </div>

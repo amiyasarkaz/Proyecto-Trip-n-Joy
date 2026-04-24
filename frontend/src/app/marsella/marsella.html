@@ -16,10 +16,7 @@
   <p class="descripcion">
     Este acogedor alojamiento ofrece una habitación privada en un apartamento luminoso y perfectamente ubicado en el corazón de Marsella. Es una opción ideal para viajeros que buscan comodidad, cercanía a los principales puntos de interés y una experiencia auténtica en la ciudad.
     <br><br>
-    Situado en una cuarta planta sin ascensor, el apartamento recompensa el pequeño esfuerzo de la subida con un ambiente tranquilo, vistas agradables y una sensación de intimidad difícil de encontrar en zonas tan céntricas. (Eso sí, prepárate un poco las piernas para la subida 😉)
-    <br><br>
-    El resto del piso es luminoso, tranquilo y con un ambiente hogareño. Es perfecto para viajeros que buscan un espacio sencillo, bien cuidado y con una ubicación estratégica para disfrutar de Marsella sin complicaciones.
-    <br><br>
+    Situado en una cuarta planta sin ascensor, el apartamento recompensa el pequeño esfuerzo de la subida con un ambiente tranquilo, vistas agradables y una sensación de intimidad difícil de encontrar en zonas tan céntricas.
   </p>
 
   <!-- Precio -->
@@ -28,48 +25,32 @@
     <p>661 € mensual</p>
   </div>
 
-  <!-- Especificaciones -->
+  <!-- Botones -->
   <div class="botones-container">
-  <button (click)="abrirEspecificaciones()">Especificaciones</button>
-    <button (click)="abrirValoraciones()">Valoraciones</button> 
-  <button (click)="abrirPago()">Método de Pago</button>
+    <button (click)="abrirEspecificaciones()">Especificaciones</button>
+    <button (click)="irAValoraciones()">Valoraciones</button> 
+    <button (click)="abrirPago()">Método de Pago</button>
   </div>
 
-  <!-- Valoraciones -->
-  @if (mostrarValoraciones) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
-
-  <div class="popup">
-    <valoraciones1 (cerrar)="cerrarPopup()"></valoraciones1>
-  </div>
-}
-  <!--Especificaciones -->
+  <!-- Especificaciones -->
   @if (mostrarEspecificaciones) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="popup">
+      <h2>Especificaciones</h2>
+      <especificacionesmarsella></especificacionesmarsella>
+      <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+    </div>
+  }
 
-  <div class="popup">
-    <h2>Especificaciones</h2>
-
-    <especificacionesmarsella></especificacionesmarsella>
-
-    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
-  </div>
-
-  
-} <!--Método de Pago-->
+  <!-- Método de Pago -->
   @if (mostrarPago) {
-  <div class="overlay" (click)="cerrarPopup()"></div>
-
-  <div class="popup">
-    <h2>Método de Pago</h2>
-
-    <p>
-      Aquí va el contenido del Método de Pago.
-    </p>
-
-    <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
-  </div>
-}
+    <div class="overlay" (click)="cerrarPopup()"></div>
+    <div class="popup">
+      <h2>Método de Pago</h2>
+      <p>Aquí va el contenido del Método de Pago.</p>
+      <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
+    </div>
+  }
 
   <button class="volver-btn" (click)="volver()">VOLVER</button>
 

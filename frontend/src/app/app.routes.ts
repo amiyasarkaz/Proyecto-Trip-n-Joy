@@ -20,8 +20,7 @@ import { Lubeck } from './lubeck/lubeck';
 import { Marsella } from './marsella/marsella';
 import { Toulouse } from './toulouse/toulouse';
 import { Tours } from './tours/tours';
-
-
+import { Valoraciones1 } from './valoraciones/valoraciones1';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
@@ -44,6 +43,6 @@ export const routes: Routes = [
   { path: 'lubeck', component: Lubeck },
   { path: 'marsella', component: Marsella },
   { path: 'toulouse', component: Toulouse },
-  { path: 'tours', component: Tours }
-  
+  { path: 'tours', component: Tours },  
+  { path: 'valoraciones/:destino', component: Valoraciones1 },
 ];

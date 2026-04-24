@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'valoraciones1',
@@ -13,9 +14,12 @@ import { CommonModule } from '@angular/common';
 export class Valoraciones1 implements OnInit {
   
   @Input() destino: string = '';
-  @Output() cerrar = new EventEmitter<void>();
 
   valoraciones: any[] = [];
+  valoracionesMostradas: any[] = [];
+  
+  limiteMostrar = 5;
+  todasVisibles = false;
   
   nuevoComentario = {
     destino: '',
@@ -28,7 +32,7 @@ export class Valoraciones1 implements OnInit {
   cargando = false;
   usuarioLogueado = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.usuarioLogueado = !!localStorage.getItem('token');
@@ -38,23 +42,39 @@ export class Valoraciones1 implements OnInit {
 
   cargarValoraciones() {
     const url = `http://localhost/api/valoraciones/${this.destino}`;
-      
+    
     this.http.get(url).subscribe({
       next: (data: any) => {
         this.valoraciones = data;
-        console.log('✅ Valoraciones cargadas:', data.length);
+        this.actualizarListaMostrada();
       },
       error: (err) => {
-        console.error('Error al cargar:', err);
+        console.error('Error:', err);
+        this.error = 'Error al cargar valoraciones';
       }
     });
   }
 
-  enviarComentario() {
-    // Asegurar que destino tiene el valor correcto
-    this.nuevoComentario.destino = this.destino;
+  actualizarListaMostrada() {
+    if (this.todasVisibles) {
+      this.valoracionesMostradas = [...this.valoraciones];
+    } else {
+      this.valoracionesMostradas = this.valoraciones.slice(0, this.limiteMostrar);
+    }
+  }
 
-    console.log('📤 Enviando comentario:', this.nuevoComentario);
+  mostrarTodas() {
+    this.todasVisibles = true;
+    this.actualizarListaMostrada();
+  }
+
+  mostrarRecientes() {
+    this.todasVisibles = false;
+    this.actualizarListaMostrada();
+  }
+
+  enviarComentario() {
+    this.nuevoComentario.destino = this.destino;
 
     if (!this.usuarioLogueado) {
       this.error = 'Debes iniciar sesión para comentar';
@@ -77,41 +97,19 @@ export class Valoraciones1 implements OnInit {
       .subscribe({
         next: (respuesta: any) => {
           this.cargando = false;
-          this.mensaje = respuesta.message || '✅ Comentario guardado';
+          this.mensaje = '✅ ' + (respuesta.message || 'Comentario guardado');
           this.nuevoComentario.comentario = '';
-          this.nuevoComentario.puntuacion = 5;
           this.cargarValoraciones();
-          
           setTimeout(() => {
             this.mensaje = '';
           }, 3000);
         },
         error: (error) => {
           this.cargando = false;
-          console.error('❌ Error completo:', error);
-          
-          // ✅ Ver el error detallado del backend
-          if (error.error) {
-            console.error('❌ Respuesta del backend:', error.error);
-            if (error.error.errors) {
-              console.error('❌ Errores detallados:', error.error.errors);
-            }
-          }
-          
           if (error.status === 401) {
             this.error = 'Sesión expirada. Inicia sesión nuevamente.';
-          } else if (error.status === 422) {
-            // Mostrar el error específico del backend
-            if (error.error?.errors) {
-              const errores = Object.values(error.error.errors).flat().join(', ');
-              this.error = '❌ ' + errores;
-            } else if (error.error?.message) {
-              this.error = '❌ ' + error.error.message;
-            } else {
-              this.error = '❌ Error en el formulario. Revisa los datos.';
-            }
           } else {
-            this.error = '❌ Error al enviar el comentario';
+            this.error = 'Error al enviar el comentario';
           }
         }
       });
@@ -121,7 +119,7 @@ export class Valoraciones1 implements OnInit {
     return '⭐'.repeat(puntuacion) + '☆'.repeat(5 - puntuacion);
   }
 
-  cerrarPopup() {
-    this.cerrar.emit();
+  volver() {
+    this.router.navigate(['/' + this.destino.toLowerCase()]);
   }
 }

@@ -20,7 +20,7 @@
     <br><br>
     El edificio se encuentra en una zona residencial rodeada de vegetación y calles tranquilas, lo que aporta una sensación de seguridad y bienestar. La anfitriona, Zeljka, es Superanfitriona y cuenta con excelentes valoraciones, lo que garantiza una buena comunicación y una estancia bien gestionada.
     <br><br>
-    El alojamiento tiene una puntuación muy alta, 4,86 sobre 5, y suele estar reservado con frecuencia debido a su buena relación calidad‑precio, especialmente para estancias largas.
+    El alojamiento tiene una puntuación muy alta, 4,86 sobre 5, y suele estar reservado con frecuencia debido a su buena relación calidad-precio, especialmente para estancias largas.
   </p>
 
   <!-- Precio -->
@@ -32,17 +32,9 @@
   <!-- Botones -->
   <div class="botones-container">
     <button (click)="abrirEspecificaciones()">Especificaciones</button>
-    <button (click)="abrirValoraciones()">Valoraciones</button> 
+    <button (click)="irAValoraciones()">Valoraciones</button> 
     <button (click)="abrirPago()">Método de Pago</button>
   </div>
-
-  <!-- ✅ VALORACIONES CORREGIDO -->
-  @if (mostrarValoraciones) {
-    <div class="overlay" (click)="cerrarPopup()"></div>
-    <div class="popup">
-      <valoraciones1 [destino]="'Oslo'" (cerrar)="cerrarPopup()"></valoraciones1>
-    </div>
-  }
 
   <!-- Especificaciones -->
   @if (mostrarEspecificaciones) {

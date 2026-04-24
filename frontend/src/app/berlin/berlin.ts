@@ -1,45 +1,39 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Valoraciones1 } from '../valoraciones/valoraciones1';
 import { Especificacionesberlin } from '../especificacionesberlin/especificacionesberlin';
 
-
 @Component({
-  selector: 'berlin',
-  imports: [Especificacionesberlin, Valoraciones1],
+  selector: 'app-berlin',
   standalone: true,
+  imports: [Especificacionesberlin],
   templateUrl: './berlin.html',
   styleUrls: ['./berlin.css']
 })
 export class Berlin {
+
+  mostrarEspecificaciones = false;
+  mostrarPago = false;
 
   constructor(private router: Router) {}
 
   volver() {
     this.router.navigate(['/alemania']);
   }
-    mostrarEspecificaciones = false;
-  mostrarPago = false;
 
-abrirEspecificaciones() {
-  this.mostrarEspecificaciones = true;
-}
+  abrirEspecificaciones() {
+    this.mostrarEspecificaciones = true;
+  }
 
-abrirPago() {
-  this.mostrarPago = true;
-}
+  abrirPago() {
+    this.mostrarPago = true;
+  }
 
-cerrarPopup() {
-  this.mostrarEspecificaciones = false;
-  this.mostrarPago = false;
-  this.mostrarValoraciones = false;
-}
+  cerrarPopup() {
+    this.mostrarEspecificaciones = false;
+    this.mostrarPago = false;
+  }
 
-mostrarValoraciones = false;
-
-abrirValoraciones() {
-  this.mostrarValoraciones = true;
-}
-
-
+  irAValoraciones() {
+    this.router.navigate(['/valoraciones', 'Berlin']);
+  }
 }
