@@ -4,7 +4,10 @@
 <!-- Banner superior -->
 <div class="top-banner">
   <h1 class="banner-title">ALEMANIA</h1>
-  <img src="btninfo.png" class="banner-info-icon" />
+  <!-- Icono que abre el popup -->
+  <label for="modal-info-alemania">
+    <img src="btninfo.png" class="banner-info-icon">
+  </label>
 </div>
 
 <!-- Tarjetas centradas -->
@@ -27,3 +30,25 @@
 
 </div>
 
+<input type="checkbox" id="modal-info-alemania" class="modal-checkbox">
+
+<div class="modal-info-overlay">
+  <div class="modal-info-content">
+
+    <h2 class="info-title">Información Médica - Alemania</h2>
+
+    <p class="info-text">
+      Es obligatorio contar con un seguro de salud válido en el país que cubra enfermedades y accidentes durante toda la estancia.<br><br>
+      Infórmate con al menos 12 semanas de anticipación.
+    </p>
+
+    <label for="modal-info-alemania" class="cerrar-info">Cerrar</label>
+
+  </div>
+</div>
+
+<div class="volver-pais-container">
+  <button class="btn-volver-pais" routerLink="/pagina-principal">
+    VOLVER A LA PÁGINA PRINCIPAL
+  </button>
+</div>

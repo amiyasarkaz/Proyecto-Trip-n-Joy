@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { Router, RouterModule } from '@angular/router';
+  
 @Component({
   selector: 'app-alemania',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './alemania.html',
   styleUrl: './alemania.css',
 })

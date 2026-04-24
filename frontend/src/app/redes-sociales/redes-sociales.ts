@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'redes-sociales',
   standalone: true,
+  imports: [RouterModule],
   templateUrl: './redes-sociales.html',
   styleUrls: ['./redes-sociales.css']
 })

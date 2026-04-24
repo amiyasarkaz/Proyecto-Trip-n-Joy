@@ -1,0 +1,96 @@
+.valoraciones-generales {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Fondo */
+.bg-valoraciones {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay oscuro */
+.overlay-valoraciones {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+/* Contenido */
+.content-valoraciones {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  color: white;
+}
+
+/* Título */
+.titulo-valoraciones {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 900;
+  margin-bottom: 120px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+}
+
+/* Grid de tarjetas */
+.grid-valoraciones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+}
+
+/* Tarjeta */
+.card-valoracion {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.foto-valoracion {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.estrellas {
+  font-size: 1.3rem;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+/* Botón volver */
+.btn-volver {
+  display: block;
+  margin: 40px auto 0 auto; /* centra horizontalmente */
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  background: #ff5252; /* rojo */
+  color: white;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 4px 12px rgba(255,82,82,0.35);
+}
+
+.btn-volver:hover {
+  background: #ff1744;
+  transform: translateY(-3px);
+}
+
