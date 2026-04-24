@@ -80,3 +80,101 @@
   transform: scale(1.07);
 }
 
+.modal-checkbox {
+  display: none;
+}
+
+.modal-info-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  backdrop-filter: blur(4px);
+}
+
+#modal-info-francia:checked ~ .modal-info-overlay,
+#modal-info-noruega:checked ~ .modal-info-overlay,
+#modal-info-alemania:checked ~ .modal-info-overlay {
+  display: flex;
+}
+
+.modal-info-content {
+  background: rgba(255, 255, 255, 0.068);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  width: 420px;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.info-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.info-text {
+  color: white;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.cerrar-info {
+  background: #ff5252;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.cerrar-info:hover {
+  background: #ff1744;
+  transform: translateY(-3px);
+}
+
+.banner-info-icon {
+  width: 30px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.banner-info-icon:hover {
+  transform: scale(1.15);
+}
+
+.volver-pais-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.btn-volver-pais {
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 2px solid white;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  color: white;
+  cursor: pointer;
+  transition: 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-volver-pais:hover {
+  background: white;
+  color: #2d3b54;
+  transform: translateY(-3px);
+}

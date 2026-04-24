@@ -21,9 +21,10 @@ import { Marsella } from './marsella/marsella';
 import { Toulouse } from './toulouse/toulouse';
 import { Tours } from './tours/tours';
 import { Valoraciones1 } from './valoraciones/valoraciones1';
+import { ValoracionesGenerales } from './valoraciones-generales/valoraciones-generales';
 
 export const routes: Routes = [
-  { path: 'home', component: Home },
+  { path: '', component: Home },
   { path: 'login', component: Login },
   { path: 'registro', component: RegistroComponent },  
   { path: 'bienvenido', component: Bienvenido },
@@ -45,4 +46,7 @@ export const routes: Routes = [
   { path: 'toulouse', component: Toulouse },
   { path: 'tours', component: Tours },  
   { path: 'valoraciones/:destino', component: Valoraciones1 },
+  { path: 'tours', component: Tours },
+  { path: 'valoraciones-generales', component: ValoracionesGenerales }
+  
 ];

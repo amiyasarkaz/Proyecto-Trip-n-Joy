@@ -329,106 +329,139 @@
 }
 
 /* POPUP PERFIL */
-.modal-checkbox {
-  display: none;
-}
-
+/* OVERLAY */
 .modal-perfil-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.35); /* más suave */
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 3000;
+  backdrop-filter: blur(4px); /* blur global */
 }
 
 #modal-perfil-toggle:checked ~ .modal-perfil-overlay {
   display: flex;
 }
 
+/* CONTENEDOR DEL POPUP */
 .modal-perfil-content {
-  background: rgba(255, 255, 255, 0.65); /* blanco con transparencia */
-  backdrop-filter: blur(8px); /* efecto cristal */
-  width: 420px;
-  padding: 30px;
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.281); /* cristal */
+  backdrop-filter: blur(18px); /* efecto glass */
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  width: 430px;
+  padding: 35px;
+  border-radius: 22px;
   text-align: center;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.35s ease;
 }
 
+/* TÍTULO */
 .perfil-title {
-  font-size: 1.8rem;
-  font-weight: 900;
-  margin-bottom: 20px;
-  color: #2d3b54;
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
+/* FOTO */
 .perfil-img-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .perfil-img {
-  width: 110px;
-  height: 110px;
+  width: 115px;
+  height: 115px;
   border-radius: 50%;
   object-fit: cover;
+  border: 3px solid rgba(255,255,255,0.6);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
+/* FORMULARIO */
 .perfil-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 18px;
   text-align: left;
 }
 
 .perfil-form label {
   font-weight: 700;
-  color: #2d3b54;
+  color: white;
+  font-size: 0.95rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
 .perfil-form input {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.25);
+  color: white;
   outline: none;
+  font-size: 1rem;
+  backdrop-filter: blur(6px);
+  transition: 0.25s ease;
 }
 
+.perfil-form input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.perfil-form input:focus {
+  border-color: white;
+  background: rgba(255,255,255,0.35);
+}
+
+/* BOTONES */
 .perfil-buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
 .guardar-btn {
-  background: #10a109;
+  background: #00c853;
   color: white;
-  padding: 12px 20px;
-  border-radius: 10px;
+  padding: 12px 22px;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
   font-weight: 700;
+  transition: 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,200,83,0.35);
+}
+
+.guardar-btn:hover {
+  background: #00e676;
+  transform: translateY(-3px);
 }
 
 .cancelar-btn {
-  background: #d9534f;
+  background: #ff5252;
   color: white;
-  padding: 12px 20px;
-  border-radius: 10px;
+  padding: 12px 22px;
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 700;
+  transition: 0.25s ease;
+  box-shadow: 0 4px 12px rgba(255,82,82,0.35);
 }
 
+.cancelar-btn:hover {
+  background: #ff1744;
+  transform: translateY(-3px);
+}
+
+/* ANIMACIÓN */
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
+  from { opacity: 0; transform: scale(0.92); }
   to { opacity: 1; transform: scale(1); }
-}
-
-.profile {
-  cursor: pointer;
-}
-.profile:hover {
-  opacity: 0.8;
 }

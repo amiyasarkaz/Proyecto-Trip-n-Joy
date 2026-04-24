@@ -28,8 +28,8 @@ goFrancia() {
   this.router.navigate(['/francia']);
 }
 
-irAQueOfrecemos() {
-    this.router.navigate(['/que-ofrecemos']);
+irAValoracionesGenerales() {
+    this.router.navigate(['/valoraciones-generales']);
   }
 
   irARedesSociales() {
