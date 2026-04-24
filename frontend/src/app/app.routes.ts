@@ -24,7 +24,7 @@ import { Tours } from './tours/tours';
 
 
 export const routes: Routes = [
-  { path: 'home', component: Home },
+  { path: '', component: Home },
   { path: 'login', component: Login },
   { path: 'registro', component: RegistroComponent },  
   { path: 'bienvenido', component: Bienvenido },
