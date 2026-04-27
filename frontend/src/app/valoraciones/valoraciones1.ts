@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'valoraciones1',
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class Valoraciones1 implements OnInit {
   
-  @Input() destino: string = '';
+  destino: string = '';
 
   valoraciones: any[] = [];
   valoracionesMostradas: any[] = [];
@@ -32,9 +32,17 @@ export class Valoraciones1 implements OnInit {
   cargando = false;
   usuarioLogueado = false;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    // Obtener el destino de la URL
+    this.destino = this.route.snapshot.paramMap.get('destino') || '';
+    console.log('🎯 Destino recibido:', this.destino);
+    
     this.usuarioLogueado = !!localStorage.getItem('token');
     this.nuevoComentario.destino = this.destino;
     this.cargarValoraciones();
@@ -42,14 +50,16 @@ export class Valoraciones1 implements OnInit {
 
   cargarValoraciones() {
     const url = `http://localhost/api/valoraciones/${this.destino}`;
+    console.log('📡 Cargando valoraciones desde:', url);
     
     this.http.get(url).subscribe({
       next: (data: any) => {
         this.valoraciones = data;
         this.actualizarListaMostrada();
+        console.log('✅ Valoraciones cargadas:', data.length);
       },
       error: (err) => {
-        console.error('Error:', err);
+        console.error('❌ Error al cargar:', err);
         this.error = 'Error al cargar valoraciones';
       }
     });
@@ -75,6 +85,7 @@ export class Valoraciones1 implements OnInit {
 
   enviarComentario() {
     this.nuevoComentario.destino = this.destino;
+    console.log('📤 Datos a enviar:', this.nuevoComentario);
 
     if (!this.usuarioLogueado) {
       this.error = 'Debes iniciar sesión para comentar';
@@ -96,19 +107,38 @@ export class Valoraciones1 implements OnInit {
     this.http.post('http://localhost/api/valoraciones', this.nuevoComentario, { headers })
       .subscribe({
         next: (respuesta: any) => {
+          console.log('✅ Respuesta del backend:', respuesta);
           this.cargando = false;
-          this.mensaje = '✅ ' + (respuesta.message || 'Comentario guardado');
+          
+          // ✅ Alerta de confirmación - al aceptar recarga la página
+          alert('✅ ¡Valoración enviada correctamente!');
+          
+          // ✅ Recargar la página completa para ver el nuevo comentario
+          window.location.reload();
+          
+          // Limpiar formulario (se ejecuta antes de recargar)
           this.nuevoComentario.comentario = '';
-          this.cargarValoraciones();
-          setTimeout(() => {
-            this.mensaje = '';
-          }, 3000);
         },
         error: (error) => {
           this.cargando = false;
-          if (error.status === 401) {
+          console.error('❌ Error respuesta:', error);
+          
+          // ✅ Alerta de error
+          if (error.error?.errors) {
+            const errores = Object.values(error.error.errors).flat().join(', ');
+            alert('❌ Error al enviar la valoración:\n' + errores);
+            this.error = '❌ ' + errores;
+          } else if (error.error?.message) {
+            alert('❌ Error al enviar la valoración:\n' + error.error.message);
+            this.error = '❌ ' + error.error.message;
+          } else if (error.status === 401) {
+            alert('❌ Sesión expirada. Inicia sesión nuevamente.');
             this.error = 'Sesión expirada. Inicia sesión nuevamente.';
+          } else if (error.status === 422) {
+            alert('❌ Error en el formulario. Revisa los datos e inténtalo de nuevo.');
+            this.error = 'Error en el formulario';
           } else {
+            alert('❌ Error al enviar el comentario. Inténtalo de nuevo más tarde.');
             this.error = 'Error al enviar el comentario';
           }
         }

@@ -9,8 +9,7 @@
   <div class="nav-right">
     <span class="profile" (click)="abrirPerfil()">
       {{ userName || 'MI PERFIL' }}
-</span>
-
+    </span>
   </div>
 </nav>
 
@@ -40,29 +39,29 @@
   </div>
 
   <!-- POPUP PLANEAR -->
-<input type="checkbox" id="modal-planear-toggle" class="modal-checkbox">
+  <input type="checkbox" id="modal-planear-toggle" class="modal-checkbox">
 
-<div class="modal-planear-overlay">
-  <div class="modal-planear-content">
+  <div class="modal-planear-overlay">
+    <div class="modal-planear-content">
 
-    <h1 class="titulo-planear">¡COMIENZA A PLANEAR TU VIAJE!</h1>
+      <h1 class="titulo-planear">¡COMIENZA A PLANEAR TU VIAJE!</h1>
 
-    <div class="mensaje-planear">
-      Para poder empezar a planificar tu próxima aventura, deberás escoger el país al que quieres visitar.
+      <div class="mensaje-planear">
+        Para poder empezar a planificar tu próxima aventura, deberás escoger el país al que quieres visitar.
+      </div>
+
+      <h2 class="sub-planear">SELECCIONA TU PAÍS</h2>
+
+      <div class="paises-container">
+        <img src="Noruega.png" alt="Noruega" class="pais-icon" (click)="goNoruega()">
+        <img src="alemania.png" alt="Alemania" class="pais-icon" (click)="goAlemania()">
+        <img src="francia.png" alt="Francia" class="pais-icon" (click)="goFrancia()">
+      </div>
+
+      <label class="cerrar-planear" for="modal-planear-toggle">Cerrar</label>
+
     </div>
-
-    <h2 class="sub-planear">SELECCIONA TU PAÍS</h2>
-
-    <div class="paises-container">
-      <img src="Noruega.png" alt="Noruega" class="pais-icon" (click)="goNoruega()">
-      <img src="alemania.png" alt="Alemania" class="pais-icon" (click)="goAlemania()">
-      <img src="francia.png" alt="Francia" class="pais-icon" (click)="goFrancia()">
-    </div>
-
-    <label class="cerrar-planear" for="modal-planear-toggle">Cerrar</label>
-
   </div>
-</div>
 </section>
 
 <!-- FOOTER -->
@@ -98,19 +97,16 @@
       <h3 class="footer-section-title asociados-title">Asociados</h3>
 
       <div class="partners-row">
-      <a href="https://www.axa.es" target="_blank">
-        <img src="axa.png" alt="AXA" class="partner-img"/>
-      </a>
-
-      <a href="https://www.vueling.com" target="_blank">
-      <img src="vueling.png" alt="Vueling" class="partner-img" />
-      </a>
-
-      <a href="https://www.vueling.com" target="_blank">
-      <img src="evaneos.png" alt="Evaneos" class="partner-img" />
-      </a>
-    </div>
-
+        <a href="https://www.axa.es" target="_blank">
+          <img src="axa.png" alt="AXA" class="partner-img"/>
+        </a>
+        <a href="https://www.vueling.com" target="_blank">
+          <img src="vueling.png" alt="Vueling" class="partner-img" />
+        </a>
+        <a href="https://www.vueling.com" target="_blank">
+          <img src="evaneos.png" alt="Evaneos" class="partner-img" />
+        </a>
+      </div>
 
       <p class="footer-quote">“Construyendo recuerdos y aventuras inolvidables”</p>
     </div>
@@ -137,34 +133,37 @@
 
     <h1 class="perfil-title">EDITAR PERFIL</h1>
 
+    <!-- Mensajes de éxito y error -->
+    <div *ngIf="mensaje" class="mensaje-exito">{{ mensaje }}</div>
+    <div *ngIf="error" class="mensaje-error">{{ error }}</div>
+
     <div class="perfil-img-container">
       <img src="rossi.jfif" alt="Perfil" class="perfil-img">
     </div>
 
     <div class="perfil-form">
-
       <label>Nombre</label>
-      <input type="text" placeholder="Cambiar Nombre">
+      <input type="text" [(ngModel)]="userData.name" placeholder="Cambiar Nombre">
 
       <label>Apellido</label>
-      <input type="text" placeholder="Cambiar Apellido">
+      <input type="text" [(ngModel)]="userData.apellido" placeholder="Cambiar Apellido">
 
       <label>Email</label>
-      <input type="email" placeholder="Cambiar Email">
+      <input type="email" [(ngModel)]="userData.email" placeholder="Cambiar Email">
 
       <label>Teléfono</label>
-      <input type="text" placeholder="Cambiar Teléfono">
+      <input type="text" [(ngModel)]="userData.telefono" placeholder="Cambiar Teléfono">
 
       <label>País de Origen</label>
-      <input type="text" placeholder="Cambiar País">
+      <input type="text" [(ngModel)]="userData.pais" placeholder="Cambiar País">
     </div>
 
     <div class="perfil-buttons">
-      <button class="guardar-btn">Guardar Cambios</button>
+      <button class="guardar-btn" (click)="guardarPerfil()" [disabled]="cargando">
+        {{ cargando ? 'Guardando...' : 'Guardar Cambios' }}
+      </button>
       <label for="modal-perfil-toggle" class="cancelar-btn">Cancelar</label>
     </div>
 
   </div>
 </div>
-
-

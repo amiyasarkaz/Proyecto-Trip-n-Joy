@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -110,6 +111,35 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'user' => $request->user()
+        ]);
+    }
+
+    // Actualizar perfil de usuario
+    public function update(Request $request)
+    {
+        $user = Auth::user();
+        
+        $validator = Validator::make($request->all(), [
+            'name' => 'sometimes|string|max:255',
+            'apellido' => 'sometimes|string|max:255',
+            'email' => 'sometimes|string|email|max:255|unique:users,email,' . $user->id,
+            'telefono' => 'sometimes|string|max:20',
+            'pais' => 'sometimes|string|max:100',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        $user->update($request->only(['name', 'apellido', 'email', 'telefono', 'pais']));
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Perfil actualizado correctamente',
+            'user' => $user
         ]);
     }
 }
