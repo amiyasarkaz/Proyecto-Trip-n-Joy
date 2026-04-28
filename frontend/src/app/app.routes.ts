@@ -5,7 +5,6 @@ import { RegistroComponent } from './registro/registro';
 import { Bienvenido } from './bienvenido/bienvenido';
 import { Planear } from './planear/planear'; 
 import { PaginaPrincipal } from './pagina-principal/pagina-principal';
-import { Dashboard } from './admin/dashboard/dashboard';
 import { Noruega } from './noruega/noruega';
 import { Alemania } from './alemania/alemania';
 import { Francia } from './francia/francia';
@@ -22,6 +21,7 @@ import { Toulouse } from './toulouse/toulouse';
 import { Tours } from './tours/tours';
 import { Valoraciones1 } from './valoraciones/valoraciones1';
 import { ValoracionesGenerales } from './valoraciones-generales/valoraciones-generales';
+import { Dashboard } from './dashboard/dashboard';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -31,7 +31,6 @@ export const routes: Routes = [
   { path: 'que-ofrecemos', component: QueOfrecemos },
   { path: 'planear', component: Planear },
   { path: 'pagina-principal', component: PaginaPrincipal },
-  { path: 'admin', component: Dashboard },
   { path: 'noruega', component: Noruega },
   { path: 'alemania', component: Alemania },
   { path: 'francia', component: Francia },
@@ -47,6 +46,7 @@ export const routes: Routes = [
   { path: 'tours', component: Tours },  
   { path: 'valoraciones/:destino', component: Valoraciones1 },
   { path: 'tours', component: Tours },
-  { path: 'valoraciones-generales', component: ValoracionesGenerales }
+  { path: 'valoraciones-generales', component: ValoracionesGenerales },
+  { path: 'dashboard', component: Dashboard }
   
 ];

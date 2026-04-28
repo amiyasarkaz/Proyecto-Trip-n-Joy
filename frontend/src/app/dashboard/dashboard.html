@@ -1,0 +1,39 @@
+<div class="dashboard-page">
+  <div class="dashboard-container">
+
+    <h1 class="titulo-admin">Página del Administrador</h1>
+
+    <div class="cards-admin">
+
+      <!-- ACTIVIDADES -->
+      <div class="card-admin">
+        <img src="/actividades.png" alt="Actividades">
+        <h2>Actividades</h2>
+        <p>Hay {{ actividades }} Actividades Disponibles</p>
+      </div>
+
+      <!-- USUARIOS -->
+      <div class="card-admin">
+        <img src="/usuarios.png" alt="Usuarios">
+        <h2>Usuarios</h2>
+        <p>Hay {{ usuarios }} Usuarios Registrados</p>
+      </div>
+
+      <!-- ALOJAMIENTOS -->
+      <div class="card-admin">
+        <img src="/alojamientos.png" alt="Alojamientos">
+        <h2>Alojamientos</h2>
+        <p>Hay {{ alojamientos }} Alojamientos Disponibles</p>
+      </div>
+
+    </div>
+
+    <div class="acciones-admin">
+      <button (click)="gestionarActividades()">Gestionar Actividades</button>
+      <button (click)="administrarUsuarios()">Administrar Usuarios</button>
+      <button (click)="gestionarInformacion()">Gestionar Información</button>
+      <button (click)="gestionarAlojamientos()">Gestionar Alojamientos</button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,164 @@
+/* Contenedor que ocupa toda la pantalla y centra el contenido */
+/* Fondo que ocupa toda la pantalla */
+.dashboard-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+
+  /* Imagen desde public */
+  background-image: url('/fondoadmin.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* Degradado oscuro para mejorar legibilidad */
+  background-color: rgba(0,0,0,0.35);
+  background-blend-mode: overlay;
+}
+
+/* Caja central con fondo semitransparente para contraste */
+.dashboard-container {
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 48px 40px;
+  box-shadow: 0 12px 30px rgba(20,30,50,0.12);
+  text-align: center;
+  color: #222;
+  backdrop-filter: blur(6px);
+}
+
+
+/* Caja central que contiene todo el dashboard */
+.dashboard-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 48px 40px;
+  border-radius: 18px;
+
+  /* Fondo semitransparente para que el blur funcione */
+  background: rgba(255, 255, 255, 0.25);
+
+  /* Difuminado */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* Sombra suave */
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+
+  text-align: center;
+  color: #fff;
+}
+
+
+/* Título más grande */
+.titulo-admin {
+  font-size: 36px;
+  margin-bottom: 36px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* Grid de tarjetas más espacioso */
+.cards-admin {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+/* Tarjetas más grandes */
+.card-admin {
+  width: 360px;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(10,20,40,0.06);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Hover más marcado */
+.card-admin:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(10,20,40,0.12);
+}
+
+/* Imagen más alta */
+.card-admin img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Texto de la tarjeta más grande */
+.card-admin h2 {
+  margin: 18px 0 6px;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.card-admin p {
+  margin: 0 20px 22px;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Botones más grandes y centrados */
+.acciones-admin {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.acciones-admin button {
+  padding: 14px 28px;
+  font-size: 17px;
+  border: none;
+  border-radius: 12px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+  box-shadow: 0 8px 18px rgba(0,123,255,0.12);
+}
+
+.acciones-admin button:hover {
+  background: #0062d6;
+  transform: translateY(-3px);
+}
+
+/* Responsive: apilar tarjetas en pantallas pequeñas */
+@media (max-width: 980px) {
+  .cards-admin {
+    gap: 22px;
+  }
+  .card-admin {
+    width: 320px;
+  }
+  .dashboard-container {
+    padding: 36px 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .card-admin {
+    width: 100%;
+  }
+  .titulo-admin {
+    font-size: 28px;
+  }
+  .acciones-admin button {
+    width: 100%;
+    max-width: 420px;
+  }
+}
