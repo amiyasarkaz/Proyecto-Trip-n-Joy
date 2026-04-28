@@ -33,6 +33,9 @@ class AuthController extends Controller
             ], 422);
         }
 
+        // ✅ Verificar si es el primer usuario (será administrador)
+        $esPrimerUsuario = User::count() == 0;
+
         // Crear el usuario con todos los campos
         $user = User::create([
             'name' => $request->name,
@@ -42,6 +45,7 @@ class AuthController extends Controller
             'pais' => $request->pais,
             'telefono' => $request->telefono,
             'password' => Hash::make($request->password),
+            'role' => $esPrimerUsuario ? 'admin' : 'user', // ✅ Primer usuario = admin
         ]);
 
         // Generar token de acceso
