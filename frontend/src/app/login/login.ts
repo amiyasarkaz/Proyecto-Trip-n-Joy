@@ -34,14 +34,14 @@ export class Login {
           localStorage.setItem('token', respuesta.token);
           
           setTimeout(() => {
-            // Cerrar popup de login
             this.cerrarLogin();
             
-            // ✅ Abrir popup de bienvenido en la misma página (sin redirigir)
-            this.abrirBienvenido();
-            
-            // ❌ ELIMINAR esta línea para que NO redirija
-            // this.router.navigate(['/bienvenido']);
+            // ✅ Cambiado de '/admin' a '/dashboard'
+            if (respuesta.user?.role === 'admin') {
+              this.router.navigate(['/dashboard']);  // ← Cambiado a dashboard
+            } else {
+              this.abrirBienvenido();
+            }
           }, 2000);
         },
         error: (error) => {
