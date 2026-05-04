@@ -6,25 +6,23 @@
     <div class="cards-admin">
 
       <!-- ACTIVIDADES -->
-      <div class="card-admin">
-        <img src="/actividades.png" alt="Actividades">
-        <h2>Actividades</h2>
-        <p>Hay {{ actividades }} Actividades Disponibles</p>
-      </div>
+      <div class="card-admin" routerLink="/gestionaractividades">
+         <img src="/actividades.png" alt="Actividades">
+         <h2>Actividades</h2>
+         <p>Hay {{ actividades }} Actividades Disponibles</p>
+        </div>
 
-      <!-- USUARIOS -->
-      <div class="card-admin">
-        <img src="/usuarios.png" alt="Usuarios">
-        <h2>Usuarios</h2>
-        <p>Hay {{ usuarios }} Usuarios Registrados</p>
-      </div>
+        <div class="card-admin" routerLink="/admin-usuarios">
+           <img src="/usuarios.png" alt="Usuarios">
+            <h2>Usuarios</h2>
+             <p>Hay {{ usuarios }} Usuarios Registrados</p>
+          </div>
 
-      <!-- ALOJAMIENTOS -->
-      <div class="card-admin">
-        <img src="/alojamientos.png" alt="Alojamientos">
-        <h2>Alojamientos</h2>
-        <p>Hay {{ alojamientos }} Alojamientos Disponibles</p>
-      </div>
+          <div class="card-admin" routerLink="/gestionar-alojamientos">
+              <img src="/alojamientos.png" alt="Alojamientos">
+              <h2>Alojamientos</h2>
+              <p>Hay {{ alojamientos }} Alojamientos Disponibles</p>
+            </div>
 
     </div>
 

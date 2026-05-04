@@ -22,7 +22,8 @@ import { Tours } from './tours/tours';
 import { Valoraciones1 } from './valoraciones/valoraciones1';
 import { ValoracionesGenerales } from './valoraciones-generales/valoraciones-generales';
 import { Dashboard } from './dashboard/dashboard'; 
-import { Gestionaractividades } from './gestionaractividades/gestionaractividades';
+import { GestionarActividades } from './gestionaractividades/gestionaractividades';
+import { EditarMontanaComponent } from './editar-montana/editar-montana';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -49,5 +50,6 @@ export const routes: Routes = [
   { path: 'tours', component: Tours },
   { path: 'valoraciones-generales', component: ValoracionesGenerales },
   { path: 'dashboard', component: Dashboard },
-  { path: 'gestionaractividades', component: Gestionaractividades },
+  { path: 'gestionaractividades', component: GestionarActividades },
+  { path: 'editar-montana', component: EditarMontanaComponent }
 ];

@@ -1,0 +1,25 @@
+<div class="editar-page">
+
+  <div class="editar-container">
+
+    <h1 class="titulo-editar">Editar Actividad {{ actividad.titulo }}</h1>
+
+    <div class="editar-content">
+
+      <img class="editar-img" [src]="actividad.imagen" [alt]="actividad.titulo">
+
+      <div class="editar-info">
+        <h2>{{ actividad.titulo }}</h2>
+        <p>{{ actividad.descripcion }}</p>
+        <p><strong>Inicio de la Actividad:</strong> {{ actividad.inicio }}</p>
+        <p><strong>Lugar de la Actividad:</strong> {{ actividad.lugar }}</p>
+        <p><strong>Usuarios Inscritos:</strong> {{ actividad.inscritos }}</p>
+
+        <button class="btn-opciones">Opciones de Actividad</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

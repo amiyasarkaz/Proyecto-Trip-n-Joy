@@ -1,1 +1,30 @@
-<p>gestionaractividades works!</p>
+<div class="admin-page">
+
+  <nav class="admin-topnav">
+    <button class="link" (click)="volverInicio()">Volver al Inicio</button>
+    <button class="link" (click)="administrarUsuarios()">Administrar Usuarios</button>
+    <button class="link" (click)="gestionarInfoMedica()">Gestionar Información Médica</button>
+    <button class="link" (click)="gestionarAlojamientos()">Gestionar Alojamientos</button>
+  </nav>
+
+  <header class="admin-header">
+    <h1>Gestionar Actividades</h1>
+  </header>
+
+  <main class="actividades-grid">
+    <article class="actividad-card" *ngFor="let a of actividades">
+      <div class="thumb">
+        <img [src]="a.imagen" [alt]="a.titulo">
+      </div>
+      <div class="card-body">
+        <h2>{{ a.titulo }}</h2>
+        <p class="descripcion">{{ a.descripcion }}</p>
+        <p class="fecha"><strong>Inicio de la actividad:</strong> {{ a.inicio }}</p>
+        <div class="card-actions">
+          <button class="btn-edit" (click)="editarActividad(a.id)">Editar Actividad</button>
+        </div>
+      </div>
+    </article>
+  </main>
+
+</div>

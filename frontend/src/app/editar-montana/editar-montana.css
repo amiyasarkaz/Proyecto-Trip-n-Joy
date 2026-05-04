@@ -1,0 +1,107 @@
+/* Fondo a pantalla completa */
+.editar-page {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url('/fondo-actividades.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-color: rgba(0,0,0,0.45);
+  background-blend-mode: overlay;
+}
+
+/* Panel principal centrado */
+.editar-container {
+  width: 90%;
+  max-width: 1200px;
+
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+
+  color: #fff;
+  text-align: center;
+}
+
+/* Título grande */
+.titulo-editar {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+/* Contenido alineado */
+.editar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Imagen grande */
+.editar-img {
+  width: 480px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Texto grande */
+.editar-info {
+  max-width: 500px;
+  text-align: left;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.editar-info h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/* Botón */
+.btn-opciones {
+  margin-top: 20px;
+  padding: 14px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  background: #0d6efd;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-opciones:hover {
+  background: #0b5ed7;
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .editar-content {
+    flex-direction: column;
+  }
+
+  .editar-img {
+    width: 100%;
+    height: 260px;
+  }
+
+  .editar-info {
+    text-align: center;
+  }
+}
