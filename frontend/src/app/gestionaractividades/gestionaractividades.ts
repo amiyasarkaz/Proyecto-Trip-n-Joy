@@ -1,51 +1,63 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
-interface Actividad {
-  id: number;
-  titulo: string;
-  descripcion: string;
-  inicio: string; // ISO o dd/MM/yyyy
-  imagen: string;
-}
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-gestionar-actividades',
+  selector: 'app-gestionaractividades',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './gestionaractividades.html',
   styleUrls: ['./gestionaractividades.css']
 })
 export class GestionarActividades {
-  actividades: Actividad[] = [
-    { id: 1, titulo: 'Montañismo', descripcion: 'Recorrido por los Alpes Bávaros', inicio: '15/04/2026', imagen: '/actividad1.png' },
-    { id: 2, titulo: 'Ciclismo', descripcion: 'Ciclismo por las calles de Paris', inicio: '21/04/2026', imagen: '/actividad2.png' },
-    { id: 3, titulo: 'Auroras Boreales', descripcion: 'Avistamiento de auroras boreales en Islandia', inicio: '25/04/2026', imagen: '/actividad3.png' },
-    { id: 4, titulo: 'Maravillas del Mundo', descripcion: 'Explorar la ciudadela inca de Machu Picchu', inicio: '02/05/2026', imagen: '/actividad4.png' },
-    { id: 5, titulo: 'Ballenas en Noruega', descripcion: 'Safaris de ballenas en Noruega', inicio: '05/12/2026', imagen: '/actividad5.png' },
-    { id: 6, titulo: 'Visita al Louvre', descripcion: 'Visita guiada al museo del Louvre', inicio: '08/06/2026', imagen: '/actividad6.png' }
+
+  actividades = [
+    {
+      id: 1,
+      titulo: 'Montañismo',
+      descripcion: 'Recorrido por los Alpes Bávaros',
+      inicio: '15/04/2026',
+      imagen: '/actividad1.png'
+    },
+    {
+      id: 2,
+      titulo: 'Ciclismo',
+      descripcion: 'Ciclismo por las calles de París',
+      inicio: '21/04/2026',
+      imagen: '/actividad2.png'
+    },
+    {
+      id: 3,
+      titulo: 'Auroras Boreales',
+      descripcion: 'Avistamiento de auroras boreales en Islandia',
+      inicio: '25/04/2026',
+      imagen: '/actividad3.png'
+    },
+    {
+      id: 4,
+      titulo: 'Maravillas del Mundo',
+      descripcion: 'Explorar la ciudadela inca de Machu Picchu',
+      inicio: '02/05/2026',
+      imagen: '/actividad4.png'
+    },
+    {
+      id: 5,
+      titulo: 'Ballenas en Noruega',
+      descripcion: 'Safaris de ballenas en Noruega',
+      inicio: '05/12/2026',
+      imagen: '/actividad5.png'
+    },
+    {
+      id: 6,
+      titulo: 'Visita al Louvre',
+      descripcion: 'Visita guiada al museo del Louvre',
+      inicio: '08/06/2026',
+      imagen: '/actividad6.png'
+    }
   ];
 
-  constructor(private router: Router) {}
+  volverInicio() {}
+  administrarUsuarios() {}
+  gestionarInfoMedica() {}
+  gestionarAlojamientos() {}
 
-  volverInicio() {
-    this.router.navigate(['/dashboard']);
-  }
-
-  administrarUsuarios() {
-    this.router.navigate(['/admin-usuarios']);
-  }
-
-  gestionarInfoMedica() {
-    this.router.navigate(['/gestionar-informacion']);
-  }
-
-  gestionarAlojamientos() {
-    this.router.navigate(['/gestionar-alojamientos']);
-  }
-
-  editarActividad(id: number) {
-    this.router.navigate(['/editar-actividad', id]);
-  }
 }

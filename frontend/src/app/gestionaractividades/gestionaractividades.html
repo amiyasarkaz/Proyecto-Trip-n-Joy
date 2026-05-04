@@ -12,19 +12,47 @@
   </header>
 
   <main class="actividades-grid">
-    <article class="actividad-card" *ngFor="let a of actividades">
-      <div class="thumb">
-        <img [src]="a.imagen" [alt]="a.titulo">
-      </div>
-      <div class="card-body">
-        <h2>{{ a.titulo }}</h2>
-        <p class="descripcion">{{ a.descripcion }}</p>
-        <p class="fecha"><strong>Inicio de la actividad:</strong> {{ a.inicio }}</p>
-        <div class="card-actions">
-          <button class="btn-edit" (click)="editarActividad(a.id)">Editar Actividad</button>
+
+    <ng-container *ngFor="let a of actividades">
+
+      <!-- Tarjeta -->
+      <article class="actividad-card">
+        <div class="thumb">
+          <img [src]="a.imagen" [alt]="a.titulo">
+        </div>
+
+        <div class="card-body">
+          <h2>{{ a.titulo }}</h2>
+          <p class="descripcion">{{ a.descripcion }}</p>
+          <p class="fecha"><strong>Inicio de la actividad:</strong> {{ a.inicio }}</p>
+
+          <!-- Botón que abre el popup -->
+          <label class="btn-edit" [for]="'popup-' + a.id">Editar Actividad</label>
+        </div>
+      </article>
+
+      <!-- Popup -->
+      <input type="checkbox" class="popup-check" [id]="'popup-' + a.id">
+
+      <div class="popup-overlay"></div>
+
+      <div class="popup-box">
+        <div class="popup-content">
+
+          <h2>{{ a.titulo }}</h2>
+
+          <img class="popup-img" [src]="a.imagen" [alt]="a.titulo">
+
+          <p>{{ a.descripcion }}</p>
+          <p><strong>Inicio:</strong> {{ a.inicio }}</p>
+
+          <label class="popup-close" [for]="'popup-' + a.id">Cerrar</label>
+
         </div>
       </div>
-    </article>
+
+    </ng-container>
+
   </main>
 
 </div>
