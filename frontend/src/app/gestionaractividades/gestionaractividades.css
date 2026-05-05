@@ -1,10 +1,9 @@
-/* Elimina scroll y fija el fondo */
+/* Página sin scroll */
 .admin-page {
   min-height: 100vh;
   width: 100%;
-  overflow: hidden; /* evita scroll vertical y horizontal */
+  overflow: hidden;
   padding: 20px;
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -15,11 +14,11 @@
   flex-direction: column;
 }
 
-/* NAV más compacto */
+/* NAV compacto */
 .admin-topnav {
   display: flex;
   justify-content: center;
-  gap: 10px; /*  botones más juntos */
+  gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 15px;
 }
@@ -27,8 +26,8 @@
 .link {
   background: #0d6efd;
   color: white;
-  padding: 8px 44px; /*  más pequeño */
-  border-radius: 50px;
+  padding: 8px 14px;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -40,24 +39,24 @@
   margin-bottom: 20px;
 }
 
-/* GRID de 3 columnas exactas */
+/* Grid de 3 columnas */
 .actividades-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* siempre 3 por fila */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-
-  flex: 1; /* ocupa el espacio sin generar scroll */
+  flex: 1;
 }
 
-/* Tarjetas */
+/* Tarjeta */
 .actividad-card {
-  background: rgba(75, 66, 66, 0.25);
+  position: relative;
+  background: rgba(131, 117, 117, 0.25);
   backdrop-filter: blur(10px);
   border-radius: 16px;
-  padding: 16px;
+  padding: 14px;
   color: rgb(0, 0, 0);
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
@@ -69,21 +68,27 @@
   border-radius: 12px;
 }
 
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .btn-edit {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 16px;
+  margin-top: 6px;
+  padding: 8px 14px;
   background: #0d6efd;
   color: white;
-  border-radius: 30px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
-/* POPUP */
+/* POPUP INDIVIDUAL */
 .popup-check {
   display: none;
 }
 
+/* Overlay */
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -94,11 +99,7 @@
   z-index: 20;
 }
 
-.popup-check:checked ~ .popup-overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
+/* Popup */
 .popup-box {
   position: fixed;
   top: 50%;
@@ -106,15 +107,20 @@
   width: 80%;
   max-width: 900px;
   transform: translate(-50%, -50%) scale(0.7);
-  background: rgba(75, 66, 66, 0.25);
+  background: rgba(255,255,255,0.25);
   backdrop-filter: blur(12px);
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
   opacity: 0;
   pointer-events: none;
   transition: 0.25s ease;
   z-index: 30;
+}
+
+/* Activación */
+.popup-check:checked ~ .popup-overlay {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .popup-check:checked ~ .popup-box {
@@ -125,7 +131,7 @@
 
 .popup-content {
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: white;
 }
 
 .popup-img {

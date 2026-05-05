@@ -13,29 +13,30 @@
 
   <main class="actividades-grid">
 
-    <ng-container *ngFor="let a of actividades">
+  <ng-container *ngFor="let a of actividades; let i = index">
 
-      <!-- Tarjeta -->
-      <article class="actividad-card">
-        <div class="thumb">
-          <img [src]="a.imagen" [alt]="a.titulo">
-        </div>
+    <article class="actividad-card">
 
-        <div class="card-body">
-          <h2>{{ a.titulo }}</h2>
-          <p class="descripcion">{{ a.descripcion }}</p>
-          <p class="fecha"><strong>Inicio de la actividad:</strong> {{ a.inicio }}</p>
+      <!-- Checkbox del popup -->
+      <input type="checkbox" class="popup-check" [id]="'popup-' + i">
 
-          <!-- Botón que abre el popup -->
-          <label class="btn-edit" [for]="'popup-' + a.id">Editar Actividad</label>
-        </div>
-      </article>
+      <div class="thumb">
+        <img [src]="a.imagen" [alt]="a.titulo">
+      </div>
+
+      <div class="card-body">
+        <h2>{{ a.titulo }}</h2>
+        <p class="descripcion">{{ a.descripcion }}</p>
+        <p class="fecha"><strong>Inicio:</strong> {{ a.inicio }}</p>
+
+        <!-- Botón abrir -->
+        <label class="btn-edit" [for]="'popup-' + i">Editar Actividad</label>
+      </div>
+
+      <!-- Overlay -->
+      <label class="popup-overlay" [for]="'popup-' + i"></label>
 
       <!-- Popup -->
-      <input type="checkbox" class="popup-check" [id]="'popup-' + a.id">
-
-      <div class="popup-overlay"></div>
-
       <div class="popup-box">
         <div class="popup-content">
 
@@ -46,13 +47,17 @@
           <p>{{ a.descripcion }}</p>
           <p><strong>Inicio:</strong> {{ a.inicio }}</p>
 
-          <label class="popup-close" [for]="'popup-' + a.id">Cerrar</label>
+          <!-- Botón cerrar -->
+          <label class="popup-close" [for]="'popup-' + i">Cerrar</label>
 
         </div>
       </div>
 
-    </ng-container>
+    </article>
 
-  </main>
+  </ng-container>
+
+</main>
+
 
 </div>
