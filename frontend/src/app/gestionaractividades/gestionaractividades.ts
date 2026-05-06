@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+
+import { RouterModule, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-gestionaractividades',
-  standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule],
+
+  imports: [CommonModule, RouterModule],
   templateUrl: './gestionaractividades.html',
   styleUrls: ['./gestionaractividades.css']
 })
-export class GestionarActividades implements OnInit {
+export class GestionarActividades {
+  constructor(private router: Router) {}
+
 
   actividades: any[] = [];
   actividadEditando: any = {
@@ -163,12 +166,15 @@ export class GestionarActividades implements OnInit {
     }
   }
 
-  // Formatear fecha
-  formatearFecha(fecha: string): string {
-    if (!fecha) return '';
-    const date = new Date(fecha);
-    return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-  }
+
+  volverDashboard() {
+    this.router.navigate(['/dashboard']);
+    console.log("Volver al dashboard");}
+    
+  administrarUsuarios() {}
+  gestionarInfoMedica() {}
+  gestionarAlojamientos() {}
+
 
   // Métodos de navegación
   volverInicio() {

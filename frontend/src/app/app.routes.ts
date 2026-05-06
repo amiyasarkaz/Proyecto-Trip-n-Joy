@@ -23,6 +23,7 @@ import { Valoraciones1 } from './valoraciones/valoraciones1';
 import { ValoracionesGenerales } from './valoraciones-generales/valoraciones-generales';
 import { Dashboard } from './dashboard/dashboard'; 
 import { GestionarActividades } from './gestionaractividades/gestionaractividades';
+import { AdministrarUsuariosComponent } from './administrar-usuarios/administrar-usuarios';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -49,5 +50,6 @@ export const routes: Routes = [
   { path: 'tours', component: Tours },
   { path: 'valoraciones-generales', component: ValoracionesGenerales },
   { path: 'dashboard', component: Dashboard },
-  { path: 'gestionaractividades', component: GestionarActividades }
+  { path: 'gestionaractividades', component: GestionarActividades },
+  { path: 'administrar-usuarios', component: AdministrarUsuariosComponent }
 ];

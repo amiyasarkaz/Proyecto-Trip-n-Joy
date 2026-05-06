@@ -1,0 +1,50 @@
+<div class="admin-page">
+
+  <!-- HEADER REUTILIZABLE -->
+  <header class="admin-header-global">
+    <nav class="admin-topnav-global">
+      <button class="link-global" (click)="volverDashboard()">Volver al Inicio</button>
+      <button class="link-global" (click)="gestionarActividades()">Gestionar Actividades</button>
+      <button class="link-global" (click)="gestionarInfoMedica()">Gestionar Información Médica</button>
+      <button class="link-global" (click)="gestionarAlojamientos()">Gestionar Alojamientos</button>
+    </nav>
+  </header>
+
+  <h1 class="titulo-seccion">Administrar Usuarios</h1>
+
+  <!-- USUARIOS ACTIVOS -->
+  <h2 class="subtitulo">Usuarios activos</h2>
+
+  <div class="usuarios-grid">
+    <article class="usuario-card" *ngFor="let u of usuariosActivos">
+      <h3 class="username">{{ u.username }}</h3>
+
+      <p><strong>Nombre:</strong> {{ u.nombre }}</p>
+      <p><strong>Fecha de creación:</strong> {{ u.creacion }}</p>
+      <p><strong>Último paquete comprado:</strong> {{ u.paquete }}</p>
+
+      <div class="acciones">
+        <button class="btn-baja">Dar de Baja</button>
+        <button class="btn-notificar">Notificar</button>
+      </div>
+    </article>
+  </div>
+
+  <!-- USUARIOS NUEVOS -->
+  <h2 class="subtitulo">Usuarios nuevos registrados</h2>
+
+  <div class="usuarios-grid">
+    <article class="usuario-card" *ngFor="let u of usuariosNuevos">
+      <h3 class="username">{{ u.username }}</h3>
+
+      <p><strong>Nombre:</strong> {{ u.nombre }}</p>
+      <p><strong>Fecha de creación:</strong> {{ u.creacion }}</p>
+      <p><strong>Fecha de nacimiento:</strong> {{ u.nacimiento }}</p>
+
+      <div class="acciones">
+        <button class="btn-alta">Dar de Alta</button>
+      </div>
+    </article>
+  </div>
+
+</div>

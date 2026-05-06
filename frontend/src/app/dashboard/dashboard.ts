@@ -22,6 +22,7 @@ export class Dashboard {
   }
 
   administrarUsuarios() {
+    this.router.navigate(['/administrar-usuarios']);
     console.log("Ir a administrar usuarios");
   }
 
