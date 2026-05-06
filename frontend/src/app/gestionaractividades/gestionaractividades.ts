@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-gestionaractividades',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './gestionaractividades.html',
   styleUrls: ['./gestionaractividades.css']
 })
 export class GestionarActividades {
+  constructor(private router: Router) {}
 
   actividades = [
     {
@@ -55,7 +57,10 @@ export class GestionarActividades {
     }
   ];
 
-  volverInicio() {}
+  volverDashboard() {
+    this.router.navigate(['/dashboard']);
+    console.log("Volver al dashboard");}
+    
   administrarUsuarios() {}
   gestionarInfoMedica() {}
   gestionarAlojamientos() {}

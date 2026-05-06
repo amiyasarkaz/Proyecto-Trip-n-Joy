@@ -1,0 +1,127 @@
+/* Fondo general */
+.admin-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+
+  background-image: url('/fondo-actividades.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,0.45);
+  background-blend-mode: overlay;
+
+  color: white;
+}
+
+/* Header reutilizable */
+.admin-header-global {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.admin-topnav-global {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.link-global {
+  background: #0d6efd;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease;
+}
+
+.link-global:hover {
+  background: #0b5ed7;
+  transform: translateY(-2px);
+}
+
+/* Títulos */
+.titulo-seccion {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.subtitulo {
+  margin: 20px 0 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Grid de usuarios */
+.usuarios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Tarjeta de usuario */
+.usuario-card {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.username {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Botones */
+.acciones {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-baja,
+.btn-notificar,
+.btn-alta {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.btn-baja {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-baja:hover {
+  background: #bb2d3b;
+}
+
+.btn-notificar {
+  background: #0d6efd;
+  color: white;
+}
+
+.btn-notificar:hover {
+  background: #0b5ed7;
+}
+
+.btn-alta {
+  background: #198754;
+  color: white;
+}
+
+.btn-alta:hover {
+  background: #157347;
+}
