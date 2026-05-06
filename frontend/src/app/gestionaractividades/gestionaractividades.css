@@ -9,7 +9,6 @@
   background-repeat: no-repeat;
   background-color: rgba(255, 255, 255, 0.45);
   background-blend-mode: overlay;
-
   display: flex;
   flex-direction: column;
 }
@@ -143,12 +142,87 @@
   margin: 20px auto;
 }
 
-.popup-close {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 20px;
-  background: #0d6efd;
+/* ===== ESTILOS DEL FORMULARIO DE EDICIÓN ===== */
+.edit-form {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
   color: white;
-  border-radius: 12px;
+  font-size: 14px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #0d6efd;
+  background: white;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.popup-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+.btn-save {
+  background: #198754;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-save:hover {
+  background: #157347;
+}
+
+.popup-close {
+  background: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.popup-close:hover {
+  background: #bb2d3b;
+}
+
+.popup-content h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.popup-box {
+  max-height: 90vh;
+  overflow-y: auto;
 }

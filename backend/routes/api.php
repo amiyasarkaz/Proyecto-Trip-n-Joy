@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ValoracionController;
+use App\Http\Controllers\ActivityController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -22,3 +23,4 @@ Route::post("/api/register", [App\Http\Controllers\API\AuthController::class, "r
 Route::get('/valoraciones', [ValoracionController::class, 'index']);
 Route::get('/valoraciones/{destino}', [ValoracionController::class, 'getByDestino']);
 Route::post('/valoraciones', [ValoracionController::class, 'store'])->middleware('auth:sanctum');
+Route::put('/activities/{id}', [ActivityController::class, 'update']);

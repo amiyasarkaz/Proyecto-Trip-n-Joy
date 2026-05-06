@@ -13,51 +13,77 @@
 
   <main class="actividades-grid">
 
-  <ng-container *ngFor="let a of actividades; let i = index">
+    <ng-container *ngFor="let a of actividades; let i = index">
 
-    <article class="actividad-card">
+      <article class="actividad-card">
 
-      <!-- Checkbox del popup -->
-      <input type="checkbox" class="popup-check" [id]="'popup-' + i">
+        <!-- Checkbox del popup -->
+        <input type="checkbox" class="popup-check" [id]="'popup-' + i">
 
-      <div class="thumb">
-        <img [src]="a.imagen" [alt]="a.titulo">
-      </div>
-
-      <div class="card-body">
-        <h2>{{ a.titulo }}</h2>
-        <p class="descripcion">{{ a.descripcion }}</p>
-        <p class="fecha"><strong>Inicio:</strong> {{ a.inicio }}</p>
-
-        <!-- Botón abrir -->
-        <label class="btn-edit" [for]="'popup-' + i">Editar Actividad</label>
-      </div>
-
-      <!-- Overlay -->
-      <label class="popup-overlay" [for]="'popup-' + i"></label>
-
-      <!-- Popup -->
-      <div class="popup-box">
-        <div class="popup-content">
-
-          <h2>{{ a.titulo }}</h2>
-
-          <img class="popup-img" [src]="a.imagen" [alt]="a.titulo">
-
-          <p>{{ a.descripcion }}</p>
-          <p><strong>Inicio:</strong> {{ a.inicio }}</p>
-
-          <!-- Botón cerrar -->
-          <label class="popup-close" [for]="'popup-' + i">Cerrar</label>
-
+        <div class="thumb">
+          <img [src]="a.imagen" [alt]="a.titulo">
         </div>
-      </div>
 
-    </article>
+        <div class="card-body">
+          <h2>{{ a.titulo }}</h2>
+          <p class="descripcion">{{ a.descripcion }}</p>
+          <p class="fecha"><strong>Inicio:</strong> {{ a.inicio }}</p>
+          <p class="precio" *ngIf="a.precio"><strong>Precio:</strong> {{ a.precio }}€</p>
 
-  </ng-container>
+          <!-- Botón abrir con evento click -->
+          <label class="btn-edit" [for]="'popup-' + i" (click)="abrirEdicion(a, i)">Editar Actividad</label>
+        </div>
 
-</main>
+        <!-- Overlay -->
+        <label class="popup-overlay" [for]="'popup-' + i"></label>
 
+        <!-- Popup -->
+        <div class="popup-box">
+          <div class="popup-content">
+
+            <h2>Editar Actividad</h2>
+
+            <!-- Campos editables -->
+            <div class="edit-form">
+              <div class="form-group">
+                <label>Título:</label>
+                <input type="text" [(ngModel)]="actividadEditando.titulo" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label>Imagen URL:</label>
+                <input type="text" [(ngModel)]="actividadEditando.imagen" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label>Descripción:</label>
+                <textarea [(ngModel)]="actividadEditando.descripcion" rows="4" class="form-control"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Fecha de inicio:</label>
+                <input type="date" [(ngModel)]="actividadEditando.inicio" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label>Precio (€):</label>
+                <input type="number" step="0.01" [(ngModel)]="actividadEditando.precio" class="form-control">
+              </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="popup-buttons">
+              <button class="btn-save" (click)="guardarCambios()">💾 Guardar Cambios</button>
+              <label class="popup-close" [for]="'popup-' + i">❌ Cancelar</label>
+            </div>
+
+          </div>
+        </div>
+
+      </article>
+
+    </ng-container>
+
+  </main>
 
 </div>
