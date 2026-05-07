@@ -1,15 +1,15 @@
 <div class="admin-page">
 
-  <nav class="admin-topnav">
-    <button class="link-global" (click)="volverDashboard()">Volver al Inicio</button>
-    <button class="link-global" (click)="administrarUsuarios()">Administrar Usuarios</button>
-    <button class="link-global" (click)="gestionarInfoMedica()">Gestionar Información Médica</button>
-    <button class="link-global" (click)="gestionarAlojamientos()">Gestionar Alojamientos</button>
-  </nav>
-
-  <header class="admin-header">
-    <h1>Gestionar Actividades</h1>
+  <header class="admin-header-global">
+    <nav class="admin-topnav-global">
+      <button class="link-global" (click)="volverDashboard()">Volver al Inicio</button>
+      <button class="link-global" (click)="administrarUsuarios()">Administrar Usuarios</button>
+      <button class="link-global" (click)="gestionarInfoMedica()">Gestionar Información Médica</button>
+      <button class="link-global" (click)="gestionarAlojamientos()">Gestionar Alojamientos</button>
+    </nav>
   </header>
+
+  <h1 class="titulo-seccion">Gestionar Actividades</h1>
 
   <main class="actividades-grid">
 
@@ -20,6 +20,7 @@
         <!-- Checkbox del popup -->
         <input type="checkbox" class="popup-check" [id]="'popup-' + i">
 
+        <!-- Tarjeta -->
         <div class="thumb">
           <img [src]="a.imagen" [alt]="a.titulo">
         </div>
@@ -28,54 +29,25 @@
           <h2>{{ a.titulo }}</h2>
           <p class="descripcion">{{ a.descripcion }}</p>
           <p class="fecha"><strong>Inicio:</strong> {{ a.inicio }}</p>
-          <p class="precio" *ngIf="a.precio"><strong>Precio:</strong> {{ a.precio }}€</p>
 
-          <!-- Botón abrir con evento click -->
-          <label class="btn-edit" [for]="'popup-' + i" (click)="abrirEdicion(a, i)">Editar Actividad</label>
+          <label class="btn-edit" [for]="'popup-' + i">Editar Actividad</label>
         </div>
 
         <!-- Overlay -->
         <label class="popup-overlay" [for]="'popup-' + i"></label>
 
-        <!-- Popup -->
+        <!-- Popup del mismo tamaño que la tarjeta -->
         <div class="popup-box">
           <div class="popup-content">
 
-            <h2>Editar Actividad</h2>
+            <h2>{{ a.titulo }}</h2>
 
-            <!-- Campos editables -->
-            <div class="edit-form">
-              <div class="form-group">
-                <label>Título:</label>
-                <input type="text" [(ngModel)]="actividadEditando.titulo" class="form-control">
-              </div>
+            <img class="popup-img" [src]="a.imagen" [alt]="a.titulo">
 
-              <div class="form-group">
-                <label>Imagen URL:</label>
-                <input type="text" [(ngModel)]="actividadEditando.imagen" class="form-control">
-              </div>
+            <p>{{ a.descripcion }}</p>
+            <p><strong>Inicio:</strong> {{ a.inicio }}</p>
 
-              <div class="form-group">
-                <label>Descripción:</label>
-                <textarea [(ngModel)]="actividadEditando.descripcion" rows="4" class="form-control"></textarea>
-              </div>
-
-              <div class="form-group">
-                <label>Fecha de inicio:</label>
-                <input type="date" [(ngModel)]="actividadEditando.inicio" class="form-control">
-              </div>
-
-              <div class="form-group">
-                <label>Precio (€):</label>
-                <input type="number" step="0.01" [(ngModel)]="actividadEditando.precio" class="form-control">
-              </div>
-            </div>
-
-            <!-- Botones -->
-            <div class="popup-buttons">
-              <button class="btn-save" (click)="guardarCambios()">💾 Guardar Cambios</button>
-              <label class="popup-close" [for]="'popup-' + i">❌ Cancelar</label>
-            </div>
+            <label class="popup-close" [for]="'popup-' + i">Cerrar</label>
 
           </div>
         </div>

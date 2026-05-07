@@ -57,6 +57,7 @@ export class AdministrarUsuariosComponent {
   volverDashboard() {
     this.router.navigate(['/dashboard']);
     console.log("Volver al dashboard");}
+    
   gestionarActividades() {}
   gestionarInfoMedica() {}
   gestionarAlojamientos() {}
