@@ -51,5 +51,6 @@ export const routes: Routes = [
   { path: 'valoraciones-generales', component: ValoracionesGenerales },
   { path: 'dashboard', component: Dashboard },
   { path: 'gestionaractividades', component: GestionarActividades },
-  { path: 'administrar-usuarios', component: AdministrarUsuariosComponent }
+  { path: 'administrar-usuarios', component: AdministrarUsuariosComponent }, 
+  { path: 'admin/actividades', component: GestionarActividades },
 ];

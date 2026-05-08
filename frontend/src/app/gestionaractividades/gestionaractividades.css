@@ -1,4 +1,3 @@
-
 .admin-page {
   width: 100%;
   overflow-x: hidden;
@@ -52,6 +51,123 @@
   font-weight: 800;
 }
 
+/* MENSAJES */
+.mensaje-exito {
+  background: #d4edda;
+  color: #155724;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.mensaje-error {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* MODAL DE EDICIÓN */
+.modal-editar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-contenido {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 85vh;
+  overflow-y: auto;
+  color: #333;
+}
+
+.modal-contenido h2 {
+  margin-top: 0;
+  color: #0d6efd;
+  text-align: center;
+}
+
+.modal-contenido label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.modal-contenido input, .modal-contenido textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.modal-contenido textarea {
+  resize: vertical;
+}
+
+.botones-edicion {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.guardar {
+  background: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.guardar:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+.guardar:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.cancelar {
+  background: #6c757d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.cancelar:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
 /* GRID DE TARJETAS */
 .actividades-grid {
   display: grid;
@@ -74,6 +190,11 @@
   max-width: 420px;
   margin: 0 auto;
   color: black;
+  transition: transform 0.2s ease;
+}
+
+.actividad-card:hover {
+  transform: translateY(-5px);
 }
 
 /* Imagen más grande */
@@ -91,17 +212,43 @@
   gap: 6px;
 }
 
+.card-body h2 {
+  margin: 10px 0 5px;
+  font-size: 20px;
+  color: #333;
+}
+
+.descripcion {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.fecha, .precio, .duracion {
+  font-size: 13px;
+  color: #666;
+  margin: 3px 0;
+}
+
 .btn-edit {
   margin-top: 8px;
   padding: 10px 16px;
   background: #0d6efd;
   color: white;
+  border: none;
   border-radius: 10px;
   cursor: pointer;
   font-size: 15px;
+  font-weight: 600;
+  transition: 0.2s ease;
 }
 
-/* POPUP*/
+.btn-edit:hover {
+  background: #0b5ed7;
+  transform: translateY(-2px);
+}
+
+/* POPUP */
 .popup-check {
   display: none;
 }
@@ -134,6 +281,7 @@
   transition: 0.25s ease;
   z-index: 30;
   animation: fadeIn 0.25s ease;
+  color: black;
 }
 
 /* Imagen del popup */
@@ -143,6 +291,11 @@
   object-fit: cover;
   border-radius: 12px;
   margin: 12px 0;
+}
+
+.popup-box h2 {
+  margin-top: 0;
+  color: #0d6efd;
 }
 
 /* Botón cerrar */
@@ -155,6 +308,11 @@
   border-radius: 10px;
   cursor: pointer;
   font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.popup-close:hover {
+  background: #0b5ed7;
 }
 
 /* Activación */
@@ -178,5 +336,109 @@
   to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* ========================================== */
+/* RESPONSIVE - TABLETS Y MÓVILES              */
+/* ========================================== */
+
+@media (max-width: 1024px) {
+  .actividades-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-page {
+    padding: 15px;
+  }
+
+  .admin-topnav-global {
+    gap: 12px;
+  }
+
+  .link-global {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+
+  .titulo-seccion {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .actividades-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .actividad-card {
+    max-width: 100%;
+  }
+
+  .popup-box {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .modal-contenido {
+    padding: 20px;
+  }
+
+  .modal-contenido h2 {
+    font-size: 22px;
+  }
+
+  .botones-edicion {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .guardar, .cancelar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-seccion {
+    font-size: 24px;
+  }
+
+  .link-global {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .card-body h2 {
+    font-size: 18px;
+  }
+
+  .descripcion {
+    font-size: 12px;
+  }
+
+  .btn-edit {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .popup-box {
+    max-width: 300px;
+    padding: 15px;
+  }
+
+  .popup-box h2 {
+    font-size: 18px;
+  }
+
+  .popup-img {
+    height: 140px;
+  }
+
+  .popup-close {
+    padding: 8px 12px;
+    font-size: 13px;
   }
 }

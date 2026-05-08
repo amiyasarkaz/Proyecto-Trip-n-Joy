@@ -1,61 +1,68 @@
-<div class="admin-page">
+<div style="padding: 20px; background: #f0f0f0; min-height: 100vh;">
 
-  <header class="admin-header-global">
-    <nav class="admin-topnav-global">
-      <button class="link-global" (click)="volverDashboard()">Volver al Inicio</button>
-      <button class="link-global" (click)="administrarUsuarios()">Administrar Usuarios</button>
-      <button class="link-global" (click)="gestionarInfoMedica()">Gestionar Información Médica</button>
-      <button class="link-global" (click)="gestionarAlojamientos()">Gestionar Alojamientos</button>
-    </nav>
-  </header>
+  <div style="background: #333; color: white; padding: 15px; margin-bottom: 20px; border-radius: 8px;">
+    <button (click)="volverDashboard()" style="background: #007bff; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer;">← Volver</button>
+    <h1 style="display: inline-block; margin-left: 20px;">Gestionar Actividades</h1>
+  </div>
 
-  <h1 class="titulo-seccion">Gestionar Actividades</h1>
+  <!-- Mensajes -->
+  <div *ngIf="mensaje" style="background: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+    {{ mensaje }}
+  </div>
+  <div *ngIf="error" style="background: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+    {{ error }}
+  </div>
 
-  <main class="actividades-grid">
+  <!-- Contador -->
+  <div style="background: #28a745; color: white; padding: 12px; text-align: center; font-size: 18px; border-radius: 8px; margin-bottom: 20px;">
+    📊 Total actividades: {{ actividades.length }}
+  </div>
 
-    <ng-container *ngFor="let a of actividades; let i = index">
+  <!-- Lista de actividades -->
+  <div *ngFor="let a of actividades" style="background: white; border: 1px solid #ddd; margin-bottom: 15px; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h2 style="margin: 0 0 10px 0; color: #333;">{{ a.nombre }}</h2>
+    <p style="margin: 5px 0; color: #666;">{{ a.descripcion }}</p>
+    <p style="margin: 5px 0;"><strong>Destino:</strong> {{ a.destino }}</p>
+    <p style="margin: 5px 0;"><strong>Ciudad:</strong> {{ a.ciudad }}</p>
+    <p style="margin: 5px 0;"><strong>Precio:</strong> {{ a.precio }} €</p>
+    <p style="margin: 5px 0;"><strong>Duración:</strong> {{ a.duracion }}</p>
+    <p style="margin: 5px 0;"><strong>Fecha inicio:</strong> {{ a.fecha_inicio | date:'dd/MM/yyyy' }}</p>
+    <button (click)="abrirEditor(a)" style="background: #ffc107; color: #333; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; margin-top: 10px;">
+      ✏️ Editar
+    </button>
+  </div>
 
-      <article class="actividad-card">
+  <!-- Modal de edición -->
+  <div *ngIf="actividadEditando" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+    <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 500px;">
+      <h2 style="margin-top: 0;">✏️ Editar Actividad</h2>
+      
+      <label style="display: block; margin: 10px 0 5px;">Nombre:</label>
+      <input type="text" [(ngModel)]="actividadEditando.nombre" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+      
+      <label style="display: block; margin: 10px 0 5px;">Descripción:</label>
+      <textarea [(ngModel)]="actividadEditando.descripcion" rows="3" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+      
+      <label style="display: block; margin: 10px 0 5px;">Destino:</label>
+      <input type="text" [(ngModel)]="actividadEditando.destino" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+      
+      <label style="display: block; margin: 10px 0 5px;">Ciudad:</label>
+      <input type="text" [(ngModel)]="actividadEditando.ciudad" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+      
+      <label style="display: block; margin: 10px 0 5px;">Precio (€):</label>
+      <input type="number" step="0.01" [(ngModel)]="actividadEditando.precio" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+      
+      <label style="display: block; margin: 10px 0 5px;">Duración:</label>
+      <input type="text" [(ngModel)]="actividadEditando.duracion" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+      
+      <label style="display: block; margin: 10px 0 5px;">Fecha inicio:</label>
+      <input type="date" [(ngModel)]="actividadEditando.fecha_inicio" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
 
-        <!-- Checkbox del popup -->
-        <input type="checkbox" class="popup-check" [id]="'popup-' + i">
-
-        <!-- Tarjeta -->
-        <div class="thumb">
-          <img [src]="a.imagen" [alt]="a.titulo">
-        </div>
-
-        <div class="card-body">
-          <h2>{{ a.titulo }}</h2>
-          <p class="descripcion">{{ a.descripcion }}</p>
-          <p class="fecha"><strong>Inicio:</strong> {{ a.inicio }}</p>
-
-          <label class="btn-edit" [for]="'popup-' + i">Editar Actividad</label>
-        </div>
-
-        <!-- Overlay -->
-        <label class="popup-overlay" [for]="'popup-' + i"></label>
-
-        <!-- Popup del mismo tamaño que la tarjeta -->
-        <div class="popup-box">
-          <div class="popup-content">
-
-            <h2>{{ a.titulo }}</h2>
-
-            <img class="popup-img" [src]="a.imagen" [alt]="a.titulo">
-
-            <p>{{ a.descripcion }}</p>
-            <p><strong>Inicio:</strong> {{ a.inicio }}</p>
-
-            <label class="popup-close" [for]="'popup-' + i">Cerrar</label>
-
-          </div>
-        </div>
-
-      </article>
-
-    </ng-container>
-
-  </main>
+      <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <button (click)="guardarActividadEditada()" style="background: #28a745; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; flex: 1;">💾 Guardar</button>
+        <button (click)="cerrarEditor()" style="background: #6c757d; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; flex: 1;">❌ Cancelar</button>
+      </div>
+    </div>
+  </div>
 
 </div>

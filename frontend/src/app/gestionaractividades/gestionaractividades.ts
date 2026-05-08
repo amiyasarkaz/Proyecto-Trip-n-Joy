@@ -1,68 +1,90 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-gestionaractividades',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './gestionaractividades.html',
   styleUrls: ['./gestionaractividades.css']
 })
-export class GestionarActividades {
-  constructor(private router: Router) {}
+export class GestionarActividades implements OnInit {
+  
+  actividades: any[] = [];
+  actividadEditando: any = null;
+  mensaje = '';
+  error = '';
+  cargando = false;
 
-  actividades = [
-    {
-      id: 1,
-      titulo: 'Montañismo',
-      descripcion: 'Recorrido por los Alpes Bávaros',
-      inicio: '15/04/2026',
-      imagen: '/actividad1.png'
-    },
-    {
-      id: 2,
-      titulo: 'Ciclismo',
-      descripcion: 'Ciclismo por las calles de París',
-      inicio: '21/04/2026',
-      imagen: '/actividad2.png'
-    },
-    {
-      id: 3,
-      titulo: 'Auroras Boreales',
-      descripcion: 'Avistamiento de auroras boreales en Islandia',
-      inicio: '25/04/2026',
-      imagen: '/actividad3.png'
-    },
-    {
-      id: 4,
-      titulo: 'Maravillas del Mundo',
-      descripcion: 'Explorar la ciudadela inca de Machu Picchu',
-      inicio: '02/05/2026',
-      imagen: '/actividad4.png'
-    },
-    {
-      id: 5,
-      titulo: 'Ballenas en Noruega',
-      descripcion: 'Safaris de ballenas en Noruega',
-      inicio: '05/12/2026',
-      imagen: '/actividad5.png'
-    },
-    {
-      id: 6,
-      titulo: 'Visita al Louvre',
-      descripcion: 'Visita guiada al museo del Louvre',
-      inicio: '08/06/2026',
-      imagen: '/actividad6.png'
-    }
-  ];
+  constructor(
+    private router: Router, 
+    private http: HttpClient,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit() {
+    console.log('🚀 Componente iniciado');
+    this.cargarActividades();
+  }
+
+  cargarActividades() {
+    console.log('📡 Cargando actividades...');
+    this.http.get('http://localhost/api/actividades').subscribe({
+      next: (data: any) => {
+        console.log('📦 Datos recibidos:', data);
+        console.log('📦 Es array?', Array.isArray(data));
+        console.log('📦 Longitud:', data.length);
+        this.actividades = data;
+        this.cdr.detectChanges(); // ✅ Forzar actualización de la vista
+        console.log('✅ this.actividades.length:', this.actividades.length);
+      },
+      error: (err) => {
+        console.error('❌ Error:', err);
+        this.error = 'Error al cargar actividades';
+      }
+    });
+  }
+
+  guardarActividadEditada() {
+    this.cargando = true;
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    this.http.put(`http://localhost/api/actividades/${this.actividadEditando.id}`, this.actividadEditando, { headers })
+      .subscribe({
+        next: () => {
+          this.cargando = false;
+          this.mensaje = '✅ Actividad actualizada correctamente';
+          this.cargarActividades();
+          this.actividadEditando = null;
+          setTimeout(() => this.mensaje = '', 3000);
+        },
+        error: (err) => {
+          this.cargando = false;
+          this.error = '❌ Error al guardar la actividad';
+          console.error(err);
+        }
+      });
+  }
+
+  abrirEditor(actividad: any) {
+    this.actividadEditando = { ...actividad };
+  }
+
+  cerrarEditor() {
+    this.actividadEditando = null;
+    this.mensaje = '';
+    this.error = '';
+  }
 
   volverDashboard() {
     this.router.navigate(['/dashboard']);
-    console.log("Volver al dashboard");}
-   
+  }
+
   administrarUsuarios() {}
   gestionarInfoMedica() {}
   gestionarAlojamientos() {}
-
 }
