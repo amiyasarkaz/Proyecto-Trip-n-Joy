@@ -319,7 +319,7 @@
 .partners-row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; 
   gap: 25px;
   margin: 15px 0 10px;
 }

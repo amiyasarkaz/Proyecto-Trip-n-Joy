@@ -73,18 +73,20 @@ export class GestionarActividades implements OnInit {
   abrirEditor(actividad: any) {
     this.actividadEditando = { ...actividad };
   }
-
   cerrarEditor() {
     this.actividadEditando = null;
     this.mensaje = '';
     this.error = '';
   }
-
   volverDashboard() {
     this.router.navigate(['/dashboard']);
-  }
 
-  administrarUsuarios() {}
+    console.log("Volver al dashboard");}
+   
+  administrarUsuarios() {
+    this.router.navigate(['/administrar-usuarios']);
+    console.log("Ir a administrar usuarios");
+  }
   gestionarInfoMedica() {}
   gestionarAlojamientos() {}
 }

@@ -9,7 +9,7 @@ import { RouterModule, Router } from '@angular/router';
   templateUrl: './administrar-usuarios.html',
   styleUrls: ['./administrar-usuarios.css']
 })
-export class AdministrarUsuariosComponent {
+export class AdministrarUsuarios {
   constructor(private router: Router) {}
 
   usuariosActivos = [
@@ -24,6 +24,18 @@ export class AdministrarUsuariosComponent {
       nombre: 'María Alejandra Paredes Huerta',
       creacion: '17/07/2024',
       paquete: 'Viaje a Brasil, Paquete nº1'
+    },
+    {
+      username: 'pao4579',
+      nombre: 'Paola Alexandra Piñeda Lima',
+      creacion: '12/08/2022',
+      paquete: 'Viaje a Portugal, Paquete nº1'
+    },
+    {
+      username: 'pao4579',
+      nombre: 'Paola Alexandra Piñeda Lima',
+      creacion: '12/08/2022',
+      paquete: 'Viaje a Portugal, Paquete nº1'
     },
     {
       username: 'pao4579',
@@ -51,6 +63,24 @@ export class AdministrarUsuariosComponent {
       nombre: 'Ramiro Oliver Espinoza Lomas',
       creacion: '12/04/2026',
       nacimiento: '14/02/2002'
+    },
+      {
+      username: 'ramiro27575',
+      nombre: 'Ramiro Oliver Espinoza Lomas',
+      creacion: '12/04/2026',
+      nacimiento: '14/02/2002'
+    },
+      {
+      username: 'ramiro27575',
+      nombre: 'Ramiro Oliver Espinoza Lomas',
+      creacion: '12/04/2026',
+      nacimiento: '14/02/2002'
+    },
+      {
+      username: 'ramiro27575',
+      nombre: 'Ramiro Oliver Espinoza Lomas',
+      creacion: '12/04/2026',
+      nacimiento: '14/02/2002'
     }
   ];
 
@@ -58,7 +88,11 @@ export class AdministrarUsuariosComponent {
     this.router.navigate(['/dashboard']);
     console.log("Volver al dashboard");}
     
-  gestionarActividades() {}
+  gestionarActividades() {
+    this.router.navigate(['/gestionaractividades']);
+    console.log("Ir a gestionar actividades");
+  }
   gestionarInfoMedica() {}
   gestionarAlojamientos() {}
 }
+
