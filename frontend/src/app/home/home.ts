@@ -17,6 +17,7 @@ export class Home {
   irAQueOfrecemos() {
     this.router.navigate(['/que-ofrecemos']);
   }
+
   
 }
 

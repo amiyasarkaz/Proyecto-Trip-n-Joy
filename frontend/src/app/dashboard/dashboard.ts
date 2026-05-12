@@ -27,7 +27,8 @@ export class Dashboard {
   }
 
   gestionarInformacion() {
-    console.log("Ir a gestionar información");
+    this.router.navigate(['/informacion-medica']);
+    console.log("Ir a gestionar información medica");
   }
 
   gestionarAlojamientos() {

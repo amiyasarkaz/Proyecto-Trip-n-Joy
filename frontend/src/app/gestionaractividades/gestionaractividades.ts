@@ -63,9 +63,12 @@ export class GestionarActividades {
    
   administrarUsuarios() {
     this.router.navigate(['/administrar-usuarios']);
-    console.log("Ir a administrar usuarios");
+    console.log("Ir a administrar usuarios");}
+    
+  gestionarInfoMedica() {
+    this.router.navigate(['/informacion-medica']);
+    console.log("Ir a información médica");
   }
-  gestionarInfoMedica() {}
   gestionarAlojamientos() {}
 
 }

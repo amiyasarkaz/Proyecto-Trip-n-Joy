@@ -24,8 +24,8 @@ export class Bergen {
     this.mostrarEspecificaciones = true;
   }
 
-  abrirPago() {
-    this.mostrarPago = true;
+  irAlMetodoPago() {
+  this.router.navigate(['/metodo-pago']);
   }
 
   cerrarPopup() {

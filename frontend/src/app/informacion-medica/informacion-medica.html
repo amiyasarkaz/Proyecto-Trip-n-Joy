@@ -1,0 +1,25 @@
+<div class="admin-page">
+  <div class="admin-header-global">
+    <div class="admin-topnav-global">
+      <button class="link-global" routerLink="/dashboard">Volver al Inicio</button>
+      <button class="link-global" routerLink="/gestionaractividades">Gestionar Actividades</button>
+      <button class="link-global" routerLink="/administrar-usuarios">Gestionar Usuarios</button>
+      <button class="link-global" routerLink="/gestionar-alojamientos">Gestionar Alojamientos</button>
+    </div>
+  </div>
+
+  <h2 class="titulo-seccion">Gestionar Información Médica</h2>
+
+  <div class="usuarios-wrapper">
+    <div class="usuarios-grid">
+      <div class="usuario-card" *ngFor="let pais of paises">
+        <h3 class="username">{{ pais.nombre }}</h3>
+        <p>{{ pais.descripcion }}</p>
+
+        <div class="acciones">
+          <button class="btn-alta">Modificar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
