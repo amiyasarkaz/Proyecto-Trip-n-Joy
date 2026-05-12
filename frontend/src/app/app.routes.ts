@@ -53,7 +53,8 @@ export const routes: Routes = [
   { path: 'valoraciones-generales', component: ValoracionesGenerales },
   { path: 'dashboard', component: Dashboard },
   { path: 'gestionaractividades', component: GestionarActividades },
-  { path: 'administrar-usuarios', component: AdministrarUsuarios },
   { path: 'informacion-medica', component: InformacionMedica },
-  { path: 'metodo-pago', component: MetodoPago }
+  { path: 'metodo-pago', component: MetodoPago },
+  { path: 'admin/actividades', component: GestionarActividades },
+
 ];
