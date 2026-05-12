@@ -14,7 +14,6 @@ class AuthController extends Controller
     // Registrar nuevo usuario
     public function register(Request $request)
     {
-        // Validar los datos con los nuevos campos
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'apellido' => 'nullable|string|max:255',
@@ -25,7 +24,6 @@ class AuthController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        // Si la validación falla
         if ($validator->fails()) {
             return response()->json([
                 'success' => false,
@@ -33,10 +31,8 @@ class AuthController extends Controller
             ], 422);
         }
 
-        // ✅ Verificar si es el primer usuario (será administrador)
         $esPrimerUsuario = User::count() == 0;
 
-        // Crear el usuario con todos los campos
         $user = User::create([
             'name' => $request->name,
             'apellido' => $request->apellido,
@@ -45,13 +41,11 @@ class AuthController extends Controller
             'pais' => $request->pais,
             'telefono' => $request->telefono,
             'password' => Hash::make($request->password),
-            'role' => $esPrimerUsuario ? 'admin' : 'user', // ✅ Primer usuario = admin
+            'role' => $esPrimerUsuario ? 'admin' : 'user',
         ]);
 
-        // Generar token de acceso
         $token = $user->createToken('auth_token')->plainTextToken;
 
-        // Responder con éxito
         return response()->json([
             'success' => true,
             'message' => 'Usuario registrado exitosamente',
@@ -63,7 +57,6 @@ class AuthController extends Controller
     // Iniciar sesión
     public function login(Request $request)
     {
-        // Validar datos
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
@@ -76,10 +69,8 @@ class AuthController extends Controller
             ], 422);
         }
 
-        // Buscar usuario
         $user = User::where('email', $request->email)->first();
 
-        // Verificar credenciales
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
                 'success' => false,
@@ -87,7 +78,6 @@ class AuthController extends Controller
             ], 401);
         }
 
-        // Generar token
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
@@ -144,6 +134,33 @@ class AuthController extends Controller
             'success' => true,
             'message' => 'Perfil actualizado correctamente',
             'user' => $user
+        ]);
+    }
+
+    // Obtener todos los usuarios
+    public function getUsuarios()
+    {
+        $usuarios = User::all();
+        return response()->json($usuarios);
+    }
+
+    // Eliminar usuario de la base de datos
+    public function eliminarUsuario($id)
+    {
+        $usuario = User::find($id);
+        
+        if (!$usuario) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Usuario no encontrado'
+            ], 404);
+        }
+        
+        $usuario->delete();
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Usuario eliminado correctamente'
         ]);
     }
 }

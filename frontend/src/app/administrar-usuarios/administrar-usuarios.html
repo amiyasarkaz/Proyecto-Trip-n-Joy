@@ -1,6 +1,5 @@
 <div class="admin-page">
 
-  <!-- HEADER REUTILIZABLE -->
   <header class="admin-header-global">
     <nav class="admin-topnav-global">
       <button class="link-global" (click)="volverDashboard()">Volver al Inicio</button>
@@ -12,37 +11,28 @@
 
   <h1 class="titulo-seccion">Administrar Usuarios</h1>
 
-  <!-- USUARIOS ACTIVOS -->
-  <h2 class="subtitulo">Usuarios activos</h2>
+  <!-- Mensajes -->
+  <div *ngIf="mensaje" class="mensaje-exito">{{ mensaje }}</div>
+  <div *ngIf="error" class="mensaje-error">{{ error }}</div>
+
+  <!-- Cargando -->
+  <div *ngIf="cargando" style="text-align: center; padding: 50px;">Cargando usuarios...</div>
+
+  <!-- USUARIOS REGISTRADOS -->
+  <h2 class="subtitulo">Usuarios registrados ({{ usuariosActivos.length }})</h2>
 
   <div class="usuarios-grid">
     <article class="usuario-card" *ngFor="let u of usuariosActivos">
-      <h3 class="username">{{ u.username }}</h3>
+      <h3 class="username">{{ u.name }} {{ u.apellido }}</h3>
 
-      <p><strong>Nombre:</strong> {{ u.nombre }}</p>
-      <p><strong>Fecha de creación:</strong> {{ u.creacion }}</p>
-      <p><strong>Último paquete comprado:</strong> {{ u.paquete }}</p>
-
-      <div class="acciones">
-        <button class="btn-baja">Dar de Baja</button>
-        <button class="btn-notificar">Notificar</button>
-      </div>
-    </article>
-  </div>
-
-  <!-- USUARIOS NUEVOS -->
-  <h2 class="subtitulo">Usuarios nuevos registrados</h2>
-
-  <div class="usuarios-grid">
-    <article class="usuario-card" *ngFor="let u of usuariosNuevos">
-      <h3 class="username">{{ u.username }}</h3>
-
-      <p><strong>Nombre:</strong> {{ u.nombre }}</p>
-      <p><strong>Fecha de creación:</strong> {{ u.creacion }}</p>
-      <p><strong>Fecha de nacimiento:</strong> {{ u.nacimiento }}</p>
+      <p><strong>Email:</strong> {{ u.email }}</p>
+      <p><strong>Rol:</strong> {{ u.role === 'admin' ? 'Administrador' : 'Usuario' }}</p>
+      <p><strong>País:</strong> {{ u.pais || 'No especificado' }}</p>
+      <p><strong>Teléfono:</strong> {{ u.telefono || 'No especificado' }}</p>
+      <p><strong>Registrado:</strong> {{ u.created_at | date:'dd/MM/yyyy' }}</p>
 
       <div class="acciones">
-        <button class="btn-alta">Dar de Alta</button>
+        <button class="btn-baja" (click)="darDeBaja(u)">Dar de Baja</button>
       </div>
     </article>
   </div>

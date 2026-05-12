@@ -34,12 +34,11 @@ export class GestionarActividades implements OnInit {
     console.log('📡 Cargando actividades...');
     this.http.get('http://localhost/api/actividades').subscribe({
       next: (data: any) => {
-        console.log('📦 Datos recibidos:', data);
-        console.log('📦 Es array?', Array.isArray(data));
-        console.log('📦 Longitud:', data.length);
-        this.actividades = data;
-        this.cdr.detectChanges(); // ✅ Forzar actualización de la vista
-        console.log('✅ this.actividades.length:', this.actividades.length);
+        // ✅ Filtrar elementos null o undefined
+        this.actividades = data.filter((a: any) => a !== null && a !== undefined);
+        console.log('📦 Datos recibidos:', this.actividades);
+        console.log('📦 Longitud después de filtrar:', this.actividades.length);
+        this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('❌ Error:', err);
@@ -49,6 +48,12 @@ export class GestionarActividades implements OnInit {
   }
 
   guardarActividadEditada() {
+    // ✅ Validar que hay una actividad para editar
+    if (!this.actividadEditando) {
+      this.error = 'No hay actividad para editar';
+      return;
+    }
+    
     this.cargando = true;
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -73,20 +78,23 @@ export class GestionarActividades implements OnInit {
   abrirEditor(actividad: any) {
     this.actividadEditando = { ...actividad };
   }
+
   cerrarEditor() {
     this.actividadEditando = null;
     this.mensaje = '';
     this.error = '';
   }
+
   volverDashboard() {
     this.router.navigate(['/dashboard']);
-
-    console.log("Volver al dashboard");}
+    console.log("Volver al dashboard");
+  }
    
   administrarUsuarios() {
     this.router.navigate(['/administrar-usuarios']);
     console.log("Ir a administrar usuarios");
   }
+  
   gestionarInfoMedica() {}
   gestionarAlojamientos() {}
 }

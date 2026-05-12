@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-administrar-usuarios',
@@ -9,90 +10,78 @@ import { RouterModule, Router } from '@angular/router';
   templateUrl: './administrar-usuarios.html',
   styleUrls: ['./administrar-usuarios.css']
 })
-export class AdministrarUsuarios {
-  constructor(private router: Router) {}
+export class AdministrarUsuarios implements OnInit {
 
-  usuariosActivos = [
-    {
-      username: 'juan3238',
-      nombre: 'Juan Ramiro Morales Sarmiento',
-      creacion: '12/04/2025',
-      paquete: 'Viaje a Suiza, Paquete nº3'
-    },
-    {
-      username: 'mari5797',
-      nombre: 'María Alejandra Paredes Huerta',
-      creacion: '17/07/2024',
-      paquete: 'Viaje a Brasil, Paquete nº1'
-    },
-    {
-      username: 'pao4579',
-      nombre: 'Paola Alexandra Piñeda Lima',
-      creacion: '12/08/2022',
-      paquete: 'Viaje a Portugal, Paquete nº1'
-    },
-    {
-      username: 'pao4579',
-      nombre: 'Paola Alexandra Piñeda Lima',
-      creacion: '12/08/2022',
-      paquete: 'Viaje a Portugal, Paquete nº1'
-    },
-    {
-      username: 'pao4579',
-      nombre: 'Paola Alexandra Piñeda Lima',
-      creacion: '12/08/2022',
-      paquete: 'Viaje a Portugal, Paquete nº1'
-    }
-  ];
+  usuariosActivos: any[] = [];
+  usuariosNuevos: any[] = [];
+  cargando = false;
+  mensaje = '';
+  error = '';
 
-  usuariosNuevos = [
-    {
-      username: 'emili4575',
-      nombre: 'Emilia Laura Flores Cervantes',
-      creacion: '12/04/2026',
-      nacimiento: '14/02/2001'
-    },
-    {
-      username: 'pablo8797',
-      nombre: 'Pedro Pablo Ramírez Quintana',
-      creacion: '12/04/2026',
-      nacimiento: '05/07/1998'
-    },
-    {
-      username: 'ramiro27575',
-      nombre: 'Ramiro Oliver Espinoza Lomas',
-      creacion: '12/04/2026',
-      nacimiento: '14/02/2002'
-    },
-      {
-      username: 'ramiro27575',
-      nombre: 'Ramiro Oliver Espinoza Lomas',
-      creacion: '12/04/2026',
-      nacimiento: '14/02/2002'
-    },
-      {
-      username: 'ramiro27575',
-      nombre: 'Ramiro Oliver Espinoza Lomas',
-      creacion: '12/04/2026',
-      nacimiento: '14/02/2002'
-    },
-      {
-      username: 'ramiro27575',
-      nombre: 'Ramiro Oliver Espinoza Lomas',
-      creacion: '12/04/2026',
-      nacimiento: '14/02/2002'
+  constructor(private router: Router, private http: HttpClient) {}
+
+  ngOnInit() {
+    this.cargarUsuarios();
+  }
+
+  cargarUsuarios() {
+    this.cargando = true;
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+      this.error = 'No hay sesión iniciada';
+      this.cargando = false;
+      return;
     }
-  ];
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    this.http.get('http://localhost/api/usuarios', { headers }).subscribe({
+      next: (data: any) => {
+        console.log('📦 Usuarios recibidos:', data);
+        this.usuariosActivos = data;
+        this.usuariosNuevos = [];
+        this.cargando = false;
+      },
+      error: (err) => {
+        console.error('❌ Error:', err);
+        this.error = 'Error al cargar usuarios';
+        this.cargando = false;
+      }
+    });
+  }
+
+  darDeBaja(usuario: any) {
+    if (confirm(`¿Estás seguro de eliminar a ${usuario.name} ${usuario.apellido}? Esta acción no se puede deshacer.`)) {
+      const token = localStorage.getItem('token');
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+      this.http.delete(`http://localhost/api/usuario/${usuario.id}`, { headers }).subscribe({
+        next: () => {
+          this.mensaje = `✅ Usuario ${usuario.name} eliminado correctamente`;
+          this.cargarUsuarios();
+          setTimeout(() => this.mensaje = '', 3000);
+        },
+        error: (err) => {
+          console.error(err);
+          this.error = '❌ Error al eliminar el usuario';
+        }
+      });
+    }
+  }
+
+  notificar(usuario: any) {
+    alert(`Notificación enviada a ${usuario.name} ${usuario.apellido}`);
+  }
 
   volverDashboard() {
     this.router.navigate(['/dashboard']);
-    console.log("Volver al dashboard");}
+  }
     
   gestionarActividades() {
     this.router.navigate(['/gestionaractividades']);
-    console.log("Ir a gestionar actividades");
   }
+  
   gestionarInfoMedica() {}
   gestionarAlojamientos() {}
 }
-

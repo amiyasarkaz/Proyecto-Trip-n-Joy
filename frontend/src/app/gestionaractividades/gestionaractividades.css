@@ -1,444 +1,79 @@
-.admin-page {
-  width: 100%;
-  overflow-x: hidden;
-  min-height: 100vh;
-  padding: 20px;
+/* Usamos la jerarquía completa para ganar a los estilos inline */
 
-  background-image: url('/fondoadmin.png');
-  background-size: cover;
-  background-position: center;
-  background-color: rgba(255, 255, 255, 0.45);
-  background-blend-mode: overlay;
-
-  color: white;
+/* 1. EL CONTENEDOR PRINCIPAL */
+html body div[style*="padding: 20px"] {
+    background-color: transparent;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-/* HEADER */
-.admin-header-global {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px; 
+/* 2. EL TITULO */
+html body div h1[style*="display: inline-block"] {
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    margin-left: 0; 
+    display: block;
+    text-align: center;
 }
 
-.admin-topnav-global {
-  display: flex;
-  gap: 22px; 
-  flex-wrap: wrap;
-}
-
-.link-global {
-  background: #0d6efd;
-  color: white;
-  padding: 12px 20px; 
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 20px; 
-  cursor: pointer;
-  border: none;
-  transition: 0.2s ease;
-}
-
-.link-global:hover {
-  background: #0b5ed7;
-  transform: translateY(-2px);
-}
-
-/* TÍTULO */
-.titulo-seccion {
-  text-align: center;
-  margin-bottom: 70px; 
-  font-size: 34px;
-  font-weight: 800;
-}
-
-/* MENSAJES */
-.mensaje-exito {
-  background: #d4edda;
-  color: #155724;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 16px;
-}
-
-.mensaje-error {
-  background: #f8d7da;
-  color: #721c24;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 16px;
-}
-
-/* MODAL DE EDICIÓN */
-.modal-editar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.modal-contenido {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 500px;
-  max-height: 85vh;
-  overflow-y: auto;
-  color: #333;
-}
-
-.modal-contenido h2 {
-  margin-top: 0;
-  color: #0d6efd;
-  text-align: center;
-}
-
-.modal-contenido label {
-  display: block;
-  margin: 15px 0 5px;
-  font-weight: 600;
-  color: #333;
-}
-
-.modal-contenido input, .modal-contenido textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
-.modal-contenido textarea {
-  resize: vertical;
-}
-
-.botones-edicion {
-  display: flex;
-  gap: 15px;
-  margin-top: 25px;
-}
-
-.guardar {
-  background: #28a745;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
-
-.guardar:hover {
-  background: #218838;
-  transform: translateY(-2px);
-}
-
-.guardar:disabled {
-  background: #6c757d;
-  cursor: not-allowed;
-}
-
-.cancelar {
-  background: #6c757d;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
-
-.cancelar:hover {
-  background: #5a6268;
-  transform: translateY(-2px);
-}
-
-/* GRID DE TARJETAS */
-.actividades-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 70px; 
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-/* TARJETA GRANDE */
-.actividad-card {
-  position: relative;
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-  color: black;
-  transition: transform 0.2s ease;
-}
-
-.actividad-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Imagen más grande */
-.thumb img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* Texto */
-.card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.card-body h2 {
-  margin: 10px 0 5px;
-  font-size: 20px;
-  color: #333;
-}
-
-.descripcion {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.4;
-}
-
-.fecha, .precio, .duracion {
-  font-size: 13px;
-  color: #666;
-  margin: 3px 0;
-}
-
-.btn-edit {
-  margin-top: 8px;
-  padding: 10px 16px;
-  background: #0d6efd;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
-
-.btn-edit:hover {
-  background: #0b5ed7;
-  transform: translateY(-2px);
-}
-
-/* POPUP */
-.popup-check {
-  display: none;
-}
-
-/* Overlay */
-.popup-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.25s ease;
-  z-index: 20;
-}
-
-/* Popup del mismo tamaño que la tarjeta */
-.popup-box {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 402px;
-  max-width: 402px;
-  transform: translate(-50%, -50%) scale(0.7);
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(12px);
-  padding: 18px;
-  border-radius: 16px;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.25s ease;
-  z-index: 30;
-  animation: fadeIn 0.25s ease;
-  color: black;
-}
-
-/* Imagen del popup */
-.popup-img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin: 12px 0;
-}
-
-.popup-box h2 {
-  margin-top: 0;
-  color: #0d6efd;
-}
-
-/* Botón cerrar */
-.popup-close {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 16px;
-  background: #0d6efd;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 15px;
-  transition: 0.2s ease;
-}
-
-.popup-close:hover {
-  background: #0b5ed7;
-}
-
-/* Activación */
-.popup-check:checked ~ .popup-overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.popup-check:checked ~ .popup-box {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-/* ANIMACIÓN */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.6);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-/* ========================================== */
-/* RESPONSIVE - TABLETS Y MÓVILES              */
-/* ========================================== */
-
-@media (max-width: 1024px) {
-  .actividades-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* 3. EL GRID DE ACTIVIDADES */
+/* Buscamos el div que tiene el grid por sus propiedades únicas */
+html body div div[style*="display: grid"] {
     gap: 40px;
-  }
+    padding: 30px 0;
 }
 
-@media (max-width: 768px) {
-  .admin-page {
-    padding: 15px;
-  }
-
-  .admin-topnav-global {
-    gap: 12px;
-  }
-
-  .link-global {
-    padding: 8px 16px;
-    font-size: 16px;
-  }
-
-  .titulo-seccion {
-    font-size: 28px;
-    margin-bottom: 40px;
-  }
-
-  .actividades-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .actividad-card {
-    max-width: 100%;
-  }
-
-  .popup-box {
-    width: 90%;
-    max-width: 350px;
-  }
-
-  .modal-contenido {
+/* 4. LA TARJETA (CARD) */
+/* Seleccionamos el div del ngFor basándonos en sus estilos actuales */
+html body div div div[style*="border: 1px solid #ddd"] {
+    border-color: transparent; /* Anulamos el borde gris */
+    border-width: 0;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     padding: 20px;
-  }
-
-  .modal-contenido h2 {
-    font-size: 22px;
-  }
-
-  .botones-edicion {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .guardar, .cancelar {
-    width: 100%;
-  }
+    transition: transform 0.3s ease;
 }
 
-@media (max-width: 480px) {
-  .titulo-seccion {
-    font-size: 24px;
-  }
+html body div div div[style*="border: 1px solid #ddd"]:hover {
+    transform: translateY(-10px);
+}
 
-  .link-global {
-    padding: 6px 12px;
-    font-size: 14px;
-  }
+/* 5. LA IMAGEN */
+/* La imagen ahora tiene bordes redondeados y margen interno */
+html body div div div img[style*="width: 100%"] {
+    border-radius: 18px;
+    height: 190px;
+    margin-bottom: 15px;
+}
 
-  .card-body h2 {
-    font-size: 18px;
-  }
+/* 6. EL BOTÓN (Transformación total de amarillo a azul ancho completo) */
+/* Apuntamos al botón por su color de fondo actual */
+html body div div div div button[style*="background: #ffc107"] {
+    background-color: #3182ce; 
+    color: #ffffff;
+    width: 100%;
+    display: block;
+    padding: 14px 0;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+}
 
-  .descripcion {
-    font-size: 12px;
-  }
+/* 7. MODAL DE EDICIÓN */
+html body div div[style*="position: fixed"] {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+}
 
-  .btn-edit {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-
-  .popup-box {
-    max-width: 300px;
-    padding: 15px;
-  }
-
-  .popup-box h2 {
-    font-size: 18px;
-  }
-
-  .popup-img {
-    height: 140px;
-  }
-
-  .popup-close {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
+html body div div div[style*="max-width: 500px"] {
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
 }
