@@ -81,10 +81,11 @@ export class AdministrarUsuarios implements OnInit {
   gestionarActividades() {
     this.router.navigate(['/gestionaractividades']);
   }
-
-  gestionarInformacion() {
-    this.router.navigate(['/informacion-medica']);
-    console.log("Ir a gestionar información medica");
-  }
   
+  gestionarInfoMedica() {}
+
+  // ✅ Método agregado
+  gestionarAlojamientos() {
+    console.log("Gestionar alojamientos");
+  }
 }

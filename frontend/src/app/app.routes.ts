@@ -56,5 +56,6 @@ export const routes: Routes = [
   { path: 'informacion-medica', component: InformacionMedica },
   { path: 'metodo-pago', component: MetodoPago },
   { path: 'admin/actividades', component: GestionarActividades },
+  { path: 'administrar-usuarios', component: AdministrarUsuarios }  //
 
 ];
