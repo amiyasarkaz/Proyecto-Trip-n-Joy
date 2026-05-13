@@ -53,7 +53,8 @@
 /* SECCIÓN PRINCIPAL */
 .que-ofrecemos {
   position: relative;
-  height: 100vh; /* evita scroll */
+  min-height: 100vh; /* evita scroll */
+  height: auto;
   background-image: url('/fondov.avif');
   background-size: cover;
   background-position: center;
@@ -65,7 +66,7 @@
 
   padding: 0 40px; 
   box-sizing: border-box;
-  overflow: hidden; 
+  overflow: visible; 
 }
 
 /* CAPA OSCURA */
@@ -199,6 +200,4 @@
   color: #2d3b53;
   transform: translateY(-3px);
 }
-
-
 
