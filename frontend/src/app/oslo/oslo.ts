@@ -24,14 +24,16 @@ export class Oslo {
     this.mostrarEspecificaciones = true;
   }
 
-  abrirPago() {
+  abrirPopup() {
     this.mostrarPago = true;
   }
 
   cerrarPopup() {
-    this.mostrarEspecificaciones = false;
     this.mostrarPago = false;
+    this.mostrarEspecificaciones = false;
   }
+
+  volveratras() {}
 
   irAValoraciones() {
     this.router.navigate(['/valoraciones', 'Oslo']);

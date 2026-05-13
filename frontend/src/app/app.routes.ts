@@ -25,7 +25,6 @@ import { Dashboard } from './dashboard/dashboard';
 import { GestionarActividades } from './gestionaractividades/gestionaractividades';
 import { AdministrarUsuarios } from './administrar-usuarios/administrar-usuarios';
 import { InformacionMedica } from './informacion-medica/informacion-medica';
-import { MetodoPago } from './metodo-pago/metodo-pago';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -54,8 +53,7 @@ export const routes: Routes = [
   { path: 'dashboard', component: Dashboard },
   { path: 'gestionaractividades', component: GestionarActividades },
   { path: 'informacion-medica', component: InformacionMedica },
-  { path: 'metodo-pago', component: MetodoPago },
   { path: 'admin/actividades', component: GestionarActividades },
-  { path: 'administrar-usuarios', component: AdministrarUsuarios }  //
+  { path: 'administrar-usuarios', component: AdministrarUsuarios }  
 
 ];

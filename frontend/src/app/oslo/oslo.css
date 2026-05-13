@@ -155,3 +155,246 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
+/* Fondo oscuro */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+/* Caja del popup */
+.pago-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 420px;
+  padding: 30px;
+  border-radius: 14px;
+  z-index: 11;
+  font-family: 'Montserrat', sans-serif;
+  animation: scaleIn 0.25s ease;
+}
+
+.pago-box h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* Inputs */
+.pago-box input,
+.pago-box select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 15px;;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Fila de tarjeta + iconos */
+.card-row {
+  position: relative;
+}
+
+.card-icons {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.card-icons img {
+  width: 32px;
+  opacity: 0.85;
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-back,
+.btn-confirm {
+  width: 48%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-back {
+  background: #d9d9d9;
+}
+
+.btn-back:hover {
+  background: #e90000;
+  color: white;
+}
+
+.btn-confirm {
+  background: #d9d9d9;
+  color: black;
+}
+
+.btn-confirm:hover {
+  background: #04b104;
+  color: white;
+}
+
+/* Animación */
+@keyframes scaleIn {
+  from { transform: translate(-50%, -50%) scale(0.85); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .pago-box {
+    padding: 20px !important;
+    width: 92% !important;
+  }
+
+  .card-row input {
+    padding-right: 70px !important;
+  }
+
+  .card-icons img {
+    width: 30px !important;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-back,
+  .btn-confirm {
+    width: 100% !important;
+  }
+}
+
+/* ====== RESPONSIVE OSLO ====== */
+
+@media (max-width: 768px) {
+
+  /* Fondo difuminado */
+  .bg-img-blur {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: blur(4px);
+  }
+
+  /* Contenedor principal */
+  .oslo-container {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+
+  /* Título */
+  .titulo {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  /* Galería */
+  .galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .foto {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  /* Descripción */
+  .descripcion {
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 10px;
+    color: white;
+  }
+
+  /* Precio */
+  .precio-box {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background: rgba(0,0,0,0.55);
+    border-radius: 10px;
+    margin-top: 15px;
+    color: white;
+  }
+
+  /* Botones */
+  .botones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .botones-container button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+
+  /* Popup general */
+  .popup {
+    width: 90% !important;
+    padding: 20px !important;
+  }
+
+  /* Popup de pago */
+  .pago-box {
+    width: 90% !important;
+    padding: 20px !important;
+  }
+
+  .card-row input {
+    padding-right: 70px !important;
+  }
+
+  .card-icons img {
+    width: 30px !important;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-back,
+  .btn-confirm {
+    width: 100% !important;
+  }
+
+  /* Botón VOLVER */
+  .volver-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 15px;
+  }
+}

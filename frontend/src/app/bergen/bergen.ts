@@ -24,16 +24,20 @@ export class Bergen {
     this.mostrarEspecificaciones = true;
   }
 
-  irAlMetodoPago() {
-  this.router.navigate(['/metodo-pago']);
+ abrirPopup() {
+    this.mostrarPago = true;
   }
 
   cerrarPopup() {
-    this.mostrarEspecificaciones = false;
     this.mostrarPago = false;
+    this.mostrarEspecificaciones = false;
   }
+
+  volveratras() {}
 
   irAValoraciones() {
     this.router.navigate(['/valoraciones', 'Bergen']);
   }
 }
+
+

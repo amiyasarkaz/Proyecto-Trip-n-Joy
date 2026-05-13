@@ -79,3 +79,15 @@ html body div div div[style*="max-width: 500px"] {
     border-radius: 25px;
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
 }
+
+@media (max-width: 768px) {
+  .actividad-card {
+    height: auto !important;
+    padding: 15px !important;
+  }
+
+  .actividad-card img {
+    height: 160px !important;
+    object-fit: cover;
+  }
+}

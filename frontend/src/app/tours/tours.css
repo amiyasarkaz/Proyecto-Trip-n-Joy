@@ -155,3 +155,108 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
+/* Fondo oscuro */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+/* Caja del popup */
+.pago-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 420px;
+  padding: 30px;
+  border-radius: 14px;
+  z-index: 11;
+  font-family: 'Montserrat', sans-serif;
+  animation: scaleIn 0.25s ease;
+}
+
+.pago-box h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* Inputs */
+.pago-box input,
+.pago-box select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 15px;;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Fila de tarjeta + iconos */
+.card-row {
+  position: relative;
+}
+
+.card-icons {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.card-icons img {
+  width: 32px;
+  opacity: 0.85;
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-back,
+.btn-confirm {
+  width: 48%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-back {
+  background: #d9d9d9;
+}
+
+.btn-back:hover {
+  background: #e90000;
+  color: white;
+}
+
+.btn-confirm {
+  background: #d9d9d9;
+  color: black;
+}
+
+.btn-confirm:hover {
+  background: #04b104;
+  color: white;
+}
+
+/* Animación */
+@keyframes scaleIn {
+  from { transform: translate(-50%, -50%) scale(0.85); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}

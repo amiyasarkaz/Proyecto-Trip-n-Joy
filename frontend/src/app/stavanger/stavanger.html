@@ -29,7 +29,7 @@
   <div class="botones-container">
     <button (click)="abrirEspecificaciones()">Especificaciones</button>
     <button (click)="irAValoraciones()">Valoraciones</button> 
-    <button (click)="abrirPago()">Método de Pago</button>
+    <button (click)="abrirPopup()">Método de Pago</button>
   </div>
 
   <!-- Especificaciones -->
@@ -42,16 +42,53 @@
     </div>
   }
 
-  <!-- Método de Pago -->
-  @if (mostrarPago) {
-    <div class="overlay" (click)="cerrarPopup()"></div>
-    <div class="popup">
-      <h2>Método de Pago</h2>
-      <p>Aquí va el contenido del Método de Pago.</p>
-      <button class="cerrar-btn" (click)="cerrarPopup()">Cerrar</button>
-    </div>
-  }
+<!-- Botón para abrir el popup -->
 
-  <button class="volver-btn" (click)="volver()">VOLVER</button>
+@if (mostrarPago) {
+
+  <div class="overlay" (click)="cerrarPopup()"></div>
+
+  <div class="popup pago-box">
+
+    <h2>Método de Pago</h2>
+
+    <form>
+
+      <label>Email</label>
+      <input type="email" placeholder="tuemail@gmail.com" required>
+
+      <label>Datos de la Tarjeta</label>
+      <div class="card-row">
+        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" required>
+        <div class="card-icons">
+          <img src="/visa.svg">
+          <img src="/MasterCard.png">
+        </div>
+      </div>
+
+      <label>País o Región</label>
+      <select required>
+        <option value="">Selecciona tu país</option>
+        <option>España</option>
+        <option>México</option>
+        <option>Argentina</option>
+        <option>Belgica</option>
+        <option>Dinamarca</option>
+        <option>Grecia</option>
+        <option>Reino Unido</option>
+        <option>Sudafrica</option>
+        <option>Colombia</option>
+      </select>
+
+      <div class="buttons">
+        <button type="button" class="btn-back" (click)="cerrarPopup()">Regresar</button>
+        <button type="submit" class="btn-confirm">Confirmar Pago</button>
+      </div>
+
+    </form>
+
+  </div>
+}
+<button class="volver-btn" (click)="volver()">VOLVER</button>
 
 </div>
