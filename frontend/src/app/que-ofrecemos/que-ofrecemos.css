@@ -201,3 +201,151 @@
   transform: translateY(-3px);
 }
 
+/* ============================================
+   📱 RESPONSIVE PARA ¿QUÉ OFRECEMOS?
+   ============================================ */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 900px) {
+
+  .que-ofrecemos {
+    min-height: 100vh;
+    height: auto;
+    padding: 30px 20px;
+  }
+
+  .content {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .content h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .sub {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(6px);
+  }
+
+  .card img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+  }
+
+  .buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .buttons button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .btn-volver {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 260px;
+    padding: 14px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+
+  .content h1 {
+    font-size: 1.7rem;
+  }
+
+  .sub {
+    font-size: 0.95rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .card {
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 18px;
+  }
+
+  .card img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons button {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .btn-volver {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 420px) {
+
+  .content h1 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    max-width: 300px;
+    padding: 16px;
+  }
+
+  .card img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+}
