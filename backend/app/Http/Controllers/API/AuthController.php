@@ -137,14 +137,14 @@ class AuthController extends Controller
         ]);
     }
 
-    // Obtener todos los usuarios
+    // ✅ MODIFICADO: Obtener todos los usuarios (EXCLUYENDO administradores)
     public function getUsuarios()
     {
-        $usuarios = User::all();
+        $usuarios = User::where('role', '!=', 'admin')->get();
         return response()->json($usuarios);
     }
 
-    // Eliminar usuario de la base de datos
+    // ✅ MODIFICADO: Eliminar usuario con protección para admin
     public function eliminarUsuario($id)
     {
         $usuario = User::find($id);
@@ -154,6 +154,14 @@ class AuthController extends Controller
                 'success' => false,
                 'message' => 'Usuario no encontrado'
             ], 404);
+        }
+        
+        // No permitir eliminar administradores
+        if ($usuario->role === 'admin') {
+            return response()->json([
+                'success' => false,
+                'message' => 'No se puede eliminar un administrador'
+            ], 403);
         }
         
         $usuario->delete();

@@ -5,13 +5,13 @@
 <div class="top-banner">
   <h1 class="banner-title">NORUEGA</h1>
   <!-- Icono que abre el popup -->
-  <label for="modal-info-noruega">
+  <label for="modal-info-noruega" (click)="cargarInformacionMedica()">
     <img src="btninfo.png" class="banner-info-icon">
   </label>
 </div>
 
 <!-- Tarjetas centradas -->
-<div class="viajes-grid" >
+<div class="viajes-grid">
 
   <div class="viaje-card" (click)="goOslo()">
     <img src="oslo.webp" />
@@ -37,11 +37,8 @@
 
     <h2 class="info-title">Información Médica - Noruega</h2>
 
-    <p class="info-text">
-      Sin vacunas obligatorias. Recomiendan precaución por garrapatas (encefalitis) en zonas costeras del sur.<br><br>
-      Obligatorio seguro médico Schengen (mínimo 30.000€). Llevar Tarjeta Sanitaria Europea si eres de la UE.<br><br>
-      Contrata seguro con cobertura de rescate en montaña.
-    </p>
+    <!-- ✅ TEXTO DINÁMICO DESDE LA BASE DE DATOS -->
+    <p class="info-text">{{ informacionMedica }}</p>
 
     <label for="modal-info-noruega" class="cerrar-info">Cerrar</label>
 
@@ -53,4 +50,3 @@
     VOLVER A LA PÁGINA PRINCIPAL
   </button>
 </div>
-

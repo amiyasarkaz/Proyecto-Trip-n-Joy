@@ -1,25 +1,50 @@
 <div class="admin-page">
   <div class="admin-header-global">
     <div class="admin-topnav-global">
-      <button class="link-global" routerLink="/dashboard">Volver al Inicio</button>
-      <button class="link-global" routerLink="/gestionaractividades">Gestionar Actividades</button>
-      <button class="link-global" routerLink="/administrar-usuarios">Gestionar Usuarios</button>
-      <button class="link-global" routerLink="/gestionar-alojamientos">Gestionar Alojamientos</button>
+      <button class="link-global" (click)="volverDashboard()">Volver al Inicio</button>
+      <button class="link-global" (click)="gestionarActividades()">Gestionar Actividades</button>
+      <button class="link-global" (click)="administrarUsuarios()">Gestionar Usuarios</button>
     </div>
   </div>
 
-  <h2 class="titulo-seccion">Gestionar Información Médica</h2>
+  <h1 class="titulo-seccion">Gestionar Información Médica</h1>
+
+  <!-- Mensajes -->
+  <div *ngIf="mensaje" style="background: #d4edda; color: #155724; padding: 10px; text-align: center; border-radius: 5px; margin-bottom: 20px;">
+    {{ mensaje }}
+  </div>
+  <div *ngIf="error" style="background: #f8d7da; color: #721c24; padding: 10px; text-align: center; border-radius: 5px; margin-bottom: 20px;">
+    {{ error }}
+  </div>
 
   <div class="usuarios-wrapper">
     <div class="usuarios-grid">
       <div class="usuario-card" *ngFor="let pais of paises">
-        <h3 class="username">{{ pais.nombre }}</h3>
+        <h3 class="username">{{ pais.pais }}</h3>
         <p>{{ pais.descripcion }}</p>
 
         <div class="acciones">
-          <button class="btn-alta">Modificar</button>
+          <button class="btn-alta" (click)="abrirEditor(pais)">✏️ Modificar</button>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Modal de edición -->
+  <div *ngIf="paisEditando" class="modal-editar">
+    <div class="modal-contenido">
+      <h2>✏️ Editar Información Médica - {{ paisEditando.pais }}</h2>
+      
+      <label>Descripción:</label>
+      <textarea [(ngModel)]="paisEditando.descripcion" rows="8" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;"></textarea>
+
+      <div class="botones-edicion">
+        <button class="guardar" (click)="guardarInformacion()" [disabled]="cargando">
+          {{ cargando ? 'Guardando...' : '💾 Guardar cambios' }}
+        </button>
+        <button class="cancelar" (click)="cerrarEditor()">❌ Cancelar</button>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -5,11 +5,10 @@
 <div class="top-banner">
   <h1 class="banner-title">FRANCIA</h1>
   <!-- Icono que abre el popup -->
-  <label for="modal-info-francia">
+  <label for="modal-info-francia" (click)="cargarInformacionMedica()">
     <img src="btninfo.png" class="banner-info-icon">
   </label>
 </div>
-
 
 <!-- Tarjetas centradas -->
 <div class="viajes-grid">
@@ -38,11 +37,8 @@
 
     <h2 class="info-title">Información Médica - Francia</h2>
 
-    <p class="info-text">
-      No exige vacunas obligatorias, aunque se recomienda tener el calendario al día.<br><br>
-      Si visitas territorios de ultramar, consulta sobre prevención de malaria. <br><br>
-      Lleva tu Tarjeta Sanitaria Europea si eres de la UE y un seguro de viaje complementario.
-    </p>
+    <!-- ✅ TEXTO DINÁMICO DESDE LA BASE DE DATOS -->
+    <p class="info-text">{{ informacionMedica }}</p>
 
     <label for="modal-info-francia" class="cerrar-info">Cerrar</label>
 
@@ -54,4 +50,3 @@
     VOLVER A LA PÁGINA PRINCIPAL
   </button>
 </div>
-

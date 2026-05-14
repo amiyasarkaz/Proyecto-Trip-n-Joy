@@ -8,16 +8,10 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('actividades', function (Blueprint $table) {
+        Schema::create('informacion_medica', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('pais'); // Alemania, Francia, Noruega
             $table->text('descripcion');
-            $table->string('destino');
-            $table->string('ciudad');
-            $table->decimal('precio', 8, 2);
-            $table->string('duracion');
-            $table->string('imagen')->nullable();
-            $table->date('fecha_inicio')->nullable();
             $table->boolean('activo')->default(true);
             $table->timestamps();
         });
@@ -25,6 +19,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('actividades');
+        Schema::dropIfExists('informacion_medica');
     }
 };

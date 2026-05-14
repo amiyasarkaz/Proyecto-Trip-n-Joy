@@ -33,15 +33,88 @@ export class RegistroComponent {
     this.mensaje = '';
     this.error = '';
 
-    // Validar que las contraseñas coincidan
-    if (this.userData.password !== this.userData.password_confirmation) {
-      alert('❌ Las contraseñas no coinciden');
+    // ✅ VALIDACIONES DEL LADO DEL CLIENTE
+
+    // Validar nombre
+    if (!this.userData.name.trim()) {
+      this.error = '❌ El nombre es obligatorio';
       return;
     }
 
-    // Validar campos obligatorios
-    if (!this.userData.name || !this.userData.email || !this.userData.password) {
-      alert('❌ Nombre, email y contraseña son obligatorios');
+    if (this.userData.name.trim().length < 2) {
+      this.error = '❌ El nombre debe tener al menos 2 caracteres';
+      return;
+    }
+
+    // Validar apellido
+    if (!this.userData.apellido.trim()) {
+      this.error = '❌ El apellido es obligatorio';
+      return;
+    }
+
+    if (this.userData.apellido.trim().length < 2) {
+      this.error = '❌ El apellido debe tener al menos 2 caracteres';
+      return;
+    }
+
+    // Validar email
+    if (!this.userData.email.trim()) {
+      this.error = '❌ El email es obligatorio';
+      return;
+    }
+
+    if (!this.isValidEmail(this.userData.email)) {
+      this.error = '❌ El formato del email no es válido';
+      return;
+    }
+
+    // Validar NIF (formato español básico)
+    if (!this.userData.nif.trim()) {
+      this.error = '❌ El NIF es obligatorio';
+      return;
+    }
+
+    if (!this.isValidNIF(this.userData.nif)) {
+      this.error = '❌ El formato del NIF no es válido (ej: 12345678A)';
+      return;
+    }
+
+    // Validar país
+    if (!this.userData.pais.trim()) {
+      this.error = '❌ El país es obligatorio';
+      return;
+    }
+
+    // Validar teléfono (opcional pero si se ingresa debe ser válido)
+    if (this.userData.telefono.trim() && !this.isValidPhone(this.userData.telefono)) {
+      this.error = '❌ El formato del teléfono no es válido';
+      return;
+    }
+
+    // Validar contraseña
+    if (!this.userData.password.trim()) {
+      this.error = '❌ La contraseña es obligatoria';
+      return;
+    }
+
+    if (this.userData.password.length < 8) {
+      this.error = '❌ La contraseña debe tener al menos 8 caracteres';
+      return;
+    }
+
+    if (!this.isStrongPassword(this.userData.password)) {
+      this.error = '❌ La contraseña debe contener al menos una letra mayúscula, una minúscula y un número';
+      return;
+    }
+
+    // Validar confirmación de contraseña
+    if (!this.userData.password_confirmation.trim()) {
+      this.error = '❌ Debes confirmar tu contraseña';
+      return;
+    }
+
+    if (this.userData.password !== this.userData.password_confirmation) {
+      this.error = '❌ Las contraseñas no coinciden';
       return;
     }
 
@@ -69,17 +142,48 @@ export class RegistroComponent {
           }, 1500);
         },
         error: (error) => {
-          console.error('Error:', error);
+          console.error('Error de registro:', error);
           if (error.status === 422) {
-            alert('❌ Error de validación. Revisa los datos ingresados.');
+            if (error.error?.errors) {
+              const errores = Object.values(error.error.errors).flat().join(', ');
+              this.error = '❌ ' + errores;
+            } else {
+              this.error = '❌ Error de validación. Revisa los datos ingresados.';
+            }
           } else if (error.status === 0) {
-            alert('❌ No se pudo conectar con el servidor');
+            this.error = '❌ No se pudo conectar con el servidor. Inténtalo más tarde.';
+          } else if (error.status === 409) {
+            this.error = '❌ El email o NIF ya están registrados.';
           } else {
-            alert('❌ Error al registrar usuario');
+            this.error = '❌ Error al registrar usuario. Inténtalo de nuevo.';
           }
-          this.error = '❌ Error al registrar';
         }
       });
+  }
+
+  // ✅ MÉTODO PARA VALIDAR EMAIL
+  private isValidEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // ✅ MÉTODO PARA VALIDAR NIF ESPAÑOL
+  private isValidNIF(nif: string): boolean {
+    const nifRegex = /^[0-9]{8}[A-Z]$/;
+    return nifRegex.test(nif.toUpperCase());
+  }
+
+  // ✅ MÉTODO PARA VALIDAR TELÉFONO
+  private isValidPhone(phone: string): boolean {
+    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{9,15}$/;
+    return phoneRegex.test(phone);
+  }
+
+  // ✅ MÉTODO PARA VALIDAR CONTRASEÑA FUERTE
+  private isStrongPassword(password: string): boolean {
+    // Al menos una mayúscula, una minúscula y un número
+    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/;
+    return strongPasswordRegex.test(password);
   }
 
   cerrarPopup() {

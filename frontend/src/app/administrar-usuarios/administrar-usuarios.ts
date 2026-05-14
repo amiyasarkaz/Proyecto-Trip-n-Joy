@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -18,7 +18,7 @@ export class AdministrarUsuarios implements OnInit {
   mensaje = '';
   error = '';
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.cargarUsuarios();
@@ -31,6 +31,7 @@ export class AdministrarUsuarios implements OnInit {
     if (!token) {
       this.error = 'No hay sesión iniciada';
       this.cargando = false;
+      this.cdr.detectChanges();
       return;
     }
 
@@ -42,11 +43,13 @@ export class AdministrarUsuarios implements OnInit {
         this.usuariosActivos = data;
         this.usuariosNuevos = [];
         this.cargando = false;
+        this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('❌ Error:', err);
         this.error = 'Error al cargar usuarios';
         this.cargando = false;
+        this.cdr.detectChanges();
       }
     });
   }
@@ -82,10 +85,7 @@ export class AdministrarUsuarios implements OnInit {
     this.router.navigate(['/gestionaractividades']);
   }
   
-  gestionarInfoMedica() {}
-
-  // ✅ Método agregado
-  gestionarAlojamientos() {
-    console.log("Gestionar alojamientos");
+  gestionarInfoMedica() {
+    this.router.navigate(['/informacion-medica']);
   }
 }

@@ -12,16 +12,14 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        // Crear usuario de prueba (opcional)
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
         $this->call([
+            UserSeeder::class,           // ✅ Usuarios primero
             NoruegaSeeder::class,
             AlemaniaSeeder::class,
             FranciaSeeder::class,
+            InformacionMedicaSeeder::class,
+            ActividadSeeder::class,
+            ValoracionSeeder::class,
         ]);
     }
 }

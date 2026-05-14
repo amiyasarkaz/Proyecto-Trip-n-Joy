@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ValoracionController;
 use App\Http\Controllers\API\ActividadController;
+use App\Http\Controllers\API\InformacionMedicaController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -27,3 +28,5 @@ Route::get('/actividades/{id}', [ActividadController::class, 'show']);
 Route::post('/actividades', [ActividadController::class, 'store'])->middleware('auth:sanctum');
 Route::put('/actividades/{id}', [ActividadController::class, 'update'])->middleware('auth:sanctum');
 Route::delete('/actividades/{id}', [ActividadController::class, 'destroy'])->middleware('auth:sanctum');
+Route::get('/informacion-medica', [InformacionMedicaController::class, 'index']);
+Route::put('/informacion-medica/{id}', [InformacionMedicaController::class, 'update']);

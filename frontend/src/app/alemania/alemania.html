@@ -5,7 +5,7 @@
 <div class="top-banner">
   <h1 class="banner-title">ALEMANIA</h1>
   <!-- Icono que abre el popup -->
-  <label for="modal-info-alemania">
+  <label for="modal-info-alemania" (click)="cargarInformacionMedica()">
     <img src="btninfo.png" class="banner-info-icon">
   </label>
 </div>
@@ -37,10 +37,8 @@
 
     <h2 class="info-title">Información Médica - Alemania</h2>
 
-    <p class="info-text">
-      Es obligatorio contar con un seguro de salud válido en el país que cubra enfermedades y accidentes durante toda la estancia.<br><br>
-      Infórmate con al menos 12 semanas de anticipación.
-    </p>
+    <!-- ✅ TEXTO DINÁMICO DESDE LA BASE DE DATOS -->
+    <p class="info-text">{{ informacionMedica }}</p>
 
     <label for="modal-info-alemania" class="cerrar-info">Cerrar</label>
 

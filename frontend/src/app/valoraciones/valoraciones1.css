@@ -150,6 +150,7 @@ button:disabled {
 .contenido h3 {
   font-size: 20px;        
   margin: 0 0 8px 0;
+  color: white;
 }
 
 .estrellas {
@@ -161,11 +162,12 @@ button:disabled {
 .contenido p {
   font-size: 17px;        
   line-height: 1.5;
+  color: white;
 }
 
 .contenido small {
   font-size: 13px;        
-  color: #ccc;
+  color: #cccccc;
 }
 
 .mensaje-exito {

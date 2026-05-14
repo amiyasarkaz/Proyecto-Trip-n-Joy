@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -35,7 +35,8 @@ export class Valoraciones1 implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -57,10 +58,12 @@ export class Valoraciones1 implements OnInit {
         this.valoraciones = data;
         this.actualizarListaMostrada();
         console.log('✅ Valoraciones cargadas:', data.length);
+        this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('❌ Error al cargar:', err);
         this.error = 'Error al cargar valoraciones';
+        this.cdr.detectChanges();
       }
     });
   }
@@ -76,11 +79,13 @@ export class Valoraciones1 implements OnInit {
   mostrarTodas() {
     this.todasVisibles = true;
     this.actualizarListaMostrada();
+    this.cdr.detectChanges();
   }
 
   mostrarRecientes() {
     this.todasVisibles = false;
     this.actualizarListaMostrada();
+    this.cdr.detectChanges();
   }
 
   enviarComentario() {
@@ -110,37 +115,39 @@ export class Valoraciones1 implements OnInit {
           console.log('✅ Respuesta del backend:', respuesta);
           this.cargando = false;
           
-          // ✅ Alerta de confirmación - al aceptar recarga la página
-          alert('✅ ¡Valoración enviada correctamente!');
+          // ✅ Mostrar mensaje de éxito
+          this.mensaje = '✅ ¡Valoración enviada correctamente!';
           
-          // ✅ Recargar la página completa para ver el nuevo comentario
-          window.location.reload();
+          // ✅ Recargar solo las valoraciones (más rápido que recargar página completa)
+          this.cargarValoraciones();
           
-          // Limpiar formulario (se ejecuta antes de recargar)
+          // ✅ Limpiar formulario
           this.nuevoComentario.comentario = '';
+          this.nuevoComentario.puntuacion = 5;
+          
+          // ✅ Limpiar mensaje después de 3 segundos
+          setTimeout(() => {
+            this.mensaje = '';
+            this.cdr.detectChanges();
+          }, 3000);
         },
         error: (error) => {
           this.cargando = false;
           console.error('❌ Error respuesta:', error);
           
-          // ✅ Alerta de error
           if (error.error?.errors) {
             const errores = Object.values(error.error.errors).flat().join(', ');
-            alert('❌ Error al enviar la valoración:\n' + errores);
             this.error = '❌ ' + errores;
           } else if (error.error?.message) {
-            alert('❌ Error al enviar la valoración:\n' + error.error.message);
             this.error = '❌ ' + error.error.message;
           } else if (error.status === 401) {
-            alert('❌ Sesión expirada. Inicia sesión nuevamente.');
             this.error = 'Sesión expirada. Inicia sesión nuevamente.';
           } else if (error.status === 422) {
-            alert('❌ Error en el formulario. Revisa los datos e inténtalo de nuevo.');
-            this.error = 'Error en el formulario';
+            this.error = 'Error en el formulario. Revisa los datos e inténtalo de nuevo.';
           } else {
-            alert('❌ Error al enviar el comentario. Inténtalo de nuevo más tarde.');
-            this.error = 'Error al enviar el comentario';
+            this.error = 'Error al enviar el comentario. Inténtalo de nuevo más tarde.';
           }
+          this.cdr.detectChanges();
         }
       });
   }
