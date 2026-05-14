@@ -40,6 +40,7 @@ export class PaginaPrincipal implements OnInit {
       this.userName = 'MI PERFIL';
       return;
     }
+    
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
@@ -121,6 +122,12 @@ export class PaginaPrincipal implements OnInit {
   cerrarPopupPerfil() {
     const checkbox = document.getElementById('modal-perfil-toggle') as HTMLInputElement;
     if (checkbox) checkbox.checked = false;
+  }
+
+  cerrarSesion() {
+  localStorage.clear();
+  sessionStorage.clear();
+  this.router.navigate(['/home']);
   }
 
   goNoruega() {
