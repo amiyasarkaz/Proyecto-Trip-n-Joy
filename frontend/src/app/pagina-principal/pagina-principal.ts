@@ -149,4 +149,6 @@ export class PaginaPrincipal implements OnInit {
   irARedesSociales() {
     this.router.navigate(['/redes-sociales']);
   }
+
+
 }
