@@ -21,8 +21,10 @@ export class Alemania implements OnInit {
   }
 
   cargarInformacionMedica() {
+    // ✅ URL CORRECTA: puerto 80
     this.http.get('http://localhost/api/informacion-medica').subscribe({
       next: (data: any) => {
+        // ✅ Buscar por 'nombre'
         const alemania = data.find((item: any) => item.pais === 'Alemania');
         if (alemania) {
           this.informacionMedica = alemania.descripcion;

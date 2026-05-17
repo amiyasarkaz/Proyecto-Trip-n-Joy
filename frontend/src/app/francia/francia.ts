@@ -21,8 +21,10 @@ export class Francia implements OnInit {
   }
 
   cargarInformacionMedica() {
+    // ✅ URL CORRECTA: puerto 80
     this.http.get('http://localhost/api/informacion-medica').subscribe({
       next: (data: any) => {
+        // ✅ Buscar por 'nombre'
         const francia = data.find((item: any) => item.pais === 'Francia');
         if (francia) {
           this.informacionMedica = francia.descripcion;

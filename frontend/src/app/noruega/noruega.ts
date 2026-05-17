@@ -21,9 +21,11 @@ export class Noruega implements OnInit {
   }
 
   cargarInformacionMedica() {
+    // ✅ URL CORRECTA: puerto 80
     this.http.get('http://localhost/api/informacion-medica').subscribe({
       next: (data: any) => {
-        const noruega = data.find((item: any) => item.pais === 'Noruega');
+        // ✅ Buscar por 'nombre' no por 'pais'
+       const noruega = data.find((item: any) => item.pais === 'Noruega');
         if (noruega) {
           this.informacionMedica = noruega.descripcion;
         } else {

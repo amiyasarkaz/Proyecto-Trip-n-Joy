@@ -30,3 +30,5 @@ Route::put('/actividades/{id}', [ActividadController::class, 'update'])->middlew
 Route::delete('/actividades/{id}', [ActividadController::class, 'destroy'])->middleware('auth:sanctum');
 Route::get('/informacion-medica', [InformacionMedicaController::class, 'index']);
 Route::put('/informacion-medica/{id}', [InformacionMedicaController::class, 'update']);
+
+
