@@ -127,7 +127,7 @@ export class PaginaPrincipal implements OnInit {
   cerrarSesion() {
   localStorage.clear();
   sessionStorage.clear();
-  this.router.navigate(['/home']);
+  this.router.navigate(['/']);
   }
 
   goNoruega() {
@@ -149,4 +149,6 @@ export class PaginaPrincipal implements OnInit {
   irARedesSociales() {
     this.router.navigate(['/redes-sociales']);
   }
+
+
 }

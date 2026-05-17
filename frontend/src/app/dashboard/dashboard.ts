@@ -30,4 +30,12 @@ export class Dashboard {
     this.router.navigate(['/informacion-medica']);
     console.log("Ir a gestionar información medica");
   }
+
+  cerrarSesionAdmin() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    this.router.navigate(['/']);
+}
+
+
 }
